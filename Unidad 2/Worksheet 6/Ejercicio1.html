@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+
+   <img id="Prego, sit" name ="1" src="imagenes/prego.jpg" height="300" width="300">
+   <img id="Water Prego" name ="2" src="imagenes/prego2.jpg" height="300" width="300">
+   <img id="Prego on the beach" name ="3" src="imagenes/prego3.jpg" height="300" width="300">
+
+   <ul>
+     <li><a id="c" href="#" onclick="numeroImagenes()">Muestra el número de imágenes de la página</a></li>
+     <li><a id="d" href="#" onclick="idImagen()">Muestra el id de la primera imagen</a></li>
+     <li><a id="e" href="#" onclick="numeroEnlaces()">Muestra el número de enlaces de la página</a></li>
+     <li><a id="f" href="#" onclick="cambiaTitulo()">Cambia el título de la página</a></li>
+  </ul>
+
+
+
+	<script type="text/javascript">
+
+	/*2. Crea una p gina que contenga varios enlaces, im genes y anclas de ejemplo á á
+  y a ade una serie de enlaces que realicen lo siguiente: ñ
+  c) Muestra el n mero de imagenes del documento ú
+  d) Muestra el id de la primera imagen
+  e) Muestra el n mero de enlaces del documento ú
+  f) Cambia el t tulo del documento*/
+
+  function numeroImagenes(){
+    alert('La página tiene ' + document.images.length + ' imágenes');
+  }
+
+  function idImagen(){
+    elemento = document.getElementsByTagName('img');
+    alert("El id de la primera imagen es: " + elemento[0].id);
+  }
+
+  function numeroEnlaces(){
+      alert('La página tiene ' + document.links.length + ' enlaces');
+  }
+
+  function cambiaTitulo(){
+    titulo = prompt("Introduce un nuevo título para la página");
+    document.title = titulo;
+  }
+
+
+	</script>
+
+ </body>
+</html>

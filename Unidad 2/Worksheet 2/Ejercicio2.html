@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 2</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*2. En un nueva p gina web, pide al usuario un ngulo y calcula su seno, á á
+	coseno y tangente*/
+
+	function trigonometria(angle) {
+		document.write('<p>Seno: ' + Math.sin(angle) + '</p>');
+		document.write('<br>');
+		document.write('<p>Coseno: ' + Math.cos(angle) + '</p>');
+		document.write('<br>');
+		document.write('<p>Tangente: ' + Math.tan(angle) + '</p>');
+	}
+
+	var angulo = parseInt(prompt("Introduce un angulo"));
+
+	trigonometria(angulo);
+
+	</script>
+
+ </body>
+</html>

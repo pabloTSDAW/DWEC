@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>EXTRA EXERCISE 3.1</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*Credit Card Validation*/
+
+	var numeros = [0,1,2,3,4,5,6,7,8,9];
+
+
+	function soloNumeros(cad){
+		//Nos devuelve true si encuentra un caracter no numerico en la cadena
+		for (element of cad){
+			if (!(element in numeros))
+				return true;
+		}
+	}
+
+	function dieciseis(cad){
+		//devuelve true si la cadena tiene 16 caracteres
+		return cad.length == 16;
+	}
+
+	function digitoFinalPar(cad){
+		//devuelve true si el digito final es par
+		return cad[cad.length - 1]%2 == 0;
+	}
+
+	function sumaDigitos16(cad){
+		//devuelve true si la suma de los digitos de una cadena es mayor que 16
+		var suma = 0;
+		for (element of cad){
+			suma += parseInt(element);
+		}
+		return suma > 16;
+	}
+
+	function alMenos2NumerosDistintos(cad){
+		//devuelve true si encuentra al menos dos numeros distintos en una cadena
+    var lista = [];
+    for (caracter of cad){
+			lista.push(caracter);
+		}
+    console.log(lista);
+    for (element of lista){
+      lista.substr(element);
+        if ()
+    }
+	}
+
+	function validateCreditCard(cad){
+		//verifica que el numero es válido
+		cad = cad.split('-');
+		var cadena = '';
+		for (element of cad){
+			cadena += element;
+		}
+		return !(soloNumeros(cadena)) && dieciseis(cadena) && digitoFinalPar(cadena) && sumaDigitos16(cadena);
+	}
+
+
+	//BONUS
+	function error(cad){
+		cad = cad.split('-');
+		var cadena = '';
+		var error = '';
+		for (element of cad){
+			cadena += element;
+		}
+		if (soloNumeros(cadena))
+			return 'only numbers';
+		else if (!(dieciseis(cadena)))
+			return 'wrong length';
+		else if (!(digitoFinalPar(cadena)))
+			return 'final digit must be even';
+		else if (!(sumaDigitos16(cadena)))
+			return 'sum of all digits greater than 16';
+	}
+
+
+	</script>
+
+ </body>
+</html>

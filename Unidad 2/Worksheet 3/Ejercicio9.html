@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 9</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*9. Escribir un procedimiento que lea una palabra y la escriba (formateada dentro de
+	una tabla) como se ve en la figura:
+	Entrada: HOLA
+	Salida:
+	H O L A
+	O      L
+	L      O
+	A L O H */
+
+	function invierteCadena(cad){
+		var cadena = '';
+		for (i= cad.length - 1; i >=0 ; i-- ){
+			cadena += cad[i];
+		}
+		return cadena;
+	}
+
+
+	function queMierdaEsEsto(cad){
+		cadenaInvertida = invierteCadena(cad);
+		document.write('<table>');
+		for (i=0; i <= cad.length - 1; i++){
+			document.write('<tr>');
+			for (j=0; j<= cad.length - 1; j++){
+				if (i==0){
+					document.write('<td>' + cad[j] + '</td>');
+				}
+				else if (i == cad.length - 1){
+					document.write('<td>' + cadenaInvertida[j] + '</td>');
+				}
+				else if (j==0){
+					document.write('<td>' + cad[i] + '</td>');
+				}
+				else if (j == cad.length - 1){
+					document.write('<td>' + cadenaInvertida[i] + '</td>');
+				}
+				else{
+					document.write('<td>&nbsp</td>');
+				}
+			}
+		}
+		document.write('</tr></table>');
+	}
+
+	queMierdaEsEsto('HOLA FRANKIWINI');
+
+	</script>
+
+ </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #mapa {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="mapa"></div>
+    <script>
+
+	var pos;
+	var marker;
+	var mapa
+	function posicion() {
+		if ("geolocation" in navigator) {
+			return navigator.geolocation.getCurrentPosition(Mapa);
+		} else {
+			document.write('Desactivado');
+		}
+	}
+
+
+
+      function Mapa(position) {
+        pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+        mapa = new google.maps.Map(document.getElementById('mapa'), {
+          zoom: 17,
+          center: pos
+        });
+        marker = new google.maps.Marker({
+          map: mapa,
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          position: pos
+        });
+	    var infowindow = new google.maps.InfoWindow;
+		var geocoder = new google.maps.Geocoder;
+		marker.addListener('click', toggleBounce);
+		geocodeLatLng(geocoder, mapa, infowindow);
+
+      }
+
+
+	    function toggleBounce() {
+			if (marker.getAnimation() !== null) {
+			  marker.setAnimation(null);
+			} else {
+			  marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
+		  }
+
+		function geocodeLatLng(geocoder, map, infowindow) {
+			var latlng = pos;
+			geocoder.geocode({'location': latlng}, function(results, status) {
+			  if (status === 'OK') {
+				if (results[1]) {
+				  map.setZoom(11);
+				  infowindow.setContent(results[0].formatted_address);
+				  infowindow.open(mapa, marker);
+				} else {
+				  window.alert('No results found');
+				}
+			  } else {
+				window.alert('Geocoder failed due to: ' + status);
+			  }
+			});
+		  }
+
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs8GeLs70vepIkA2ZgoerHjkJKKUduFBE&callback=posicion">
+    </script>
+  </body>
+</html>

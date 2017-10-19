@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 1</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*1. Crea una p gina en la que se muestre: á
+		• Un n mero aleatorio entre 0 y 1. ú
+		• Igual pero entre 100 y 200.
+		• Pide dos valores al usuario y genera un n aleatorio entre esos dos º
+		valores.*/
+
+	var max = 200;
+	var min = 100;
+
+	function aleatorio() {
+		document.write(Math.random());
+		document.write('<br>');
+		document.write(Math.round(Math.random() * (max - min) + min));
+		document.write('<br>');
+		
+	}
+
+	function aleatorio2(num1, num2) {
+		document.write(Math.round(Math.random() * (Math.max(num1, num2) - Math.min(num1, num2)) + Math.min(num1, num2)));
+	}
+
+	var num1 = parseInt(prompt("Introduce un numero"));
+	var num2 = parseInt(prompt("Introduce otro numero"));
+
+	aleatorio();
+	aleatorio2(num1, num2);
+	
+	</script>
+
+ </body>
+</html>

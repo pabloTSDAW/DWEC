@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 7</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*7. Crea una web que genere una tabla con dos columnas. En la primera un
+	número ascendente y en la otra el valor de su seno*/
+
+	function tablaSeno(x){
+		document.write("<table>");
+		for (i=1; i<=x; i++ ){
+			document.write("<tr>");
+			document.write("<td width='30'>" + i + "</td>");
+			document.write("<td width='30'>" + Math.sin(i) + "</td>");
+			}
+		document.write("</tr>");
+		document.write("</table>");
+	}
+
+	var x = parseInt(prompt("Introduce el número de filas"));
+
+	tablaSeno(x);
+
+	</script>
+
+ </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 2</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*2. Definir una funci n que muestre informaci n sobre una cadena de texto que se 
+	le pasa como argumento. A partir de la cadena que se le pasa, la funci n 
+	determina si esa cadena est  formada s lo por may sculas, s lo por min sculas o 
+	por una mezcla de ambas. */
+
+	function cadenaFormada(cad){
+		if (cad == cad.toUpperCase()){
+			document.write('Cadena solo formada por mayusculas');
+		}
+		else if (cad == cad.toLowerCase()){
+			document.write('Cadena solo formada por minuscula');
+		}	
+		else{
+			document.write('La cadena tiene mayúsculas y minúsculas');
+		}
+	}
+
+	cadenaFormada('Pablo es el mejor');
+
+	</script>
+
+ </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 2</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*1. Muestra, maquetada en una tabla HTML toda la informaci n que puedas ó
+  extraer mediante JavaScript del navegador cliente*/
+
+  propiedades = ['availTop', 'availLeft', 'availHeight', 'availWidth', 'colorDepth', 'height', 'width' ]
+
+  function propiedadesScreen(){
+    document.write('<table border =1>');
+    for (i=0; i<=propiedades.length - 1; i++){
+      document.write('<tr>');
+      document.write('<td>' + propiedades[i] + '</td>');
+      document.write('<td>' + screen[propiedades[i]] + '</td>');
+      document.write('</tr>');
+    }
+    document.write('</table>');
+  }
+
+  propiedadesScreen();
+
+	</script>
+
+ </body>
+</html>

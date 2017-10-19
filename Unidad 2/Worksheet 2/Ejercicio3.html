@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 3</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*3. Crea una web que e calcula la hipotenusa de un triangulo rectangulo
+	(pidiendo al usuario el tama o de los dos catetos)*/
+
+	function pitagoras(cateto1, cateto2) {
+		var hipotenusa = Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2));
+		document.write("La hipotenusa vale: " + hipotenusa);
+	}
+
+	var catetoContiguo = parseInt(prompt("Introduce el cateto contiguo"));
+	var catetoOpuesto = parseInt(prompt("Introduce el cateto opuesto"));
+
+	pitagoras(catetoContiguo, catetoOpuesto);
+
+	</script>
+
+ </body>
+</html>

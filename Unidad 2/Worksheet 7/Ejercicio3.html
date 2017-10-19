@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #mapa {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>GOOGLE MAPS</h3>
+    <div id="mapa"></div>
+
+    <script type="text/javascript">
+
+    /*OPTIONAL. Complete exercise 2 with these new features:
+      - Look for the way to animate your marker
+      - Draw the position of the user correctly although it could be moving.
+      - Draw the route of the user over the map.
+      https://developers.google.com/maps/documentation/javascript/examples/directions-complex
+      */
+
+
+    function posicion() {
+		if ("geolocation" in navigator) {
+			return navigator.geolocation.getCurrentPosition(Mapa);
+		} else {
+			document.write('Desactivado');
+		}
+	}
+
+    function Mapa(position) {
+      var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+      var mapa = new google.maps.Map(document.getElementById('mapa'), {
+        zoom: 15,
+        center: pos
+      });
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: mapa,
+        draggable: true,
+        animation: google.maps.Animation.DROP
+      });
+      marker.setAnimation(google.maps.Animation.BOUNCE);  //APARTADO 1: Animar el Pin con rebotes constantes
+    }
+
+    function main(){
+      setInterval(posicion, 10000);   //APARTADO 2: intervalo de refresco de posicion cada 10 segundos
+     }
+
+     main();
+
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxvBN9Wf3PkhGMMogTqutXE_e5yRizacc&callback=posicion&libraries=geometry"">
+    </script>
+
+  </body>
+</html>

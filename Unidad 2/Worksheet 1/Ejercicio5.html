@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 5</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*5. Usando el objeto Date, sus m todos getHours, getMinutes y GetSeconds y é
+el m todo setTimeout() crea un reloj que se actualice cada segundo.*/
+
+
+	function reloj() {
+		var hora = new Date()
+		document.write('<h1><center>' + hora.getHours() + ':' + hora.getMinutes() + ':' + hora.getSeconds() + '</center></h1>');
+		document.close();
+	}
+
+	setInterval(reloj, 1000);
+	
+	</script>
+
+ </body>
+</html>
+
+
+

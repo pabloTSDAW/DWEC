@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 4</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*4. Utilizando el programa anterior haz que al llegar a 0 se cargue la p gina á
+	de google, para ello puedes utilizar el objeto location. */
+
+var contador = 10;
+	function google() {
+		document.write(contador);
+		contador--;
+		if(contador > 0){
+			setTimeout(fin, 1000);
+			document.close();
+		}
+		else {
+			location.assign("https://www.google.es");
+		}
+	}
+
+google();
+	
+	</script>
+
+ </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 5</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*5. Crea una web para resolver ecuaciones de segundo grado. Deber pedir por á
+	tanto los coeficientes y mostrar las soluciones posibles.*/
+
+	function segundoGrado(a, b, c) {
+		var solucion1 = (-b + Math.sqrt(Math.pow(b,2) - (4*a*c)))/(2*a);
+		var solucion2 = (-b - Math.sqrt(Math.pow(b,2) - (4*a*c)))/(2*a);
+		document.write("Solución 1: " + solucion1);
+		document.write('<br>');
+		document.write("Solución 2: " + solucion2);
+	}
+
+
+	var a = prompt("Introduce el coeficiente a");
+	var b = prompt("Introduce el coeficiente b");
+	var c = prompt("Introduce el coeficiente c");
+
+	segundoGrado(a, b, c);
+
+	</script>
+
+ </body>
+</html>

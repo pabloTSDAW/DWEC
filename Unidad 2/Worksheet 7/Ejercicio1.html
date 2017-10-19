@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+  /*Develop a web app in which:
+  Test if geolocation is available.
+  If it's available, show the current position (latitude and longitude)
+  If it isn't available, show a message for each and everyone of the possible errors.
+  Improve your code so you show the position continuously (although the user could be in moving, so it could change)*/
+
+  function funciona(){
+    if ("geolocation" in navigator){
+     console.log("geolocation is available");
+     navigator.geolocation.getCurrentPosition(success, error, options);
+     distanciaRecorrida();
+    }
+    else
+     console.log("geolocation IS NOT available");
+   }
+
+   var posiciones = [];
+
+   var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  function success(pos) {
+    var latitud = pos.coords.latitude;
+    var longitud = pos.coords.longitude;
+    var margen = pos.coords.accuracy;
+    document.write('<p>Tu posición actual es:');
+    document.write('</br>Latitud : ' + latitud);
+    document.write('</br>Longitud: ' + longitud);
+    document.write('</br>Con un desvío de más o menos ' + margen + ' metros.</p>');
+    posiciones.push(pos.coords);
+  };
+
+  function error(err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+  };
+
+
+  var toRad = (x) => x * Math.PI / 180;
+
+  function calcDistance(p1, p2){
+      var R = 6371; // earth's mean radius in km
+      var dLat = toRad(p2.latitude - p1.latitude);
+      var dLong = toRad(p2.longitude - p1.longitude);
+
+      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(toRad(p1.latitude)) * Math.cos(toRad(p2.latitude)) * Math.sin(dLong / 2) * Math.sin(dLong / 2);
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      var d = R * c;
+      return d.toFixed(3);
+}
+
+   function distanciaRecorrida(){
+     suma = 0;
+     suma += parseFloat(calcDistance(posiciones[(posiciones.length - 1)], posiciones[0]));
+     console.log(typeof suma);
+     document.write("Distancia recorrida: " + suma);
+ }
+
+function main(){
+  setInterval(funciona, 5000);
+ }
+
+main();
+
+	</script>
+
+ </body>
+</html>

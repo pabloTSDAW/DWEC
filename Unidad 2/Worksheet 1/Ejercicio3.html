@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 3</title>
+ </head>
+ <body>
+  
+	<script type="text/javascript">
+
+	/*3. Utilizando setTimeout() creo un contador hac a atr s de 60 segundos.*/
+
+var contador = 60;
+	function fin() {
+		document.write(contador);
+		contador--;
+		if(contador > 0){
+			setTimeout(fin, 1000);
+			document.close();
+		}
+	}
+
+fin();
+	
+	</script>
+
+ </body>
+</html>
