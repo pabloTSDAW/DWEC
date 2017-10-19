@@ -1,0 +1,35 @@
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+		
+		/*crea	un	script	que	determine	si	un	número	introducido	por	el	usuario	es	par.*/
+
+		function par(numero) {
+			if (numero == 0){
+				alert("Ese numero no es par ni impar");
+			}
+			else if(numero%2 == 0){
+				alert("Es par");
+			}
+			else { 
+				alert("Es impar");
+			}
+		}
+	
+		var numero = parseInt(prompt("Introduce un numero"));
+
+		par(numero);
+
+	</script>
+  
+ </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 7</title>
+  <script>
+
+	/*Crea un script que solicite una nota numérica y en base a la nota introducida muestre si
+	se trata de un suspenso, aprobado, notable o sobresaliente.*/
+
+	var nota = parseInt(prompt("Introduce tu nota: "));
+	
+		if ( nota > 5 && nota <= 10){
+			if (nota >= 7){
+				if (nota >= 9){
+					document.write("Tienes un sobresaliente.");
+				}
+				else{
+					document.write("Tienes un notable.");
+				}
+			}
+			else{
+				document.write("Tienes un aprobado.");
+			}
+		}
+		else if (nota < 5 && nota >= 0){
+			document.write("Directo a junio!!");
+		}
+		else{
+			document.write("Entre 0 y 10, melon!!");
+		}
+	
+  </script>
+ </head>
+
+ <body> 
+ </body>
+</html>

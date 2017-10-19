@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 4.14</title>
+ </head>
+
+ <body>
+
+  <script>
+	
+	/*Adapta el ejercicio 4.12 utilizando un bucle while en vez de un bucle for.*/
+
+	function pintarTable(columnas, ancho, alto){
+		document.write("<table border=\"0\" cellspacing=\"3\" bgcolor=\"black\" >");
+		document.write("<tr height=\"" + alto + "\">");
+		i = 1;
+		while (i < (columnas + 1)){
+			if(i%2 == 0){
+				document.write("<td bgcolor=\"white\" width=\"" + ancho + "\">&nbsp;</td>");
+				i++;
+			}
+			else{
+				document.write("<td bgcolor=\"black\" width=\"" + ancho + "\">&nbsp;</td>");
+				i++;
+			}
+		}
+		document.write("</tr>");
+		document.write("</table>");
+	}
+
+	var columnas = parseInt(prompt("Introduce el número de columnas"));
+	var ancho = parseInt(prompt("Introduce el ancho de celda"));
+	var alto = parseInt(prompt("Introduce el alto de celda"));
+	pintarTable(columnas, ancho, alto);
+	
+
+  </script>
+ </body>
+</html> 

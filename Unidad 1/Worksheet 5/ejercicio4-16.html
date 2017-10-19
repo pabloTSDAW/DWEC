@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 4.16</title>
+ </head>
+
+ <body>
+
+  <script>
+	
+	/*Adaptar el ejercicio 4.15. al bucle DO..WHILE*/
+
+	var numeroAdivinar = parseInt(prompt("Escribe un numero sin que lo vea tu compañero"));
+
+	var num = parseInt(prompt("Intenta adivinar el numero de tu compañero"));
+
+	function adivina(numero){
+		do{
+			if (numero < numeroAdivinar){
+				alert("El numero de tu compañero es mayor");
+				numero = parseInt(prompt("Introduce otro numero:"));
+			}
+			else if(numero > numeroAdivinar){
+				alert("El numero de tu compañero es menor");
+				numero = parseInt(prompt("Introduce otro numero:"));
+			}
+		} while(numero != numeroAdivinar);
+		alert("Por fin acertaste");	
+	}
+
+	adivina(num);
+
+  </script>
+ </body>
+</html> 

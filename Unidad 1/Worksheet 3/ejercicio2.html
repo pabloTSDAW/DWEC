@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+  <script>
+	
+	/*2. The Age Calculator
+	Forgot how old you are? Calculate it!
+
+	Write a function named calculateAge that:
+	takes 2 arguments: birth year, current year.
+	calculates the 2 possible ages based on those years.
+	outputs the result to the screen like so: "You are either NN or NN"
+	Call the function three times with different sets of values.
+	Bonus: Figure out how to get the current year in JavaScript instead of passing it in.*/
+
+	var fechaActual = new Date()
+
+	function calculateAge(birthYear){
+		return("Si nacio en " + birthYear + ", usted tiene " + (fechaActual.getFullYear() - birthYear) + " años.");		//f.getFullYear() coge el año actual (si definimos f como new Date()
+	}
+	
+	alert(calculateAge(1985));
+	alert(calculateAge(1999));
+	alert(calculateAge(1990));
+
+  </script>
+ </body>
+</html>

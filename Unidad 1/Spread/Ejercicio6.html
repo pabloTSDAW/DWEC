@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 6</title>
+ </head>
+ <body>
+  
+ <script type="text/javascript">
+
+ /*Write a function called combineAllArrays that takes in any number of arrays as arguments and combines all of them into one array.*/
+	
+	function combineAllArrays(...arrays){
+		var combined = [];
+		for (i=0; i<arrays.length ;i++ ){
+			combined.push(arrays[i]);
+		}
+		return combined;
+	}
+
+	document.write(combineAllArrays([1,'jose',3,4,5],['pablo','lorena'], [3,3,4,5,6], ['hola', 'melon']));
+
+ </script>
+
+ </body>
+</html>

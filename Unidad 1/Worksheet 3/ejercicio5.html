@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+  <script>
+	
+	/*5. The Temperature Converter
+	Create a function called celsiusToFahrenheit:
+
+	Store a celsius temperature into a variable.
+	Convert it to fahrenheit and output "NN°C is NN°F".
+	Create a function called fahrenheitToCelsius:
+
+	Now store a fahrenheit temperature into a variable.
+	Convert it to celsius and output "NN°F is NN°C."*/
+
+	function celsiusToFahrenheit(celsius){
+		return(celsius + " grados celsius son " + ((9/5)*celsius + 32) + " grados farenheit.");
+	}
+
+	function fahrenheitToCelsius(fahrenheit){
+		return(fahrenheit + " grados fahrenheit son " + ((fahrenheit - 32)*5/9).toFixed(2) + " grados celsius.");
+	}
+
+	var temp = prompt("Introduce una temperatura: ");
+
+	alert(celsiusToFahrenheit(temp));
+	alert(fahrenheitToCelsius(temp));
+	
+
+  </script>
+ </body>
+</html> 
+ 

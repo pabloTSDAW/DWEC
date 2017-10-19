@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+  
+ <script type="text/javascript">
+
+ /*Write a function that can take in any number of arguments, and returns the sum of all of the arguments.*/
+	
+	function sumar(...args){
+		var suma = 0;
+		for (i=0; i < args.length; i++ ){
+			suma = args[i] + suma;
+		}
+		document.write(suma);
+	}
+
+	sumar(1,2,3,4,5);
+
+ </script>
+
+ </body>
+</html>

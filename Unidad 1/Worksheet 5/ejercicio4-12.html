@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 4.12</title>
+ </head>
+
+ <body>
+
+  <script>
+	
+	/*Modifica el ejercicio 4.11 para que las columnas impares tengan un
+fondo negro y las pares fondo blanco*/
+
+	function pintarTable(columnas, ancho, alto){
+		document.write("<table border=\"0\" cellspacing=\"3\" bgcolor=\"black\" >");
+		document.write("<tr height=\"" + alto + "\">");
+		for (i = 1; i < (columnas + 1); i++){
+			if(i%2 == 0){
+				document.write("<td bgcolor=\"white\" width=\"" + ancho + "\">&nbsp;</td>");
+			}
+			else{
+				document.write("<td bgcolor=\"black\" width=\"" + ancho + "\">&nbsp;</td>");
+			}
+		}
+		document.write("</tr>");
+		document.write("</table>");
+	}
+	
+
+	var columnas = parseInt(prompt("Introduce el número de columnas"));
+	var ancho = parseInt(prompt("Introduce el ancho de celda"));
+	var alto = parseInt(prompt("Introduce el alto de celda"));
+	pintarTable(columnas, ancho, alto);
+	
+
+  </script>
+ </body>
+</html> 

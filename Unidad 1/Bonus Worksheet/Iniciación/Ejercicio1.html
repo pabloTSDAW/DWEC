@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+		
+		/*Crea	un	script	que	pregunte	tu	nombre,	apellidos	y	tu	edad	y	los	muestre	en	la	página	web	en	
+		párrafos	distintos.*/
+
+		function info(nombre, apellidos, edad) {
+			document.write("<p>" + nombre + "</p>");
+			document.write("<p>" + apellidos + "</p>");
+			document.write("<p>" + edad + "</p>");
+		}
+	
+		var nombre = prompt("Introduce tu nombre");
+		var apellidos = prompt("Introduce tus apellidos");
+		var edad = prompt("Introduce tu edad");
+
+		info(nombre, apellidos, edad);
+
+	</script>
+  
+ </body>
+</html>

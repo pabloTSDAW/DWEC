@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 4.19</title>
+ </head>
+
+ <body>
+
+  <script>
+	
+	/*Hacer un programa que pinte un tablero de ajedrez de 8x8 casillas usando
+	dos for anidados.
+	El programa pedirá solamente el ancho de la celda que será igual que el
+	alto.*/
+
+	function pintarTable(ancho, alto){
+		document.write("<table border=\"0\" cellspacing=\"3\" bgcolor=\"black\">");
+		for (i = 1; i < 9; i++){
+			document.write("<tr bgcolor=\"white\" height=\"" + alto + "\">");
+			for (j=1; j < 9 ; j++){
+				if((i+j)%2 != 0){
+					document.write("<td bgcolor=\"white\" width=\"" + ancho + "\">&nbsp;</td>");
+				}
+				else{
+					document.write("<td bgcolor=\"black\" width=\"" + ancho + "\">&nbsp;</td>");
+				}
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+	
+	var ancho = parseInt(prompt("Introduce el ancho de celda"));
+	var alto = parseInt(prompt("Introduce el alto de celda"));
+
+	pintarTable(ancho, alto);
+	
+
+  </script>
+ </body>
+</html> 

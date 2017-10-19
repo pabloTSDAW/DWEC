@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 4.10</title>
+  <style type="text/css">
+	body { background: yellow; }
+  </style>
+ </head>
+
+ <body>
+
+ <h1>PRÁCTICA DE BUCLE FOR</h1>
+
+  <script>
+	
+	/*Escribir un programa que muestre la frase “Cabecera h” seguido del número.
+	Las frases deben estar formateadas con las etiquetas adecuadas.*/
+
+	/*FORMA COMPLICADA
+
+	var body = document.body;
+
+	function cabecera(){
+		for(i=1; i<7; i++){
+			var cab = document.createElement("h" + i);
+			cab.innerHTML = "Cabecera h" + i;
+			body.appendChild(cab);
+		}
+	}
+
+	cabecera();*/
+
+	/*FORMA FÁCIL (MARRANA)*/
+	function cabecera2(){
+		for(i=1; i<7; i++){
+			document.write("<h" + i + ">Cabecera h" + i + "</h" + i + ">");
+		}
+		document.write("Terminado");
+	}
+
+	cabecera2();
+
+  </script>
+ </body>
+</html> 

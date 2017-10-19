@@ -1,0 +1,34 @@
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 3</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+		
+		/*crea	un	script	que	reciba	la	edad	de	un	usuario,	y	su	localidad	de	nacimiento	y	muestre	en	pantalla	
+		“Enhorabuena”	a	los	usuarios	de	más	de	25	años	de	Madrid.*/
+
+		function felicitar(edad, localidad) {
+			if (edad == 25 && localidad == "Madrid"){
+				alert("Enhorabuena!!");
+			}
+			else { 
+				alert("Pos mu bien");
+			}
+		}
+	
+		var edad = prompt("Introduce tu edad");
+		var localidad = prompt("Introduce tu localidad");
+
+		felicitar(edad, localidad);
+
+	</script>
+  
+ </body>
+</html>

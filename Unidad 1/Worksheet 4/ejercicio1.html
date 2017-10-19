@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 1</title>
+ </head>
+ <body>
+  <script>
+	
+	/*1. What number's bigger?
+	Write a function named greaterNum that:
+	takes 2 arguments, both numbers.
+	returns whichever number is the greater (higher) number.
+	Call that function 2 times with different number pairs, and log the output to make sure it works (e.g. "The greater number of 5 and 10 is 10.").*/
+
+	var num1 = parseInt(prompt("Introduce un numero: "));
+	var num2 = parseInt(prompt("Introduce otro numero: "));
+	
+	function greaterNum(num1, num2){
+		if (num1 > num2){
+			return num1
+			console.log("El numero mas grande entre " + num1 + " y " + num2 + " es " + num1);
+		}
+		else if(num1 < num2) {
+			return num2
+			console.log("El numero mas grande entre " + num1 + " y " + num2 + " es "+ num2);
+		}
+		else {
+			return("Son iguales!!!!");
+		}
+	}
+
+	alert(greaterNum(num1, num2));
+
+
+  </script>
+ </body>
+</html> 

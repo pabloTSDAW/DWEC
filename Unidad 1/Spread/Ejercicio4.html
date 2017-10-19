@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 4</title>
+ </head>
+ <body>
+  
+ <script type="text/javascript">
+
+ /*Write a function called combineTwoArrays that takes in two arrays as arguments, and returns a single array that combines both (using the spread operator).*/
+	
+	function combineTwoArrays(array1, array2){
+		var combined = [array1, ...array2];
+		return combined;
+	}
+
+	document.write(combineTwoArrays([1,'jose',3,4,5],['pablo','lorena']));
+
+ </script>
+
+ </body>
+</html>

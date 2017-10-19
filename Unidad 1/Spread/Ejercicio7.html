@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 7</title>
+ </head>
+ <body>
+  
+ <script type="text/javascript">
+
+ /*Write a function called squareAndSum that takes in any number of arguments, squares them, then sums all of the squares.*/
+	
+	function squareAndSum(...args){
+		var suma = 0;
+		for (i=0; i< args.length; i++){
+			suma = suma + args[i]**2;
+		}
+		document.write(suma);
+	}
+
+	squareAndSum(10, 10, 5);
+
+ </script>
+
+ </body>
+</html>

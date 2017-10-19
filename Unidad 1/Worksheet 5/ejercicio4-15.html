@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 4.15</title>
+ </head>
+
+ <body>
+
+  <script>
+	
+	/*Escribe un programa en JavaScript que consista en adivinar un número
+	previamente introducido por teclado (jugador 1).
+	El programa pedirá tantos números como intentos erróneos haga el jugador
+	2. Solamente terminará cuando el jugador 2 acierte.
+	El programa dará pistas al jugador 2 indicándole si su número es mayor o
+	menor que el número a adivinar.*/
+
+	var numeroAdivinar = parseInt(prompt("Escribe un numero sin que lo vea tu compañero"));
+
+	var num = parseInt(prompt("Intenta adivinar el numero de tu compañero"));
+
+	function adivina(numero){
+		while(numero != numeroAdivinar){
+			if (numero < numeroAdivinar){
+				alert("El numero de tu compañero es mayor");
+				numero = parseInt(prompt("Introduce otro numero:"));
+			}
+			else if(numero > numeroAdivinar){
+				alert("El numero de tu compañero es menor");
+				numero = parseInt(prompt("Introduce otro numero:"));
+			}
+		}
+		alert("Por fin acertaste");	
+	}
+
+	adivina(num);
+
+  </script>
+ </body>
+</html> 

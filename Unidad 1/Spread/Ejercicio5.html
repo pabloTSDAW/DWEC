@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercicio 5</title>
+ </head>
+ <body>
+
+ <script type="text/javascript">
+
+ /*Write a function called onlyUniques that can take in any number of arguments, and returns an array of only the unique arguments.*/
+
+	function onlyUniques(...args){
+		var array1 = [];
+		for (i=0; i < args.length ; i++ ){
+			if (!array1.includes(args[i])){
+				array1.push(args[i]);
+			}
+		}
+		document.write(array1);
+	}
+
+	onlyUniques(1, 4, 7, 1, 2, 7, 4);
+	document.write("<br>");
+	onlyUniques('cat', 'cat', 'dog', 'pig', 'man', 'pablo', 'man');
+
+ </script>
+
+ </body>
+</html>
