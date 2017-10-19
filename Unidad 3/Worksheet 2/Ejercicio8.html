@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 8</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*8. Haciendo uso de un array unidimensional, escribir un script para simular el lanzamiento de
+  dos dados. El script debe simular el lanzamiento (aleatorio) de ambos dados. La suma de los
+  dos valores debe calcularse a continuación (la suma variará pues de 2 a 12, siendo éstos los
+  valores menos frecuentes así como 7 el más frecuente). Haz una simulación con 36.000
+  lanzamientos y muestra el número de veces que aparece cada una de las combinaciones.
+  */
+
+  var dados = [];
+  var resultados = [0,0,0,0,0,0,0,0,0,0,0]
+
+  function lanzamiento(){
+      return Math.floor((Math.random()*6 ) + 1)
+  }
+
+  function partida(){
+    for (i=1; i<=36000; i++){
+      suma = lanzamiento() + lanzamiento();
+      dados.push(suma);
+        for (j=2; j<=12; j++){
+          if (suma == j) resultados[j-2]++;
+        }
+    }
+    document.write(resultados);
+  }
+
+  partida();
+  document.write('</br>');
+  for (k=2; k<=12; k++){
+    document.write('</br>');
+    document.write('El resultado <strong>' + k + '</strong> ha salido <em>' + resultados[k-2] + '</em> veces.');
+  }
+
+	</script>
+
+ </body>
+</html>

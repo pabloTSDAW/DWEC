@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 9</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*9. Mejora el ejercicio anterior para además mostrar una tabla bidimensional que muestre las
+  combinaciones (no sólo la suma) que se han ido dando (ahora sí podemos usar arrays
+  bidimensionales).*/
+
+  var array = [0,0,0,0,0,0,0,0,0,0,0];
+		var uno = [];
+
+		function partida() {
+			document.write('<table border="1" style="text-align: center;">');
+			for (i=0; i < 360; i++) {
+				var primero = Math.floor(Math.random()*6)+1;
+				var segundo = Math.floor(Math.random()*6)+1;
+				var suma = primero + segundo;
+				uno.push([primero, segundo]);
+				document.write('<tr>');
+				document.write("<td>"+uno[i][0]+"<td>");
+        document.write("<td>"+uno[i][1]+"<td>");
+				document.write("<td style='background-color: grey;'>"+suma+"</td>");
+				document.write('</tr>');
+				for (x=2; x <= 13; x++) {
+					if (x == suma) {
+						array[x - 2]++
+					}
+				}
+			}
+			document.write('</table>');
+			console.log(array);
+			console.log(uno);
+		}
+
+
+
+		partida();
+
+	</script>
+
+ </body>
+</html>

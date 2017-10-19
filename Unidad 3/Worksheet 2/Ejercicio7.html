@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 7</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*7. Escribe las funciones para llevar a cabo las siguientes operaciones para un array de una
+  dimensión:
+  a) Establecer los 10 elementos del array a cero.
+  b) Añadir 1 a cada uno de los elementos del array.
+  c) Muestra los valores del array separados por espacios.*/
+
+  var array = ['pablo', 'fran', 'lorena', 'manolo', 'pepe', 'miguel', 'sergio', 'javier', 'antonio', 'clara'];
+
+  function aCero(array){
+    array.forEach(function(element, index) {array[index] = 0});
+    document.write(array);
+  }
+
+  function anade1(array){
+    array.forEach(function(element, index) {array[index] = element + 1});
+    document.write(array);
+  }
+
+  function espacios(array){
+    var cad = array.join(' ');
+    document.write(cad);
+  }
+
+  //aCero(array);
+  //anade1(array);
+  //espacios(array);
+
+	</script>
+
+ </body>
+</html>

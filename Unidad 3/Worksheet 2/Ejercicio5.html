@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 5</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*5. Crear una función llamado paresImpares que cree un array de 100 números aleatorios del 1
+  al 1000. Una vez creado, mostrar el contenido y después organizarlo de forma que estén
+  juntos los elementos pares y los impares. Después, volver a mostrar el array
+  */
+
+  function paresImpares(){
+      var lista = [];
+      var pares = [];
+      var impares = [];
+      for (i=1; i<=100; i++){
+          lista.push(Math.floor(Math.random()*1000) + 1);
+          if (i%2 == 0) pares.push(i);
+          else impares.push(i);
+      }
+      document.write(lista);
+      document.write('</br>');
+      document.write(pares.concat(impares));
+      document.write('</br>');
+      document.write(lista);
+  }
+
+
+  paresImpares();
+
+	</script>
+
+ </body>
+</html>

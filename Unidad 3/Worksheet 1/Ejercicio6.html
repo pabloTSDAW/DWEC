@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 6</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*6. Crea una función para calcular potencias de un modo recursivo.*/
+
+  function potencia(base, exp){
+    if (exp == 1)
+      return base;
+    return base * potencia(base, exp - 1);
+  }
+
+  document.write(potencia(3,5));
+
+	</script>
+
+ </body>
+</html>

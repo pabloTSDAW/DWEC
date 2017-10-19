@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 7</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*7. Crea una función que calcule el factorial de un número dado. Para comprobarlo,
+  diseña una web que muestre en forma de tabla el factorial para los valores de 1 a 10.*/
+
+  function factorial(num){
+    if (num == 1)
+      return 1;
+    return num * factorial(num - 1);
+  }
+
+  function tablaFactoriales(){
+    document.write('<table border="1">');
+    for (i=1; i<11; i++){
+      document.write('<tr>');
+      document.write('<th height="60" width="60" align="center" style="background-color:grey; color:white;">' + i + '</th>');
+      document.write('<td height="60" width="60" align="center">' + factorial(i) + '</td>');
+      document.write('</tr>');
+    }
+    document.write('</table>');
+  }
+
+  tablaFactoriales();
+
+	</script>
+
+ </body>
+</html>

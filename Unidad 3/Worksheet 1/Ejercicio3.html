@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ejercico 3</title>
+ </head>
+ <body>
+
+	<script type="text/javascript">
+
+	/*Para demostrar que todos deben tener similar probabilidad, mejora la web anterior de
+  modo que se pueda generar una simulación de 6000 tiradas, mostrando al final el nº
+  de ocurrencias de cada uno de los valores. */
+
+  var resultados = [0,0,0,0,0,0];
+
+  function lanzamiento(){
+      return Math.floor((Math.random()*6 ) + 1)
+  }
+
+  function partida(num_tiradas){
+    for (i=1; i<=num_tiradas; i++){
+      tirada = lanzamiento();
+      for (j=1; j <=6; j++)
+      if (tirada == j){
+        resultados[j-1]++;
+      }
+    }
+  }
+
+  partida(6000);
+
+  document.write(resultados);
+
+
+	</script>
+
+ </body>
+</html>
