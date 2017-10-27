@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 1</title>
+
+
+</head>
+
+<body>
+
+  <div id="zona" style="border: 2px solid blue; width: 80%; height: 200px;"></div>
+  </br>
+  <div id="coords" style="border: 2px solid black; width: 80%; height: 100px;"></div>
+
+  <script type="text/javascript">
+    /*Prueba los touchs events. para ello coloca un div y muestra la coordenada x e y en la que se pulsa*/
+
+    function init() {
+      var zona = document.getElementById("zona");
+      zona.addEventListener("touchstart", pulsar, false);
+    }
+
+    function pulsar(event) {
+      var coords = document.getElementById("coords");
+      coords.innerHTML = '<p>Has pulsado en la corrdenada</p> (x: ' + parseInt(event.touches[1].pageX) + ', y: ' + parseInt(event.touches[1].pageY) + ')';
+    }
+
+    init();
+  </script>
+
+</body>
+
+</html>

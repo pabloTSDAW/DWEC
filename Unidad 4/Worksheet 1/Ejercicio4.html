@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+   <head>
+     <meta charset="UTF-8">
+     <meta name="Generator" content="EditPlus®">
+     <meta name="Author" content="">
+     <meta name="Keywords" content="">
+     <meta name="Description" content="">
+     <title>Ejercicio 4</title>
+   </head>
+
+   <body onload="crearTabla()">
+
+     <script type="text/javascript">
+
+      /*4. Eventos onMouseMove y onLoad. Debemos ser capaces de dibujar con nuestro ratón
+      en dos colores diferentes. Para ello primero simularemos que disponemos de un
+      canvas gráfico: realmente se tratará de una tabla con celdas de pequeño tamaño
+      (100x100 puede valer). Tu programa creará ese canvas una vez cargada la página
+      (onLoad). Lo siguiente será detectar el movimiento del ratón sobre las celdas para
+      pintarlas de un color, el cual será rojo si se mantiene pulsada simultaneamente la
+      tecla Ctrl y azul si se pulsa Shift. En otro caso no deberá pintarse nada.*/
+
+              function crearTabla() {
+                  document.write("<table border='1' cellspacing='0' align='center'>");
+                  for (var i = 0; i <= 50; i++) {
+                      document.write("<tr bgcolor='#FFFFFF' height='10'>");
+                      for (var j = 0; j <= 50; j++) {
+                          document.write("<td onmousemove='colorear(this)' align='center' width='10' height='10'></td>");
+                      };
+                  };
+                  document.write("</tr>");
+                  document.write("</table>");
+              };
+
+              function colorear(celda) {
+                  if (event.shiftKey == true) {
+                      celda.style.backgroundColor = "Blue";
+                  }
+                  if (event.ctrlKey == true) {
+                      celda.style.backgroundColor = "Red";
+                  }
+              }
+
+          </script>
+      </body>
+
+</html>

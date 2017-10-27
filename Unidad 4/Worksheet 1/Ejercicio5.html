@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+   <head>
+     <meta charset="UTF-8">
+     <meta name="Generator" content="EditPlus®">
+     <meta name="Author" content="">
+     <meta name="Keywords" content="">
+     <meta name="Description" content="">
+     <title>Ejercicio 5</title>
+   </head>
+
+   <body onload="crearTabla()">
+
+     <script type="text/javascript">
+
+      /*5. Añade las siguientes funcionalidades al ejercicio anterior:
+          ◦ Borrado de lineas con el ratón (mediante la pulsación del botón que tú
+          decidas)
+          ◦ Borrar por completo el canvas (con un botón).*/
+
+
+              function crearTabla() {
+                document.close();
+                document.write('<button onclick="borrarTodo()" type="button" name="borrar">Borrar</button>');
+                  document.write("<table id='tabla' border='1' cellspacing='0' align='center'>");
+                  for (var i = 0; i <= 50; i++) {
+                      document.write("<tr onclick='borrar(this)' bgcolor='#FFFFFF' height='10'>");
+                      for (var j = 0; j <= 50; j++) {
+                          document.write("<td onmousemove='modificar(this)' align='center' width='10' height='10'></td>");
+                      };
+                  };
+                  document.write("</tr>");
+                  document.write("</table>");
+              };
+
+              function modificar(celda) {
+                  if (event.shiftKey == true) {
+                      celda.style.backgroundColor = "Blue";
+                  }
+                  if (event.ctrlKey == true) {
+                      celda.style.backgroundColor = "Red";
+                  }
+              }
+
+              function borrar(fila){
+                if (event.altKey == true) {
+                  fila.remove();
+                }
+              }
+
+              function borrarTodo(){
+
+                crearTabla();
+              }
+
+          </script>
+      </body>
+
+</html>

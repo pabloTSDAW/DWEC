@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 9</title>
+
+
+</head>
+
+
+</body>
+
+
+<script type="text/javascript">
+
+  var imagenPinchada = false;
+
+  document.addEventListener('mousemove', function(e) {
+    if (imagenPinchada){
+      x.hspace = e.clientX || e.pageX;
+      x.vspace = e.clientY || e.pageY;
+  }
+  }, false);
+
+  window.onmouseup = soltar;
+
+  function soltar() {
+    imagenPinchada = false;
+  }
+
+var x;
+
+  function agarrar(imagen) {
+    x = imagen;
+    imagenPinchada = true;
+  }
+
+
+</script>
+
+<img src="mario.jpg" style="position: absolute;" onmousedown="agarrar(this)">
+
+</style>
+</html>
+</body>
+
+</html>

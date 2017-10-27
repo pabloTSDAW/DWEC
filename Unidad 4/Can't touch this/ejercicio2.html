@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 2</title>
+
+
+</head>
+
+
+<body>
+
+  <div id="zona" style="border: 2px solid blue; width: 100%; height: 300px;"></div>
+  </br>
+  <div id="coords" style="border: 2px solid black; width: 80%; height: 300px;"></div>
+
+  <script type="text/javascript">
+    /*Mejorar el ejercicio anterior para que muestre info de tantos puntos como soporte mi pantalla*/
+
+    function init() {
+      var zona = document.getElementById("zona");
+      zona.addEventListener("touchstart", pulsar, false);
+    }
+
+    function pulsar(event) {
+      event.preventDefault();
+      var coords = document.getElementById("coords");
+      coords.innerHTML = '';
+      for(var i=0;i<event.touches.length;i++) {
+        coords.innerHTML += '(x: ' + parseInt(event.touches[i].pageX) + ', y: ' + parseInt(event.touches[i].pageY) + ')<br>';
+      }
+    }
+
+    init();
+
+  </script>
+
+</body>
+
+</html>

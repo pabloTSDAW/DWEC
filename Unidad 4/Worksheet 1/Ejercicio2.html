@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+   <head>
+     <meta charset="UTF-8">
+     <meta name="Generator" content="EditPlus®">
+     <meta name="Author" content="">
+     <meta name="Keywords" content="">
+     <meta name="Description" content="">
+     <title>Ejercicio 2</title>
+   </head>
+
+   <body>
+
+     <script type="text/javascript">
+
+      /*2. Captura el movimiento del ratón, para que se muestre la posición en la que se
+      encuentra en cada momento.*/
+
+      document.write('<p id="coords"></p>');
+
+      window.onmousemove = function (){
+        var x = window.event.clientX;
+        var y = window.event.clientY;
+        document.getElementById('coords').innerHTML = 'Posición: ' + x + ' - ' + y;
+        //console.log(x,y);
+      }
+
+     </script>
+
+   </body>
+</html>
