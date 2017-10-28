@@ -1,0 +1,42 @@
+body {
+  background-color: #FFC;
+}
+
+#lateral {
+  background-color: #1CB5E8;
+  float: left;
+  height: 500px;
+  width: 10%;
+}
+
+#principal {
+  float: left;
+  padding: 2%;
+}
+
+#cabecera {
+  background-color: #EEF;
+  padding: 5px;
+  border: solid 1px blue;
+}
+
+#titulo {
+  color: #060536;
+  font-family: Arial;
+}
+
+#marco {
+  background-color: yellow;
+  border: solid 2px blue;
+  padding: 5px;
+}
+
+#oculto {
+  visibility: visible;
+}
+
+a {
+  font-weight: bold;
+  color: blue;
+  text-decoration: none;
+}

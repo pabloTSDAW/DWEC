@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 1</title>
+</head>
+
+<body>
+
+  <div id="lateral">&nbsp;</div>
+  <div id="principal">
+    <div id="cabecera">
+      <a onclick="normal()" href="#">Tema normal</a>
+      <a onclick="minimalista()" href="#">Tema minimalista</a>
+    </div>
+    <h1 id="titulo">Página de ejemplo</h1>
+    <p>En esta página vamos a comprobar lo fácil que es aplicar estilos mediante un CSS a un documento seleccionado</p>
+    <p>Lo ideal es que al seleccionar un estilo éste permanezca siempre igual para el usuario. Hasta ahora no hemos visto como hacerlo.</p>
+    <p>Utilizando CSS podemos incluso ocultar partes del sitio
+      </br>
+      <p id="oculto"><strong>Este párrafo debe ser solo visible en el tema Normal</strong></p>
+    </p>
+    <div id="marco">Ésto está dentro de un marco</div>
+  </div>
+
+  <script type="text/javascript">
+
+  /*Se trata de la misma página con 2 estilos diferentes (tema normal y tema minimalista).
+    Haciendo sólo uso de JavaScript consigue que se pueda cambiar el estilo (pulsando los
+    enlaces de la parte superior) para que quede tal cual puedes ver. Deberás hacerlo con dos
+    versiones:
+        b) Creando dos hojas de estilo diferentes que se carguen dinámicamente según la
+        opción pulsada.*/
+
+  var estilo = document.createElement("link");
+
+  function normal(){
+    estilo.rel="stylesheet";
+    estilo.type="text/css";
+    estilo.href = "normal.css";
+    document.head.appendChild(estilo);
+  }
+
+  function minimalista() {
+    estilo.rel="stylesheet";
+    estilo.type="text/css";
+    estilo.href = "minimalista.css";
+    document.head.appendChild(estilo);
+  }
+
+
+  </script>
+
+</body>
+
+</html>

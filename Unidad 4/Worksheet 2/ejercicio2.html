@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 1</title>
+</head>
+
+<body>
+  <center>
+    <h3>Tamaño de fuente</h3>
+    <button onclick="aumentarFuente()" type="button" name="grande">Fuente +</button>
+    <button onclick="fuentePorDefecto()" type="button" name="por_defecto">Fuente por defecto</button>
+    <button onclick="disminuirFuente()" type="button" name="pequeño">Fuente -</button>
+  </center>
+</br>
+  <center>
+    <h3>Alineación</h3>
+    <button onclick="alineacionIzquierda()" type="button" name="izquierda">Izquierda</button>
+    <button onclick="alineacionJustificada()" type="button" name="por_defecto">Justificada</button>
+    <button onclick="alineacionCentrada()" type="button" name="derecha">Centrada</button>
+    <button onclick="alineacionDerecha()" type="button" name="derecha">Derecha</button>
+  </center>
+  <p>The Internet is surely the best resource to gather any kind of information about products, shops, customer complaints, user experience, etc. Companies are trying to attract users’ browsing interest and provide the best via the use of cookies. Cookies were developed in 1995 by the Netscape Communication Corporation and are credited to Lon Montulli. The term “cookies” originated from a programming term, “magic cookies,” which refers to a piece of information shared between programs. Cookies are also known as http cookies, browser cookies, or web cookies.</p>
+  <p>Cookies are simple text files that are stored in a user’s machine by a web server. This text file contains information in a name-value pair, which can be retrieved by a website. This unique value is used to distinguish between multiple users who are accessing the system. A cookie can only be retrieved by the website who issued that cookie. Some cookies also contain particular ids for its session and a value for time.</p>
+  <p>The above diagram illustrates how a cookie works. Figure 1 represents browsing a website without a cookie. When a web server receives a request for a URL from browser, it looks for the cookies. If cookies are not available, it then creates a cookie with a unique id for the user and embeds the header of the website in the cookie and passes it to the user. The cookie will then be stored on the user’s hard disk. The user preferences and settings are stored in the website database with a link to the value of id in the cookie. Then, whenever the user browses the same site, the cookie is also forwarded with the URL and the web server, using the unique id in the cookie, pulls the customized preferences from the database and passes it to the user.</p>
+  <p>When we type a URL, the browser sends a request to the website for the page. On doing this, the browser also looks for a cookie in the user’s computer. If the browser finds a cookie for that particular website, it will send that name-value pair to that web server associated with the URL. The server receives the name-value pair and the request for the page and uses the cookie data to produce the unique user experience by providing particular preferences and color schemes.</p>
+
+  <script type="text/javascript">
+
+  /*2. Diseña una página web que debe contener texto (mínimo 4 párrafos). Deberás añadir la
+    siguiente funcionalidad mediante JavaScript:
+          • Tamaño de fuente. Debe ser posible incrementar o decrementar la fuente usada, así
+          como volver al tamaño por defecto.
+          • Alineación del texto: Debe ser posible cambiar la alineación a Justificada o a
+          Izquierda.
+    Se valorará el correcto diseño mediante funciones independientes para implementar
+    cada una de esas funcionalidades.*/
+
+  var parrafo = document.getElementsByTagName('p');
+  var tamaños = ['xx-small' ,'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'];
+
+  function aumentarFuente() {
+      for (var i = 0; i < parrafo.length; i++) {
+        if (parrafo[i].style.fontSize == "")
+          parrafo[i].style.fontSize = tamaños[4];
+        else
+          parrafo[i].style.fontSize = tamaños[tamaños.indexOf(parrafo[i].style.fontSize) + 1];
+      }
+  }
+
+  function disminuirFuente(){
+    for (var i = 0; i < parrafo.length; i++) {
+      if (parrafo[i].style.fontSize == "")
+        parrafo[i].style.fontSize = tamaños[2];
+      else
+        parrafo[i].style.fontSize = tamaños[tamaños.indexOf(parrafo[i].style.fontSize) - 1];
+    }
+  }
+
+  function fuentePorDefecto(){
+    for (var i = 0; i < parrafo.length; i++) {
+      parrafo[i].style.fontSize = "medium";
+    }
+  }
+
+  function alineacionIzquierda(){
+    for (var i = 0; i < parrafo.length; i++) {
+      parrafo[i].style.textAlign = "left";
+    }
+  }
+
+  function alineacionDerecha(){
+    for (var i = 0; i < parrafo.length; i++) {
+      parrafo[i].style.textAlign = "right";
+    }
+  }
+
+  function alineacionJustificada(){
+    for (var i = 0; i < parrafo.length; i++) {
+      parrafo[i].style.textAlign = "justify";
+    }
+  }
+
+  function alineacionCentrada(){
+    for (var i = 0; i < parrafo.length; i++) {
+      parrafo[i].style.textAlign = "center";
+    }
+  }
+
+  </script>
+
+</body>
+
+</html>

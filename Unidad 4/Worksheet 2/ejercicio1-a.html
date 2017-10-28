@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 1</title>
+
+</head>
+
+<body>
+
+  <div id="lateral">&nbsp;</div>
+  <div id="principal">
+    <div id="cabecera">
+      <a href="#" onclick="Normal(event)" >Tema normal</a>
+      <a href="#" onclick="minimalista(event);">Tema minimalista</a>
+    </div>
+    <h1 id="titulo">Página de ejemplo</h1>
+    <p>En esta página vamos a comprobar lo fácil que es aplicar estilos mediante un CSS a un documento seleccionado</p>
+    <p>Lo ideal es que al seleccionar un estilo éste permanezca siempre igual para el usuario. Hasta ahora no hemos visto como hacerlo.</p>
+    <p>Utilizando CSS podemos incluso ocultar partes del sitio
+      </br>
+      <strong style="visibility: hidden;">Este párrafo debe ser solo visible en el tema Normal</strong>
+    </p>
+    <div id="marco">Ésto está dentro de un marco</div>
+  </div>
+
+  <script type="text/javascript">
+
+  /*Se trata de la misma página con 2 estilos diferentes (tema normal y tema minimalista).
+    Haciendo sólo uso de JavaScript consigue que se pueda cambiar el estilo (pulsando los
+    enlaces de la parte superior) para que quede tal cual puedes ver. Deberás hacerlo con dos
+    versiones:
+        a) Modificando el estilo desde JavaScript (las hojas de estilo no estan creadas, sino
+        que se establece mediante atributos del objeto style).*/
+
+  var css = [
+   lateral = document.getElementById("lateral"),
+   principal = document.getElementById("principal"),
+   cabecera = document.getElementById("cabecera"),
+   titulo = document.getElementById("titulo"),
+   marco = document.getElementById("marco"),
+   enlaces0 = document.getElementsByTagName('a')[0],
+   enlaces1 = document.getElementsByTagName('a')[1],
+   oculto = document.getElementsByTagName('strong')[0]
+  ];
+
+  function Normal(event){
+
+    document.body.style.backgroundColor = "#FFC";
+
+    lateral.style.backgroundColor = "#1CB5E8";
+    lateral.style.cssFloat = "left";
+    lateral.style.height = "500px";
+    lateral.style.width = "8%";
+
+    principal.style.cssFloat = "left";
+    principal.style.padding = "2%";
+
+    cabecera.style.backgroundColor = "#EEF";
+    cabecera.style.padding = "5px";
+    cabecera.style.border = "solid 1px blue";
+
+    titulo.style.color = "#060536";
+    titulo.style.fontFamily = "Arial";
+
+    marco.style.backgroundColor = "yellow";
+    marco.style.border = "solid 2px blue";
+    marco.style.padding = "5px";
+
+    enlaces = document.getElementsByTagName('a')
+    for (var i = 0; i < enlaces.length; i++) {
+      enlaces[i].style.fontWeight = "bold";
+      enlaces[i].style.color = "blue";
+      enlaces[i].style.textDecoration = "none";
+    }
+
+    oculto.style.visibility = "visible";
+
+  }
+
+
+  function minimalista(event){
+    document.body.style.cssText = null;
+    for (var i = 0; i < css.length; i++) {
+      css[i].style.cssText = null;
+    }
+    oculto.style.visibility = "hidden";
+  }
+
+  </script>
+
+</body>
+
+</html>
