@@ -7,6 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Ejercicio 1</title>
   <style type="text/css">
+    body {
+      background-color: rgb(210, 210, 204);
+    }
+
+    label {
+      font-weight: bold;
+    }
+
     div {
       margin: 15px;
     }
@@ -23,100 +31,77 @@
   <form action="/my-handling-form-page" method="post">
     <div>
       <label for="name">Nombre:</label><br>
-      <input type="text" id="nombre" onblur="validaNombre()"/>
+      <input type="text" id="nombre"/>
       <p id="nombreOculto">El nombre no debe contener números o caracteres especiales</p>
     </div>
     <div>
       <label for="apellidos">Apellidos:</label><br>
-      <input type="text" id="apellidos" onblur='validaApellidos()' />
-      <p id="apellidoOculto">Los apellidos no deben contener números o caracteres especiales</p>
+      <input type="text" id="apellidos"/>
+      <p id="apellidosOculto">Los apellidos no deben contener números o caracteres especiales</p>
     </div>
     <div>
       <label for="dni">DNI:</label><br>
-      <input type="text" id="dni" onblur='validaDNI()' />
-      <p id="dniOculto" style="visibility:hidden;">El DNI debe tener el formato '0000000A'</p>
+      <input type="text" id="dni"/>
+      <p id="dniOculto" style="visibility:hidden;">El DNI debe tener el formato '00000000A'</p>
     </div>
     <div>
-      <label for="telefono">telefono:</label><br>
-      <input type="text" id="telefono" onblur='validaTelefono()' />
+      <label for="telefono">Teléfono:</label><br>
+      <input type="text" id="telefono"/>
       <p id="telefonoOculto" style="visibility:hidden;">El teléfono debe comenzar por 6,9 u 8 y contener 9 dígitos</p>
     </div>
     <div>
       <label for="mail">E-mail:</label><br>
-      <input type="email" id="email" onblur='validaEmail()' />
+      <input type="email" id="email"/>
       <p id="emailOculto" style="visibility:hidden;">El email debe tener el formato 'ejemplo@ejemplo.com'</p>
     </div>
     <div>
-      <label for="usuario">usuario:</label><br>
-      <input type="text" id="usuario" onblur="validaUsuario()" />
+      <label for="usuario">Usuario:</label><br>
+      <input type="text" id="usuario"/>
       <p id="usuarioOculto" style="visibility:hidden;" />El nombre de usuario debe estar formado por al menos 8 caracteres, entre los cuales debe aparecer obligatoriamente algún número y algún signo de puntuación.</p>
     </div>
   </form>
 
   <script type="text/javascript">
     /*Crea un formulario típico de registro para tu web. Debe contener al menos campos para introducir nombre, apellidos, DNI, Teléfono, email y nombre de usuario. Todos los campos son obligatorios, y debes validar el mayor número posible de ellos haciendo uso de expresiones regulares. El nombre de usuario debe estar formado por al menos 8 caracteres, entre los cuales debe aparecer obligatoriamente algún número y algún signo de puntuación.
-      Conforme sale el foco de cada input, deberás validar el contenido de éste y mostrar información al usuario que le indique si está correcto o no.*/
+        Conforme sale el foco de cada input, deberás validar el contenido de éste y mostrar información al usuario que le indique si está correcto o no.*/
 
-    function validaNombre() {
-      var nombre = document.getElementById("nombre").value;
-      if (/^([a-zñáéíóú|A-Z]+[\s]*)+$/.test(nombre)) {
-        document.getElementById("nombre").style.backgroundColor = 'rgb(185, 233, 94)';
-        document.getElementById("nombreOculto").style.visibility = 'hidden';
-      } else document.getElementById("nombreOculto").style.visibility = 'visible';
-    }
-
-    function validaApellidos() {
-      var apellidos = document.getElementById("apellidos").value;
-      if (/^([a-zñáéíóú]|[A-Z]+[\s]*)+$/.test(apellidos)) {
-        document.getElementById("apellidos").style.backgroundColor = 'rgb(185, 233, 94)';
-        document.getElementById("apellidoOculto").style.visibility = 'hidden';
-      }
-      else document.getElementById("apellidoOculto").style.visibility = 'visible';
-    }
-
-    function validaDNI() {
-      var dni = document.getElementById("dni").value;
-      if (/^\d{8}([A-Z])$/.test(dni)) {
-        document.getElementById("dni").style.backgroundColor = 'rgb(185, 233, 94)';
-        document.getElementById("dniOculto").style.visibility = 'hidden';
-      } else document.getElementById("dniOculto").style.visibility = 'visible';
-    }
-
-    function validaTelefono() {
-      var telefono = document.getElementById("telefono").value;
-      if (/^[9|6|8]{1}\d{8}$/.test(telefono)) {
-        document.getElementById("telefono").style.backgroundColor = 'rgb(185, 233, 94)';
-        document.getElementById("telefonoOculto").style.visibility = 'hidden';
-      } else document.getElementById("telefonoOculto").style.visibility = 'visible';
-    }
-
-    function validaEmail() {
-      var email = document.getElementById("email").value;
-      if (/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)) {
-        document.getElementById("email").style.backgroundColor = 'rgb(185, 233, 94)';
-        document.getElementById("emailOculto").style.visibility = 'hidden';
-      } else document.getElementById("emailOculto").style.visibility = 'visible';
-    }
-
-    function validaUsuario() {
-      var usuario = document.getElementById("usuario").value;
-      if (/^(?=.+[0-9])\w{8,}$/.test(usuario)) {
-        document.getElementById("usuario").style.backgroundColor = 'rgb(185, 233, 94)';
-        document.getElementById("usuarioOculto").style.visibility = 'hidden';
-      } else document.getElementById("usuarioOculto").style.visibility = 'visible';
-    }
-
-
-    /*function comprueba(valor, expReg){
-      if (expReg.test(valor)){
+    //EXPRESIÓN REGULAR
+    function comprueba(valor, expReg){
+      if (expReg.test(document.getElementById(valor).value)){
         document.getElementById(valor).style.backgroundColor = 'rgb(185, 233, 94)';
         document.getElementById(valor+'Oculto').style.visibility = 'hidden';
-      } else document.getElementById(valor+'Oculto').style.visibility = 'visible';
-    }*/
+      }
+      else {
+        document.getElementById(valor+'Oculto').style.visibility = 'visible';
+        document.getElementById(valor).style.backgroundColor = 'rgb(255, 122, 137)';
+      }
+    }
+
+    document.getElementById("nombre").addEventListener('blur', function() {
+      comprueba("nombre", /^([a-zñáéíóú|A-Z]+[\s]*)+$/);
+    })
+
+    document.getElementById("apellidos").addEventListener('blur', function() {
+      comprueba("apellidos", /^([a-zñáéíóú]|[A-Z]+[\s]*)+$/);
+    })
+
+    document.getElementById("dni").addEventListener('blur', function() {
+      comprueba("dni", /^\d{8}([A-Z])$/);
+    })
+
+    document.getElementById("telefono").addEventListener('blur', function() {
+      comprueba("telefono", /^[9|6|8]{1}\d{8}$/);
+    })
+
+    document.getElementById("email").addEventListener('blur', function() {
+      comprueba("email", /^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/);
+    })
+
+    document.getElementById("usuario").addEventListener('blur', function() {
+      comprueba("usuario", /^(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[a-z]).*$/);
+    })
 
 
-    //blur para salir del focus
-    //onkeypress en el input para corregir mientras se escribe
   </script>
 
 </body>
