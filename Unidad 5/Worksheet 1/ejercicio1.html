@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 1</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+  <p><a href="http://www.iesayala.com/moodle/login/index.php">Moodle</a>
+    <a href="https://www.google.es/">Google</a>
+    <a href="http://www.marca.com/">Marca</a>
+    <a href="https://www.w3schools.com/js/">Javascript</a>
+    <a href="https://github.com/">Github</a>
+  </p>
+  <p><a href="http://www.marca.com/">Marca</a>
+    <a href="https://www.google.es/">Google</a>
+    <a href="http://www.iesayala.com/moodle/login/index.php">Moodle</a>
+  </p>
+  <p>
+    <a href="http://www.marca.com/">Marca</a>
+    <a href="https://www.google.es/">Google</a>
+  </p>
+  <p id="numeroEnlaces"></p>
+  <p id="penultimo"></p>
+  <p id="google"></p>
+  <p id="parrafo3"></p>
+
+
+  <script type="text/javascript">
+    /*1. Crea una página web con al menos tres párrafos de texto y dentro de ellos un número
+                indeterminado de enlaces (al menos uno debe enlazar a google). Haciendo tan sólo
+                uso del DOM muestra los siguientes datos:
+                    • Número de enlaces de la página
+                    • Dirección a la que enlaza el penúltimo enlace
+                    • Numero de enlaces que enlazan a google
+                    • Número de enlaces del tercer párrafo */
+
+    function numEnlaces() {
+      var enlaces = document.getElementsByTagName('a');
+      var cont = 0;
+      for (var i = 0; i < enlaces.length; i++) {
+        cont++;
+      }
+      document.getElementById("numeroEnlaces").innerHTML = `Hay ${cont} enlaces.`;
+    }
+
+    function penultimoEnlace() {
+      var enlaces = document.getElementsByTagName('a');
+      var direccion = enlaces[enlaces.length - 2].href;
+      document.getElementById("penultimo").innerHTML = `El penúltimo enlace apunta a ${direccion}.`;
+    }
+
+    function enlacesGoogle() {
+      var enlaces = document.getElementsByTagName('a');
+      var cont = 0;
+      for (var i = 0; i < enlaces.length; i++) {
+        if (enlaces[i].href == "https://www.google.es/") cont++;
+      }
+      document.getElementById("google").innerHTML = `Hay ${cont} enlaces apuntando a Google.`;
+    }
+
+    function enlacesParrafo3() {
+      var parrafos = document.getElementsByTagName('p');
+      var enlaces = parrafos[2].getElementsByTagName('a');
+      var cont = 0;
+      for (var i = 0; i < enlaces.length; i++) {
+        cont++;
+      }
+      document.getElementById("parrafo3").innerHTML = `Hay ${cont} enlaces en el párrafo 3.`;
+    }
+
+    window.onload = (numEnlaces(), penultimoEnlace(), enlacesGoogle(), enlacesParrafo3());
+
+  </script>
+
+</body>
+
+</html>
