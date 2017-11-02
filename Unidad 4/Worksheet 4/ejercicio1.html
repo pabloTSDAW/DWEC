@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 1</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+
+  <div><input id="nom" type="text"></div></br>
+  <button id="boton" onclick="crearCookie(event)">Entrar</button>
+  <button id="boton2" onclick="salirSesion(event)" style="visibility: hidden;">Salir</button>
+
+  <script type="text/javascript">
+
+    /*1) Diseña una web que hará uso de cookies para guardar el nombre del usuario.
+    En caso de no tener ninguna cookie de ese sitio, deberá preguntar el nombre del
+    usuario y almacenarlo en una cookie que caducará en 5 minutos. Tras esto saludará
+    al usuario mediante un mensaje en pantalla. En caso de tener ya creada la cookie
+    deberá leerla y mostrar el mensaje anterior directamente. Deberá proporcionar
+    también un enlace para borrar la cookie (lo que podríamos llamar 'Cerrar Sesión').*/
+
+    var nombre;
+    var nommbre2;
+    var salir = document.getElementById('boton2');
+
+      function crearCookie(event) {
+        if (document.cookie == '') {
+          nombre = document.getElementById('nom').value;
+          nommbre2 = nombre;
+          document.cookie = 'username='+nombre+';path=/;max-age='+5*3+';';
+          alert('Bienvenido ' + nombre);
+          salir.style.visibility = 'visible';
+        } else {
+          nombre = document.getElementById('nom').value;
+            if (nommbre2 == nombre){
+              alert('Hola '+nombre+', como sigues?');
+            } else {
+              alert('Usuario no identificado');
+            }
+        }
+      }
+
+      function salirSesion(event){
+          document.cookie = 'username='+nombre+';path=/;max-age='+1*1+';';
+          salir.style.visibility = 'hidden';
+          alert('Usuario ' + nombre + ' desconectado');
+      }
+
+  </script>
+
+</body>
+
+</html>
