@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 4</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>Messi</li>
+    <li>Luis Suarez</li>
+    <li>Paulinho</li>
+    <li>Iniesta</li>
+    <li>Mascherano</li>
+  </ul>
+  <button type="button" name="anadir" onclick="anadir()">Añadir</button>
+
+
+  <script type="text/javascript">
+
+    /*4. Crea una web con una lista de elementos y un botón que cada vez que pulsemos
+    introduzca una entrada nueva en la lista.*/
+
+    function anadir(){
+      var nuevo = prompt('Introduce un nuevo jugador');
+      var lista = document.getElementsByTagName('ul');
+      var entradas = document.getElementsByTagName('li');
+      var li = document.createElement('li');
+      lista[0].appendChild(li);
+      entradas[entradas.length - 1].innerHTML = nuevo;
+    }
+
+  </script>
+
+</body>
+
+</html>
