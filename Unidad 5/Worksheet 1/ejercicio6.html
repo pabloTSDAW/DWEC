@@ -30,13 +30,15 @@
     function anterior(){
       var imagen = document.getElementsByTagName('img');
       var pos = imagenes.indexOf(imagen[0].src);
-      if (pos >0) imagen[0].src = imagenes[pos - 1];
+      if (pos > 0) imagen[0].src = imagenes[pos - 1];
+      else imagen[0].src = imagenes[imagenes.length - 1];
     }
 
     function siguiente(){
       var imagen = document.getElementsByTagName('img');
       var pos = imagenes.indexOf(imagen[0].src);
       if (pos < imagenes.length - 1) imagen[0].src = imagenes[pos + 1];
+      else imagen[0].src = imagenes[0];
     }
 
     document.getElementById("previous").addEventListener("click", anterior);
