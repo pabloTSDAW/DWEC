@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 6</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+
+  <img src = "https://baconmockup.com/100/100">
+  <br>
+  <button type="button" id="previous">Anterior</button>
+  <button type="button" id="next">Siguiente</button>
+
+  <script type="text/javascript">
+
+    /*6. Se desea realizar mediante DOM un visor de imágenes. Para ello en tu página se
+    mostrará una imagen, junto a dos botones “Siguiente” y “Anterior”. Impleméntala la
+    funcionalidad para poder navegar entre un conjunto de imágenes que tendrás
+    previamente preparadas.*/
+
+    var imagenes = ["https://baconmockup.com/100/100", "https://baconmockup.com/100/101",
+    "https://baconmockup.com/100/102", "https://baconmockup.com/100/103", "https://baconmockup.com/100/104"];
+
+    function anterior(){
+      var imagen = document.getElementsByTagName('img');
+      var pos = imagenes.indexOf(imagen[0].src);
+      if (pos >0) imagen[0].src = imagenes[pos - 1];
+    }
+
+    function siguiente(){
+      var imagen = document.getElementsByTagName('img');
+      var pos = imagenes.indexOf(imagen[0].src);
+      if (pos < imagenes.length - 1) imagen[0].src = imagenes[pos + 1];
+    }
+
+    document.getElementById("previous").addEventListener("click", anterior);
+    document.getElementById("next").addEventListener("click", siguiente);
+
+  </script>
+
+</body>
+
+</html>
