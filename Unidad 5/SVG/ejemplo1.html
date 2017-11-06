@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ejemplo 1</title>
+  <style type="text/css">
+
+  svg {border: 2px solid blue;}
+
+  </style>
+</head>
+
+<body>
+
+<svg height="700" width="1000" xmlns=http://www.w3.org/2000/svg>
+  <circle id="circulo" cx="100" cy="100" r="50" fill="green"/>
+</svg>
+
+  <script type="text/javascript">
+
+  var pasoX = 5;
+  var pasoY = 5;
+  var colores = ['red', 'blue', 'yellow','green', 'orange', 'black']
+
+  var FPS = 60;
+  setInterval(function() {
+  mover();
+  }, 1000 / FPS);
+
+  function cambiaColor(){
+    circulo.setAttribute('fill', colores[Math.floor(Math.random() * ((colores.length - 1) - 0)) + 0]);
+  }
+
+  function mover(){
+    var circulo = document.getElementById('circulo');
+    var posX = parseInt(circulo.getAttribute('cx'));
+    var posY = parseInt(circulo.getAttribute('cy'));
+    if (posY < 650 && posX < 950){
+      circulo.setAttribute('cx', (posX + pasoX));
+      circulo.setAttribute('cy', (posY + pasoY));
+    }
+    if (posY >= 650 || posY <= 50) {
+      pasoY *= -1;
+      cambiaColor();
+      circulo.setAttribute('cx', (posX + pasoX));
+      circulo.setAttribute('cy', (posY + pasoY));
+    }
+    if (posX >= 950 || posX <= 50) {
+      pasoX *= -1;
+      cambiaColor();
+      circulo.setAttribute('cx', (posX + pasoX));
+      circulo.setAttribute('cy', (posY + pasoY));
+    }
+  }
+
+
+  </script>
+
+</body>
+
+</html>
