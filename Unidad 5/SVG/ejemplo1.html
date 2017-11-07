@@ -34,25 +34,27 @@
     circulo.setAttribute('fill', colores[Math.floor(Math.random() * ((colores.length - 1) - 0)) + 0]);
   }
 
+  function pasos(posX, posY, pasoX, pasoY, circulo){
+    circulo.setAttribute('cx', (posX + pasoX));
+    circulo.setAttribute('cy', (posY + pasoY));
+  }
+
   function mover(){
     var circulo = document.getElementById('circulo');
     var posX = parseInt(circulo.getAttribute('cx'));
     var posY = parseInt(circulo.getAttribute('cy'));
     if (posY < 650 && posX < 950){
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
     if (posY >= 650 || posY <= 50) {
       pasoY *= -1;
       cambiaColor();
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
     if (posX >= 950 || posX <= 50) {
       pasoX *= -1;
       cambiaColor();
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
   }
 
