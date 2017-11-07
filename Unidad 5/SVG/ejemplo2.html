@@ -17,56 +17,65 @@
 
 <svg height="700" width="1000" xmlns=http://www.w3.org/2000/svg>
   <circle id="circulo" cx="100" cy="100" r="50" fill="green"/>
-  <circle id="circulo2" cx="500" cy="400" r="50" fill="black"/>
+  <circle id="circulo2" cx="200" cy="500" r="50" fill="red"/>
 </svg>
 
   <script type="text/javascript">
 
-  var pasoX = 5;
-  var pasoY = 5;
+  var pasoX = 6;
+  var pasoY = 6;
   var paso2X = 5;
   var paso2Y = 5;
-  var color2es = ['red', 'blue', 'yellow','green', 'orange', 'black']
+  var colores = ['green', 'rgb(171, 249, 153)', 'rgb(167, 237, 88)', 'rgb(91, 249, 6)', 'rgb(28, 147, 13)', 'rgb(11, 79, 24)'];
+  var colores2 = ['red', 'rgb(247, 139, 139)', 'rgb(250, 80, 80)', 'rgb(149, 62, 62)', 'rgb(158, 2, 2)', 'rgb(133, 58, 58)'];
+  var circulo = document.getElementById('circulo');
+  var circulo2 = document.getElementById('circulo2');
 
   var FPS = 60;
   setInterval(function() {
   mover();
   mover2();
-  //mover2();
   }, 1000 / FPS);
 
-  function mover(){
+  function cambiaColor(){
     var circulo = document.getElementById('circulo');
+    var circulo2 = document.getElementById('circulo2');
+    circulo.setAttribute('fill', colores[Math.floor(Math.random() * ((colores.length - 1) - 0)) + 0]);
+    circulo2.setAttribute('fill', colores2[Math.floor(Math.random() * ((colores2.length - 1) - 0)) + 0]);
+  }
+
+  function pasos(posX, posY, pasoX, pasoY, circulo){
+    circulo.setAttribute('cx', (posX + pasoX));
+    circulo.setAttribute('cy', (posY + pasoY));
+  }
+
+  function mover(){
     var posX = parseInt(circulo.getAttribute('cx'));
     var posY = parseInt(circulo.getAttribute('cy'));
 
-    var circulo2 = document.getElementById('circulo2');
     var pos2X = parseInt(circulo2.getAttribute('cx'));
     var pos2Y = parseInt(circulo2.getAttribute('cy'));
 
     if (posY < 650 && posX < 950){
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
     if (posY >= 650 || posY <= 50) {
       pasoY *= -1;
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
     if (posX >= 950 || posX <= 50) {
       pasoX *= -1;
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
-    if ((Math.abs(posX - pos2X) <= 75) && (Math.abs(posY - pos2Y) <= 100)) {
+    if ((Math.abs(posX - pos2X) <= 90) && (Math.abs(posY - pos2Y) <= 105)) {
       pasoY *= -1;
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      cambiaColor();
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
-    if ((Math.abs(posX - pos2X) <= 100) && (Math.abs(posY - pos2Y) <= 75)) {
+    if ((Math.abs(posX - pos2X) <= 105) && (Math.abs(posY - pos2Y) <= 90)) {
       pasoX *= -1;
-      circulo.setAttribute('cx', (posX + pasoX));
-      circulo.setAttribute('cy', (posY + pasoY));
+      cambiaColor();
+      pasos(posX, posY, pasoX, pasoY, circulo);
     }
   }
 
@@ -81,28 +90,25 @@
     var pos2Y = parseInt(circulo2.getAttribute('cy'));
 
     if (pos2Y < 650 && pos2X < 950){
-      circulo2.setAttribute('cx', (pos2X + paso2X));
-      circulo2.setAttribute('cy', (pos2Y + paso2Y));
+      pasos(pos2X, pos2Y, paso2X, paso2Y, circulo2);
     }
     if (pos2Y >= 650 || pos2Y <= 50) {
       paso2Y *= -1;
-      circulo2.setAttribute('cx', (pos2X + paso2X));
-      circulo2.setAttribute('cy', (pos2Y + paso2Y));
+      pasos(pos2X, pos2Y, paso2X, paso2Y, circulo2);
     }
     if (pos2X >= 950 || pos2X <= 50) {
       paso2X *= -1;
-      circulo2.setAttribute('cx', (pos2X + paso2X));
-      circulo2.setAttribute('cy', (pos2Y + paso2Y));
+      pasos(pos2X, pos2Y, paso2X, paso2Y, circulo2);
     }
-    if ((Math.abs(posX - pos2X) <= 75) && (Math.abs(posY - pos2Y) <= 100)) {
+    if ((Math.abs(posX - pos2X) <= 90) && (Math.abs(posY - pos2Y) <= 105)) {
       paso2Y *= -1;
-      circulo2.setAttribute('cx', (pos2X + paso2X));
-      circulo2.setAttribute('cy', (pos2Y + paso2Y));
+      cambiaColor();
+      pasos(pos2X, pos2Y, paso2X, paso2Y, circulo2);
     }
-    if ((Math.abs(posX - pos2X) <= 100) && (Math.abs(posY - pos2Y) <= 75)) {
+    if ((Math.abs(posX - pos2X) <= 105) && (Math.abs(posY - pos2Y) <= 90)) {
       paso2X *= -1;
-      circulo2.setAttribute('cx', (pos2X + paso2X));
-      circulo2.setAttribute('cy', (pos2Y + paso2Y));
+      cambiaColor();
+      pasos(pos2X, pos2Y, paso2X, paso2Y, circulo2);
     }
   }
 
