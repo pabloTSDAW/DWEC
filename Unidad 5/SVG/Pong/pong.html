@@ -187,17 +187,17 @@
     }, 1000 / FPS);
 
     //EFECTO EPILEPSIA
-    setInterval(function() {
-      var colorFondo = document.body.style.backgroundColor;
-      if (colorFondo == 'black') document.body.style.backgroundColor = 'rgb(3, 27, 14)';
-      else document.body.style.backgroundColor = 'black';
-    }, 1000);
-
-    setInterval(function() {
-      p.cambiaColor();
-      j1.cambiaColor();
-      j2.cambiaColor();
-    }, 1000);
+    // setInterval(function() {
+    //   var colorFondo = document.body.style.backgroundColor;
+    //   if (colorFondo == 'black') document.body.style.backgroundColor = 'rgb(3, 27, 14)';
+    //   else document.body.style.backgroundColor = 'black';
+    // }, 100);
+    //
+    // setInterval(function() {
+    //   p.cambiaColor();
+    //   j1.cambiaColor();
+    //   j2.cambiaColor();
+    // }, 100);
 
     document.addEventListener("keydown", movimiento);
 
