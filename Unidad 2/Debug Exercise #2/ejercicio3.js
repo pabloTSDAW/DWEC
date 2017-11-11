@@ -1,35 +1,33 @@
 // WORKSHEET 4.1
 
 // EJERCICIO 3 -----------------------------------------------------
-function muestraError(objPositionError)
-{
-	switch (objPositionError.code)
-	{
+function muestraError(objPositionError) {
+    switch (objPositionError.code) {
         case objPositionError.PERMISSION_DENIED:
-			content.innerHTML = "No se ha permitido el acceso a la posición del usuario.";
-		break;
+            content.innerHTML = "No se ha permitido el acceso a la posición del usuario.";
+            break;
 
         case objPositionError.POSITION_UNAVAILABLE:
-			content.innerHTML = "No se ha podido acceder a la información de su posición.";
-		break;
+            content.innerHTML = "No se ha podido acceder a la información de su posición.";
+            break;
 
         case objPositionError.TIMEOUT:
-			content.innerHTML = "El servicio ha tardado demasiado tiempo en responder.";
-		break;
+            content.innerHTML = "El servicio ha tardado demasiado tiempo en responder.";
+            break;
 
         default:
-			content.innerHTML = "Error desconocido.";
+            content.innerHTML = "Error desconocido.";
     }
 }
 
 
 function ejercicio3() {
-    content = document.getElementById("contenido");
-    geocoder = new google.maps.Geocoder();
+    content = document.getElementById("content");
+    geocoder = new google.maps.Geocoder;
 
     map = new google.maps.Map(document.getElementById('mapa'), {
-            centre: {lat: 0, lng: 0},
-            zoom: 18
+        centre: {lat: 0, lng: 0},
+        zoom: 18
     });
     miPosicion = new google.maps.Marker({
         position: {lat: 0, lng: 0},
@@ -55,16 +53,15 @@ function ejercicio3() {
     }
 }
 
-function muestraPosicionContinua(posicion)
-{
+function muestraPosicionContinua(posicion) {
     var long = posicion.coords.longitude;
-	var lati = posicion.coords.latitude;
+    var lati = posicion.coords.latitude;
 
-    puntoActua={lat: lati, lng: long};
+    puntoActual = {lat: lati, lng: long};
     if (puntoAnterior)
-        distancia+=calculaDistancia(puntoAnterior,puntoActual)
+        distancia += parseFloat(calculaDistancia(puntoAnterior, puntoActual));
     else
-        puntoAnterior=puntoActual;
+        puntoAnterior = puntoActual;
 
     // Pintar recorrido -> Linea entre puntos
     var line = new google.maps.Polyline({
@@ -75,24 +72,23 @@ function muestraPosicionContinua(posicion)
         strokeColor: "#FFAA00"
     });
 
-    puntoAnterior= puntoActual;
+    puntoAnterior = puntoActual;
 
 
     // Mostrar la dirección
-    geocoder.geocode({'location': puntoActual}, function(results, status) {
-            if (status === google.maps.GeocoderStatus.OK)
-            {
-                if (results[12])
-                    direccion= results[0].formatted_address;
-                else
-                    direccion = 'No results found';
-            } else
-                direccion = 'Geocoder failed due to: ' + status;
+    geocoder.geocode({'location': puntoActual}, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            if (results.length > 0)
+                direccion = results[0].formatted_address;
+            else
+                direccion = 'No results found';
+        } else
+            direccion = 'Geocoder failed due to: ' + status;
 
-             document.getElementById("direccion").innerHTML = "<p><strong>Direccion:</strong> " + direccion;
-            });
+        document.getElementById("direccion").innerHTML = "<p><strong>Direccion:</strong> " + direccion;
+    });
 
-    content.innerHTML ="<p><strong>Latitud:</strong> " + lati + "</p><p><strong>Longitud:</strong> " + long + "</p><p><strong>Distancia:</strong> " + distancia;
+    content.innerHTML = "<p><strong>Latitud:</strong> " + lati + "</p><p><strong>Longitud:</strong> " + long + "</p><p><strong>Distancia:</strong> " + distancia;
 
     // Mostrar posicion en mapa
     map.panTo(puntoActual);
@@ -102,24 +98,22 @@ function muestraPosicionContinua(posicion)
 
 }
 
-function calculaDistancia(location1, location2)
-{
-    var R = 6371;
-    var dLat = toRad(location2.lat-location1.lat);
-    var dLon = toRad(location2.lng-location1.lng);
-    var dLat1 = toRad(location1.lat);
-    var dLat2 = toRad(location2.lat);
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-        Math.cos(dLat1) * Math.cos(dLat1) *
-        Math.sin(dLon/2) * Math.sin(dLon/2);
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+function calculaDistancia(location1, location2) {
+    var R = 6371; // earth's mean radius in km
+    var dLat = toRadianes(location2.lat - location1.lng);
+    var dLong = toRadianes(location2.lat - location1.lng);
+
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRadianes(location1.lat)) * Math.cos(toRadianes(location2.lat)) * Math.sin(dLong / 2) * Math.sin(dLong / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     var d = R * c;
 
-    return d;
+    console.log(location1);
+    console.log(location2);
+
+    return d.toFixed(3);
 }
 
-function toRadianes(valor){
-   return valor * Math.PI / 180;
- }
-
- ejercicio3();
+function toRadianes(valor) {
+    return valor * Math.PI / 180;
+}
