@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Geolocation</title>
+  </head>
+  <body>
+
+  <script type="text/javascript">
+
+  /*Develop a web app in which:
+  Test if geolocation is available.
+  If it's available, show the current position (latitude and longitude)
+  If it isn't available, show a message for each and everyone of the possible errors.
+  Improve your code so you show the position continuously (although the user could be in moving, so it could change)
+  Find the way to meassure the distance traveled.*/
+
+  //Comprobar si la geolocalización está disponible en el navegador:
+  function localizacion(){
+    if ('geolocation' in navigator) {
+      console.log('Geolocation available.');
+      return true;
+    }
+    else {
+      console.log('Geolocation its not available');
+      return false;
+    }
+  }
+
+  var options = {
+    enableHighAccuracy: true,
+    maximumAge : 30000,
+    timeout : 27000
+  }
+
+  var posiciones = [];
+
+  //Ver posición actual
+  function currentPosition(){
+    if (localizacion){
+      navigator.geolocation.getCurrentPosition(verPosicion, error, options);
+    }
+  }
+
+  function verPosicion(pos){
+    var latitud = pos.coords.latitude;
+    var longitud = pos.coords.longitude;
+    var variacion = pos.coords.accuracy;
+    document.write('Posición actual.<br>');
+    document.write('Latitud: ' + latitud + '<br>');
+    document.write('Longitud: ' + longitud + '<br>');
+    document.write('Desvío: ' + variacion + ' metros.<br>');
+    posiciones.push([latitud, longitud]);
+    document.write('Has recorrido: ' + distanciaRecorrida() + ' metros.<br><br>');
+  }
+
+  function error(err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+  };
+
+  //Calcular la distancia Recorrida
+
+  function distanciaRecorrida(){
+    var dist = 0;
+    let num1 = posiciones[0];
+    let num2 = posiciones[posiciones.length - 1];
+    if (posiciones.length > 1){
+      dist = Math.sqrt(Math.pow(num2[0] - num1[0], 2) + Math.pow(num2[1] - num1[1], 2));
+    }
+    return dist;
+  }
+
+  setInterval(currentPosition, 5000);
+
+  </script>
+
+  </body>
+</html>

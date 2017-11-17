@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4</title>
+  </head>
+  <body onload="ejercicio4('pablo rules')">
+  <h2></h2>
+  <a href="#">Enlace 1</a>
+  <a href="#">Enlace 2</a>
+  <a href="#">Enlace 3</a>
+  <a href="#">Enlace 4</a>
+
+  <script type="text/javascript">
+
+  /*4. (1,5 puntos, uso de objetos JavaScript ) Crea una función llamada Ejercicio4 que realice lo
+    siguiente:
+    a) Si se pasa un parámetro, debe cambiar el titulo de la página a ese nuevo valor. En caso
+    contrario no cambiará nada.
+    b) Posteriormente indicará el número de enlaces presentes en la página y en caso de ser
+    superior a 0 deberá mostrar todas y cada una de las URLs.
+    c) Por último debe poner en marcha un contador en pantalla que salte cada 4 segundos
+    mostrando sólo los segundos actuales del reloj del sistema. En el momento que dicho
+    reloj llegue a 0, deberá pararse el temporizador y preguntar al usuario por una URL, que
+    deberá cargarse automáticamente.*/
+
+    function ejercicio4(titulo = 0){
+      if (titulo != 0){
+        document.title = titulo;
+      }
+      var enlaces = document.getElementsByTagName('a');
+      var cont = 0;
+      for (var i = 0; i < enlaces.length; i++) {
+        cont++;
+      }
+      var parrafo = document.createElement('p');
+      parrafo.innerHTML = 'Numero de enlaces: ' + cont;
+      document.body.appendChild(parrafo);
+      setInterval(temporizador, 4000);
+    }
+
+    function temporizador(){
+      var segundos = new Date().getSeconds();
+      var tiempo = document.getElementsByTagName('h2')[0];
+      tiempo.innerHTML = 'Tiempo: ' + segundos;
+      document.body.appendChild(tiempo);
+      if (segundos == 0){
+        location.assign(prompt('Introduce una url'));
+      }
+    }
+
+  </script>
+
+  </body>
+</html>

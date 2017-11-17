@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6</title>
+    <style>
+      #mapa {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body onload="hacer()">
+
+  <h3>Localización</h3>
+  <div id="mapa"></div>
+  <p id="localizacion"></p>
+
+  <script type="text/javascript">
+
+  /*6. (2,5 puntos, POO, APÍ de Google Maps, Geolocalización) Se desea modelar una clase para
+    facilitar el trabajar con localizaciones. Para ello modela la clase informacionLugar, que deberá
+    representar la información de un lugar según sus coordenadas. En el constructor recibirá como
+    parámetros una latitud y longitud. En caso de no pasarse estos parámetros los debe obtener
+    automáticamente. Con estos datos, la clase debe proporcionar como getters:
+        a) pais: devolverá el pais en el que se encuentra esa localización
+        b) dirección: devolverá la dirección con el mayor nivel de precisión posible (calle, etc.)
+        Además debe ofrecer los siguientes métodos:
+        c) dibujaMapa: recibe como parámetro un elemento HTML en el que se dibujará un mapa
+        de Google mostrando el punto representado por el objeto. Este mapa debe manejarse como
+        parte del objeto.
+        d) dibujaMarcador: dibuja automáticamente un marcador en el mapa en la posición
+        actual del objeto.
+        e) escribeEtiqueta: muestra la dirección actual con mayor detalle en una etiqueta dentro
+        del mapa.*/
+
+    var posicion;
+    var marker;
+    var mapa;
+    var booool = false;
+    var geocoder;
+    var infowindow;
+
+    class informacionLugar {
+      constructor(latitud = 'none', longitud = 'none'){
+        this.latitud = latitud;
+        this.longitud = longitud;
+        if ((this.latitud == 'none') && (this.longitud == 'none')){
+          booool = true;
+          this.obtener();
+        }
+        else {
+          posicion = {lat: this.latitud, lng: this.longitud};
+          this.obtener();
+        }
+      }
+
+      obtener(){
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(this.dibujaMapa);
+        } else {
+            document.write('Desactivado');
+        }
+      }
+
+      darDatos() {
+        var latlng = posicion;
+        var parrafo = document.getElementById('localizacion');
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status == 'OK') parrafo.innerHTML = 'Eres del país: '+results[results.length - 1].formatted_address+' y tu dirección es: '+results[0].formatted_address;
+        });
+      }
+
+      dibujaMapa(position) {
+        if (booool == true) {
+          posicion = {lat: position.coords.latitude, lng: position.coords.longitude};
+        }
+        mapa = new google.maps.Map(document.getElementById('mapa'), {
+          zoom: 17,
+          center: posicion
+        });
+      }
+
+      dibujaMarcador() {
+        marker = new google.maps.Marker({
+          map: mapa,
+          draggable: true,
+          position: posicion
+        });
+      }
+
+      escribeEtiqueta() {
+        var latlng = posicion;
+        var map = mapa;
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          console.log(results);
+  			  if (status === 'OK') {
+  				if (results[1]) {
+  				  map.setZoom(17);
+  				  infowindow.setContent(results[0].formatted_address);
+  				  infowindow.open(mapa, marker);
+  				} else {
+  				  window.alert('No results found');
+  				}
+  			  } else {
+  				window.alert('Geocoder failed due to: ' + status);
+  			  }
+  			});
+      }
+
+      pais() {
+        var latlng = posicion;
+        var map = mapa
+        geocoder.geocode({'location': latlng}, function(results, status) {
+  			  if (status === 'OK') console.log(results[results.length - 1].formatted_address);
+  			});
+      }
+
+  }
+
+    function hacer() {
+      geocoder = new google.maps.Geocoder;
+      infowindow = new google.maps.InfoWindow;
+      p = new informacionLugar();
+      p.dibujaMarcador();
+      p.darDatos();
+    }
+
+
+  </script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs8GeLs70vepIkA2ZgoerHjkJKKUduFBE&callback=hacer">
+  </script>
+
+  </body>
+</html>

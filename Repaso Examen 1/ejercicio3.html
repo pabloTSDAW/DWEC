@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 3</title>
+  </head>
+  <body onload="ejercicio3(2,2,2)">
+
+  <script type="text/javascript">
+
+    /*3. (1,1 puntos, ES6) Sobre la base del ejercicio anterior, crea una función llamada Ejercicio3 que
+    no reciba la cantidad de números a pedir, sino directamente un número indeterminado de
+    parámetros. Ejemplo Ejercicio3(1,2) o Ejercicio3(1,2,3,4,54,3,2). Debe hacerse uso de sintaxis ES6.*/
+
+    function ejercicio3(...params){
+      var res = 1;
+      for (var i = 0; i < params.length; i++) {
+        res *= params[i];
+      }
+      document.write('La multiplicacion de todos ellos es: ' + res);
+    }
+
+  </script>
+
+  </body>
+</html>
