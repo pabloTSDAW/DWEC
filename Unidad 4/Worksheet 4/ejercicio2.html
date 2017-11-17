@@ -37,7 +37,6 @@
           var fuente = prompt('Elige el tamaño de fuente: small, medium, large');
           configurarVentana(bgcolor, color, fuente);
           document.cookie = 'username='+nombre+';path=/;max-age=1000; bgcolor=' + bgcolor + ';color='+color+';fuente='+fuente+';';
-          configurarVentana();
           alert('Bienvenido ' + nombre);
           salir.style.visibility = 'visible';
           saludo.style.visibility = 'visible';

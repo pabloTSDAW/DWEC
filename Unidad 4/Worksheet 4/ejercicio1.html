@@ -34,7 +34,7 @@
         if (document.cookie == '') {
           nombre = document.getElementById('nom').value;
           nommbre2 = nombre;
-          document.cookie = 'username='+nombre+';path=/;max-age='+5*3+';';
+          document.cookie = 'username='+nombre+';path=/;max-age=5000;';
           alert('Bienvenido ' + nombre);
           salir.style.visibility = 'visible';
         } else {
