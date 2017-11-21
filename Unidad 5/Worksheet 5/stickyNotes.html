@@ -22,9 +22,13 @@
     font-weight: bold;
   }
 
+  #boton:hover {
+    background-color: rgb(42, 43, 42);
+    color: rgb(254, 254, 254);
+  }
+
   .nota {
     position: absolute;
-    background-color: rgb(252, 255, 17);
     width: 200px;
     height: 200px;
     box-shadow: 5px 5px 2px rgb(32, 31, 31);
@@ -32,7 +36,6 @@
   }
 
   textarea {
-    background-color: rgb(252, 255, 17);
     border: none;
     resize: none;
     width: 90%;
@@ -42,7 +45,6 @@
   }
 
   h4 {
-    background-color: rgb(234, 237, 14);
     margin-top: 0;
     height: 10%;
     padding: 2%;
@@ -82,6 +84,8 @@
     var posX = 0;
     var posY = 0;
 
+    var colores = [['rgb(252, 255, 17)', 'rgb(234, 237, 14)'], ['rgb(23, 203, 202)', 'rgb(47, 153, 222)'], ['rgb(180, 142, 242)', 'rgb(165, 102, 228)'], ['rgb(255, 255, 255)', 'rgb(233, 225, 225)']];
+
 
     class Nota {
       constructor(id) {
@@ -107,22 +111,25 @@
       }
 
 
-      nuevaNota(id, titulo = '', texto = '', fecha) {
+      nuevaNota(id, titulo = '', texto = '', fecha, color) {
         var self = this;
 
         this.notaV = document.createElement('div');
         this.notaV.setAttribute('class', 'nota');
         this.notaV.setAttribute('id', `${id}`);
         this.notaV.setAttribute('style','left: 100px; top: 100px;');
+        this.notaV.style.backgroundColor = colores[color][0];
         document.getElementById('tablero').appendChild(this.notaV);
         this.notaV.setAttribute('onmousedown', 'controlador.agarrar(this); controlador.cambiarDatos(event)');
 
         this.tituloV = document.createElement('h4');
         this.notaV.appendChild(this.tituloV);
+        this.tituloV.style.backgroundColor = colores[color][1];
         this.tituloV.innerHTML = titulo;
 
         this.textoV = document.createElement('textarea');
         this.notaV.appendChild(this.textoV);
+        this.textoV.style.backgroundColor = colores[color][0];
 
         this.horaV = document.createElement('p');
         this.notaV.appendChild(this.horaV);
@@ -162,10 +169,14 @@
 
       insertarPosit(){
         var title = prompt('Escribe un título para la nota');
+        var color = prompt('Selecciona un color: 0 (amarillo), 1 (azul), 2 (violeta), 3 (blanco)')
         this.hora = new Date();
         this.creada = this.hora.getDate() + '/' + this.hora.getMonth() + '/' + this.hora.getFullYear() + ' ' + this.hora.getHours() + ':' + this.hora.getMinutes() + ':' + this.hora.getSeconds();
         this.lista.notas.push(new Nota(this.lista.id));
-        this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada);
+        if ((color >= 0) && (color <= colores.length)){
+          this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada, color);
+        }
+        else {this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada, 0)};
         this.lista.id++;
       }
 
