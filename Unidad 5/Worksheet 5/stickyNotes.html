@@ -188,7 +188,6 @@
           }
       }
 
-
     }
 
 
@@ -205,102 +204,6 @@
     document.addEventListener('mousemove', function(e) {
       controlador.mover(event);
     }, false);
-
-
-    /*class notaView {
-      constructor(nota) {
-        this.nota = document.createElement('div');
-        this.nota.setAttribute('class', 'nota');
-        this.nota.setAttribute('onmousedown','controlador.agarrar(this)');
-        this.nota.style.position = 'absolute';
-        this.nota.style.left = '200px';
-        this.nota.style.top = '200px';
-        document.body.appendChild(this.nota);
-        this.tituloVista = document.createElement('p');
-        this.nota.appendChild(this.tituloVista);
-        this.añadirVista = document.createElement('a');
-        this.añadirVista.setAttribute('href', '#');
-        this.añadirVista.innerHTML = '+';
-        this.tituloVista.appendChild(this.añadirVista);
-        this.textoVista = document.createElement('textarea');
-        this.nota.appendChild(this.textoVista);
-        this.tituloVista.innerHTML = nota.titulo;
-        this.textoVista.innerHTML = nota.texto;
-      }
-
-    }
-
-    class notaSeleccionada {
-      constructor(controlador) {
-        this.controlador = controlador;
-
-      }
-
-      moverNota() {
-        continue;
-      }
-    }
-
-    class botonazo {
-      constructor(controlador) {
-        this.boton = document.createElement('button');
-        this.boton.setAttribute('type','button');
-        this.boton.setAttribute('onclick','controlador.nuevaNota()');
-        this.boton.setAttribute('name','notica');
-        document.body.appendChild(this.boton);
-        document.getElementsByTagName("button")[0].innerHTML = "Crear nota";
-
-      }
-
-    }
-
-
-    //CONTROLADOR-----------------------------------------------------------------
-    //MAIN------------------------------------------------------------------------
-    class controlador {
-      constructor() {
-        this.botoncico = new botonazo(this);
-        this.ListaNotas = new ListaNotas();
-        this.notica;
-        this.divAManejar;
-      }
-
-      nuevaNota() {
-        let titulo = prompt('Dime el título')
-        this.notica = new Nota(titulo, 'Escribe aquí lo que desees');
-        this.nv = new notaView(this.notica,this);
-        this.ListaNotas.añadirNota(this.notica);
-      }
-
-      agarrar(elemento) {
-        notaPinchaica = true;
-        this.divAManejar = elemento;
-      }
-
-      moverse(e) {
-        if (notaPinchaica == true) {
-          console.log(e.clientY);
-          this.divAManejar.style.top = e.clientY+'';
-          this.divAManejar.style.left = e.clientX+'px';
-          }
-      }
-
-
-    }
-
-window.onload = () => {
-    controlador = new controlador();
-  }
-
-document.addEventListener('mousemove', function(e) {
-  controlador.moverse(e);
-}, false);
-
-window.onmouseup = function() {
-  notaPinchaica = false;
-}
-
-*/
 
 
   </script>
