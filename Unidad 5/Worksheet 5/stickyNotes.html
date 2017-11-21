@@ -84,7 +84,11 @@
     var posX = 0;
     var posY = 0;
 
-    var colores = [['rgb(252, 255, 17)', 'rgb(234, 237, 14)'], ['rgb(23, 203, 202)', 'rgb(47, 153, 222)'], ['rgb(180, 142, 242)', 'rgb(165, 102, 228)'], ['rgb(255, 255, 255)', 'rgb(233, 225, 225)']];
+    var colores = [['rgb(252, 255, 17)', 'rgb(234, 237, 14)'],
+                    ['rgb(23, 203, 202)', 'rgb(47, 153, 222)'],
+                    ['rgb(180, 142, 242)', 'rgb(165, 102, 228)'],
+                    ['rgb(255, 255, 255)', 'rgb(233, 225, 225)'],
+                    ['rgb(170, 231, 82)', 'rgb(155, 210, 76)']];
 
 
     class Nota {
@@ -169,7 +173,7 @@
 
       insertarPosit(){
         var title = prompt('Escribe un título para la nota');
-        var color = prompt('Selecciona un color: 0 (amarillo), 1 (azul), 2 (violeta), 3 (blanco)')
+        var color = prompt('Selecciona un color: 0 (amarillo), 1 (azul), 2 (violeta), 3 (blanco), 4 (verde)')
         this.hora = new Date();
         this.creada = this.hora.getDate() + '/' + this.hora.getMonth() + '/' + this.hora.getFullYear() + ' ' + this.hora.getHours() + ':' + this.hora.getMinutes() + ':' + this.hora.getSeconds();
         this.lista.notas.push(new Nota(this.lista.id));
