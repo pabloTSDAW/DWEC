@@ -118,6 +118,7 @@
 
 
       nuevaNota(id, titulo = '', texto = '', fecha, color) {
+        //Crea una vista para la nota
         var self = this;
 
         this.notaV = document.createElement('div');
@@ -152,6 +153,7 @@
       }
 
       borrarNota(id){
+        //Elimina la nota seleccionada por id
         document.getElementById('tablero').removeChild(document.getElementById(id));
         this.controlador.lista.notas.splice(this.controlador.lista.notas[id], 1);
       }
@@ -174,6 +176,7 @@
       }
 
       insertarPosit(){
+        //Crea una nueva nota y la guarda en la lista
         var title = prompt('Escribe un título para la nota');
         var color = prompt('Selecciona un color: 0 (amarillo), 1 (azul), 2 (violeta), 3 (blanco), 4 (verde) o 5 (rojo).')
         this.hora = new Date();
@@ -187,11 +190,13 @@
       }
 
       agarrar(elemento) {
+        //Pincha sobra la nota para moverla
         notaPinchada = true;
         this.elemento = elemento;
       }
 
       cambiarDatos(e){
+        //Guarda la posición actual donde se ha pinchado y la de la nota en ese momento
         posEY = e.clientY;
         posEX = e.clientX;
         posY = parseInt(this.elemento.style.top);
@@ -199,6 +204,7 @@
       }
 
       mover(e) {
+        //Mueve la nota seleccionada
         if (notaPinchada) {
           this.elemento.style.top = (posY + e.clientY - posEY) + 'px';
           this.elemento.style.left = (posX + e.clientX - posEX) + 'px';
