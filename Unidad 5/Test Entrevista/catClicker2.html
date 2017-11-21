@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>catclicker2</title>
+  <style type="text/css">
+    div {float: left;}
+  </style>
+</head>
+
+<body onload="crearElementos()">
+  <!-- <img id="gatito" src="gato.png" width="100px" height="100px" cont="0" onclick="clicka(0)">
+  <img id="gatito2" src="gato2.png" width="100px" height="100px" cont="0" onclick="clicka(1)">
+  <img id="gatito3" src="gato.png" width="100px" height="100px" cont="0" onclick="clicka(2)">
+  <img id="gatito4" src="gato2.png" width="100px" height="100px" cont="0" onclick="clicka(3)"> -->
+
+  <script type="text/javascript">
+
+    // function clicka(){
+    //   var contador = document.getElementById('contador');
+    //   cont++;
+    //   contador.innerHTML = 'Gato 1: ' + cont;
+    // }
+    //
+    // function clicka2(){
+    //   var contador = document.getElementById('contador2');
+    //   cont2++;
+    //   contador.innerHTML = 'Gato 2: ' + cont2;
+    // }
+
+    function crearElementos(){
+      for (var i = 0; i < 20; i++) {
+        var bloque = document.createElement('div');
+        var imagen = document.createElement('img');
+        imagen.setAttribute('id', 'img' + i);
+        imagen.setAttribute('src', 'gato.png');
+        imagen.setAttribute('width', '100px');
+        imagen.setAttribute('heigth', '100px');
+        imagen.setAttribute('cont', '0');
+        imagen.setAttribute('onclick', `clicka(${i})`);
+        document.body.appendChild(bloque);
+        bloque.appendChild(imagen);
+
+        var parrafo = document.createElement('p');
+        imagen.setAttribute('id', 'p' + i);
+        bloque.appendChild(parrafo);
+      }
+    }
+
+    function clicka(n){
+      var contador = document.getElementsByTagName('p');
+      var imagenes = document.getElementsByTagName('img');
+      var cont = parseInt(imagenes[n].getAttribute('cont')) + 1;
+      imagenes[n].setAttribute('cont', String(cont));
+      contador[n].innerHTML = 'Gato ' + n + ': ' + cont;
+    }
+
+    // document.getElementById('gatito').addEventListener("click", clicka(cont1, 0));
+    // document.getElementById('gatito2').addEventListener("click", clicka(cont2, 1));
+
+  </script>
+
+</body>
+
+</html>
