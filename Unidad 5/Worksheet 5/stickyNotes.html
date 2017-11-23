@@ -103,7 +103,7 @@
 
   <script type="text/javascript">
 
-    //MODELO----------------------------------------------------------------------
+
 
     var notaPinchada = false;
     var posEX = 0;
@@ -118,12 +118,14 @@
                     ['rgb(170, 231, 82)', 'rgb(155, 210, 76)'],
                     ['rgb(245, 114, 114)', 'rgb(240, 90, 90)']];
 
+  //MODELO----------------------------------------------------------------------
 
     class Nota {
-      constructor(id) {
+      constructor(id, titulo, texto, hora) {
         this.id = id;
-        this.titulo = '';
-        this.texto = '';
+        this.titulo = titulo;
+        this.texto = texto;
+        this.hora = hora;
       }
     }
 
@@ -143,10 +145,8 @@
       }
 
 
-      nuevaNota(id, titulo = '', texto = '', fecha, color) {
+      nuevaNota(id, color) {
         //Crea una vista para la nota
-        var self = this;
-
         this.notaV = document.createElement('div');
         this.notaV.setAttribute('class', 'nota');
         this.notaV.setAttribute('id', `${id}`);
@@ -163,21 +163,21 @@
         this.tituloV = document.createElement('h4');
         this.notaV.appendChild(this.tituloV);
         this.tituloV.style.backgroundColor = colores[color][1];
-        this.tituloV.innerHTML = titulo;
+        // this.tituloV.innerHTML = titulo;
 
         this.textoV = document.createElement('textarea');
+        this.textoV.setAttribute('onchange', 'controlador.actualizarNota(this)');
         this.notaV.appendChild(this.textoV);
         this.textoV.style.backgroundColor = colores[color][0];
 
         this.horaV = document.createElement('p');
         this.notaV.appendChild(this.horaV);
-        this.horaV.innerHTML = 'Creada el: ' + fecha;
 
         this.boton = document.createElement('button');
         this.boton.setAttribute('type', 'button');
         this.boton.setAttribute('class', 'eliminar');
-        this.boton.addEventListener('click', function(){
-          self.borrarNota(id);
+        this.boton.addEventListener('click', ()=>{
+          this.borrarNota(id);
         });
         this.boton.innerHTML = 'X';
         this.tituloV.appendChild(this.boton);
@@ -196,12 +196,11 @@
 
     class Controlador{
       constructor(){
-        var self = this;
         this.lista = new ListaNotas();
         this.nuevaVista = new NotaView(this);
         this.boton = document.getElementById('boton');
-        this.boton.addEventListener('click', function(){
-          self.insertarPosit();
+        this.boton.addEventListener('click',()=>{
+          this.insertarPosit();
         });
         this.elemento;
       }
@@ -212,12 +211,22 @@
         var color = prompt('Selecciona un color: 0 (amarillo), 1 (azul), 2 (violeta), 3 (blanco), 4 (verde) o 5 (rojo).')
         this.hora = new Date();
         this.creada = this.hora.getDate() + '/' + this.hora.getMonth() + '/' + this.hora.getFullYear() + ' ' + this.hora.getHours() + ':' + this.hora.getMinutes() + ':' + this.hora.getSeconds();
-        this.lista.notas.push(new Nota(this.lista.id));
+        this.lista.notas.push(new Nota(this.lista.id, title, '', this.creada));
         if ((color >= 0) && (color <= colores.length)){
-          this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada, color);
+          this.nuevaVista.nuevaNota(this.lista.id, color);
         }
-        else {this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada, 0)};
+        else {this.nuevaVista.nuevaNota(this.lista.id, 0)};
+        this.nuevaVista.tituloV.innerHTML = title;
+        this.nuevaVista.horaV.innerHTML = 'Creada el: ' + this.creada;
         this.lista.id++;
+      }
+
+      actualizarNota(elem){
+        var x = elem.parentNode;
+        for (var elemento of this.lista.notas){
+          if(elemento.id == x.id)
+            elemento.texto = elem.value;
+        }
       }
 
       agarrar(elemento) {
