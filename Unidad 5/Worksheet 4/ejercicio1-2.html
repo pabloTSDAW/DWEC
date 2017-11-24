@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the geochart package.
+      google.charts.load('current', {'packages':['geochart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawRegionsMap() {
+
+        // Create the data table.
+        var data = google.visualization.arrayToDataTable([
+          ['País', 'Turistas (millones)'],
+          ['France', 82.6],
+          ['United States', 75.6],
+          ['Spain', 75.6],
+          ['China', 59.3],
+          ['Italy', 52.4],
+          ['United Kingdom', 35.8],
+          ['Germany', 35.6],
+          ['Mexico', 35],
+          ['Thailand', 32.6],
+          ['Turkey', 25.3]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Ránking mundial de países más turísticos',
+                       'width':800,
+                       'height':500,
+                       'colors': ['#41dce4', '#0d5b98']};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>

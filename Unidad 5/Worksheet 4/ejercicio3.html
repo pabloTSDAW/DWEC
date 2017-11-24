@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+    var array1 = [['PP', 134], ['PSOE', 84], ['Podemos', 67], ['Ciudadanos', 32], ['Esquerra republicana', 9], ['Vasco', 5],['Grupo mixto', 19]]
+    var array2 = [['PP', 129], ['PSOE', 86], ['Podemos', 65], ['Ciudadanos', 36], ['Esquerra republicana', 5], ['Vasco', 6],['Grupo mixto', 22]]
+
+          // Load the Visualization API and the corechart package.
+          google.charts.load('current', {'packages':['corechart']});
+
+          // Set a callback to run when the Google Visualization API is loaded.
+          google.charts.setOnLoadCallback(drawChart);
+
+          // Callback that creates and populates a data table,
+          // instantiates the pie chart, passes in the data and
+          // draws it.
+          function drawChart() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Partido');
+            data.addColumn('number', 'Diputados');
+            data.addRows(array1);
+
+            var data2 = new google.visualization.DataTable();
+            data2.addColumn('string', 'Partido');
+            data2.addColumn('number', 'Diputados');
+            data2.addRows(array2);
+
+            // Set chart options
+            var options = {'title':'Representación en el Congreso de los Diputados',
+                           'width':1000,
+                           'height':300,
+                           'animation': {duration: 1000}};
+
+            var options2 = {'title':'Representación en el Congreso de los Diputados',
+                            'width':1000,
+                            'height':300,
+                             'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+                            'animation': {duration: 1000}};
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+
+            var cambio = 0;
+
+            setInterval(function() {
+              if (cambio == 0){
+                chart.draw(data2, options2);
+                cambio = 1;
+              }
+              else {
+                chart.draw(data, options);
+                cambio = 0;
+              }
+            }, 3000);
+          }
+
+
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
