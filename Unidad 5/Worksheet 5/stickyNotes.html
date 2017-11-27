@@ -145,7 +145,7 @@
       }
 
 
-      nuevaNota(id, color) {
+      nuevaNota(id, titulo, texto, hora, color) {
         //Crea una vista para la nota
         this.notaV = document.createElement('div');
         this.notaV.setAttribute('class', 'nota');
@@ -163,15 +163,17 @@
         this.tituloV = document.createElement('h4');
         this.notaV.appendChild(this.tituloV);
         this.tituloV.style.backgroundColor = colores[color][1];
-        // this.tituloV.innerHTML = titulo;
+        this.tituloV.innerHTML = titulo;
 
         this.textoV = document.createElement('textarea');
         this.textoV.setAttribute('onchange', 'controlador.actualizarNota(this)');
         this.notaV.appendChild(this.textoV);
+        this.textoV.value = texto;
         this.textoV.style.backgroundColor = colores[color][0];
 
         this.horaV = document.createElement('p');
         this.notaV.appendChild(this.horaV);
+        this.horaV.innerHTML = hora;
 
         this.boton = document.createElement('button');
         this.boton.setAttribute('type', 'button');
@@ -187,6 +189,7 @@
         //Elimina la nota seleccionada por id
         document.getElementById('tablero').removeChild(document.getElementById(id));
         this.controlador.lista.notas.splice(this.controlador.lista.notas[id], 1);
+        this.controlador.saveLocalStorage();
       }
 
     }
@@ -213,12 +216,13 @@
         this.creada = this.hora.getDate() + '/' + this.hora.getMonth() + '/' + this.hora.getFullYear() + ' ' + this.hora.getHours() + ':' + this.hora.getMinutes() + ':' + this.hora.getSeconds();
         this.lista.notas.push(new Nota(this.lista.id, title, '', this.creada));
         if ((color >= 0) && (color <= colores.length)){
-          this.nuevaVista.nuevaNota(this.lista.id, color);
+          this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada, color);
         }
         else {this.nuevaVista.nuevaNota(this.lista.id, 0)};
-        this.nuevaVista.tituloV.innerHTML = title;
-        this.nuevaVista.horaV.innerHTML = 'Creada el: ' + this.creada;
+        // this.nuevaVista.tituloV.innerHTML = title;
+        // this.nuevaVista.horaV.innerHTML = 'Creada el: ' + this.creada;
         this.lista.id++;
+        this.saveLocalStorage();
       }
 
       actualizarNota(elem){
@@ -227,6 +231,7 @@
           if(elemento.id == x.id)
             elemento.texto = elem.value;
         }
+        this.saveLocalStorage();
       }
 
       agarrar(elemento) {
@@ -251,6 +256,20 @@
           }
       }
 
+      saveLocalStorage() {
+        localStorage.notas = JSON.stringify(this.lista.notas);
+     }
+
+      loadStorage () {
+          if (localStorage.notas) {
+              this.lista.notas = JSON.parse(localStorage.notas);
+              for (let i = 0; i < this.lista.notas.length; i++) {
+                  this.nuevaVista.nuevaNota(this.lista.notas[i].id, this.lista.notas[i].titulo, this.lista.notas[i].texto, this.lista.notas[i].hora, 0);
+              }
+              return this.lista.notas.length;
+          } else return 0;
+      }
+
     }
 
 
@@ -258,6 +277,7 @@
 
     window.onload = () => {
     controlador = new Controlador();
+    controlador.loadStorage();
     }
 
     window.onmouseup = function(){
