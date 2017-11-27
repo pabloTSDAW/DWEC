@@ -121,11 +121,12 @@
   //MODELO----------------------------------------------------------------------
 
     class Nota {
-      constructor(id, titulo, texto, hora) {
+      constructor(id, titulo, texto, hora, color) {
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
         this.hora = hora;
+        this.color = color;
       }
     }
 
@@ -206,17 +207,18 @@
           this.insertarPosit();
         });
         this.elemento;
+        this.color;
       }
 
       insertarPosit(){
         //Crea una nueva nota y la guarda en la lista
         var title = prompt('Escribe un título para la nota');
-        var color = prompt('Selecciona un color: 0 (amarillo), 1 (azul), 2 (violeta), 3 (blanco), 4 (verde) o 5 (rojo).')
+        this.color = prompt('Selecciona un color: 0 (amarillo), 1 (azul), 2 (violeta), 3 (blanco), 4 (verde) o 5 (rojo).')
         this.hora = new Date();
         this.creada = this.hora.getDate() + '/' + this.hora.getMonth() + '/' + this.hora.getFullYear() + ' ' + this.hora.getHours() + ':' + this.hora.getMinutes() + ':' + this.hora.getSeconds();
-        this.lista.notas.push(new Nota(this.lista.id, title, '', this.creada));
-        if ((color >= 0) && (color <= colores.length)){
-          this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada, color);
+        this.lista.notas.push(new Nota(this.lista.id, title, '', this.creada, this.color));
+        if ((this.color >= 0) && (this.color <= colores.length)){
+          this.nuevaVista.nuevaNota(this.lista.id, title, '', this.creada, this.color);
         }
         else {this.nuevaVista.nuevaNota(this.lista.id, 0)};
         // this.nuevaVista.tituloV.innerHTML = title;
@@ -264,7 +266,7 @@
           if (localStorage.notas) {
               this.lista.notas = JSON.parse(localStorage.notas);
               for (let i = 0; i < this.lista.notas.length; i++) {
-                  this.nuevaVista.nuevaNota(this.lista.notas[i].id, this.lista.notas[i].titulo, this.lista.notas[i].texto, this.lista.notas[i].hora, 0);
+                  this.nuevaVista.nuevaNota(this.lista.notas[i].id, this.lista.notas[i].titulo, this.lista.notas[i].texto, this.lista.notas[i].hora, this.lista.notas[i].color);
               }
               return this.lista.notas.length;
           } else return 0;
