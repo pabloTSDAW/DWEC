@@ -1,0 +1,19 @@
+{
+  "emails": [
+    {
+      "mail": "jesus@gmail.com",
+      "date": "29/11/2017 19:00",
+      "message": "Tío, no tengo ni idea de AJAX."
+    },
+    {
+      "mail": "fran@gmail.com",
+      "date": "29/11/2017 18:30",
+      "message": "Jesús me está pidiendo los ejercicios de AJAX, pringao..."
+    },
+    {
+      "mail": "jose@profes.com",
+      "date": "29/11/2017 17:00",
+      "message": "Tu nota de la asignatura es un 10."
+    }
+  ]
+}

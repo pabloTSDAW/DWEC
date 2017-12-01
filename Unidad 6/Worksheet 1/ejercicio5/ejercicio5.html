@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejercicio 5 - Bandeja de entrada</title>
+  <style type="text/css">
+    h1 {
+      color: rgb(19, 44, 73);
+      font-family: sans-serif;
+    }
+    p {
+      background-color: rgb(180, 232, 246);
+      border: 1px solid rgb(27, 176, 210);
+      height: 30px;
+      padding: 1%;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="demo">
+    <h1>PABLOMAIL</h1>
+  </div>
+
+  <script>
+    var datos = [];
+
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var contenido = JSON.parse(this.responseText);
+          var parrafos = document.getElementsByTagName('p');
+          if (parrafos.length == 0) {
+            for (var i = 0; i < contenido['emails'].length; i++) {
+              var correo = document.createElement("p");
+              var email = datos.push(contenido['emails'][i]['mail'] + ' recibido el ' + contenido['emails'][i]['date'] + ': ' + contenido['emails'][i]['message']);
+              correo.innerHTML = contenido['emails'][i]['mail'] + ' recibido el ' + contenido['emails'][i]['date'] + ': ' + contenido['emails'][i]['message'];
+              document.body.appendChild(correo);
+            }
+          } else {
+            for (var i = 0; i < contenido['emails'].length; i++) {
+              var comprobar = contenido['emails'][i]['mail'] + ' recibido el ' + contenido['emails'][i]['date'] + ': ' + contenido['emails'][i]['message'];
+              if (datos.indexOf(comprobar) == -1) {
+                var correo = document.createElement("p");
+                correo.setAttributte
+                datos.push(comprobar);
+                correo.innerHTML = comprobar;
+                document.body.appendChild(correo);
+              }
+            }
+          }
+        }
+      };
+      xhttp.open("GET", "correos.json", true);
+      xhttp.send();
+    }
+
+    setInterval(function() {
+      loadDoc();
+    }, 1000);
+  </script>
+
+</body>
+
+</html>

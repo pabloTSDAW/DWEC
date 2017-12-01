@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 4-1</title>
+  <style media="screen">
+
+    .registro {
+      padding: 1%;
+      display: inline-block;
+      background-color: rgb(167, 243, 249);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="registro">
+  <h2>Registro de usuario</h2>
+  <form action="usuarios.php" method="post">
+    <div>
+      <label for="name">Username:</label>
+      <input type="text" id="username" name="username" />
+    </div>
+    <div>
+      <p id="disponible"></p>
+    </div>
+    <br>
+    <div>
+      <button type="button" name="button" onclick="getName()">Comprobar disponibilidad</button>
+    </div>
+  </form>
+</div>
+
+  <script type="text/javascript">
+
+    /*4. Vamos a comprobar haciendo uso de AJAX si en un formulario de registro de usuario un
+      nombre está disponible o no. En Por tanto debes:
+        ◦ Crear una página XHTML de registro de usuario en la que el usuario podrá escribir
+        el username que desea. Deberá disponer también de un botón “Comprobar
+        disponibilidad” que debe llamar a una página en PHP en tu servidor., pasándole
+        como parámetro el nombre escogido.
+        ◦ Crear la página PHP que indica si el nombre está disponible o no. En un caso real esa
+        página consultaría una Base de Datos para hacer la comprobación. En nuestro caso
+        por simplicidad, tan sólo generará aleatoriamente una respuesta afirmativa o negativa
+        a la web cliente (enviada en formato XML).
+        ◦ En el cliente debes mostrar al usuario la disponibilidad o no del nombre.*/
+
+        var usuario;
+        var mensaje;
+
+        function getName() {
+          usuario = document.getElementById('username').value;
+          mensaje = document.getElementById('disponible');
+          loadDoc();
+        }
+
+        function loadDoc() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              let variable = JSON.parse(this.responseText);
+              if (usuario != '') {
+                if(variable['validar'] == 'si'){
+                  mensaje.innerHTML = 'Nombre de usuario no disponible';
+                  mensaje.style.color = 'red';
+                } else {
+                  mensaje.innerHTML = 'Nombre de usuario disponible';
+                  mensaje.style.color = 'green';
+                }
+              }
+            }
+          };
+          xhttp.open("GET", "usuarios.php?user="+usuario, true);
+          xhttp.send();
+        }
+
+  </script>
+</body>
+
+</html>
