@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 7</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      padding: 1%;
+      background-color: rgb(46, 46, 45);
+      color: white;
+    }
+
+    h1 {
+      color: rgb(51, 240, 244);
+    }
+
+    * {
+      font-family: sans-serif;
+    }
+
+    #mapa {
+      height: 400px;
+      width: 40%;
+    }
+    b {
+      color: rgb(51, 240, 244);
+    }
+    #tiempo{
+      width: 40%;
+      height: 400px;
+      margin-left: 5%;
+    }
+    #info {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>INFORMACIÓN METEREOLÓGICA</h1>
+  <div class="registro">
+    <h2>Municipios</h2>
+    <form action="municipios.php" method="post">
+      <div>
+        <label for="name">Municipio:</label>
+        <input type="text" id="municipio" name="municipio" />
+      </div>
+      <div>
+        <button type="button" name="button" onclick="getPos()">Buscar</button>
+      </div>
+      <br>
+    </form>
+    <div id="opciones">
+    </div>
+  </div>
+  </br>
+  <div id="info">
+    <div id="mapa" style="display:none;"></div>
+    <div id="tiempo"></div>
+  </div>
+
+  <script type="text/javascript">
+    /*7. Mejora el ejercicio anterior para hacer uso ahora de las predicciones meteorológicas que
+      ofrece la AEMET. Actualmente se pueden consultar mediante XML las predicciones que;
+      genera la Agencia de Meteorología para cada municipio. Por tanto conociendo su código
+      postal, podemos consultar los datos para un municipio (para Granada, es por ejemplo,
+      http://www.aemet.es/xml/municipios/localidad_18087.xml). Por tanto se pide:
+      • Añadir a tu web la posibilidad de consultar el tiempo para el municipio escogido.
+      Para ello recuerda que ya disponías del código postal, de modo que ahora desde tu
+      PHP deberás consultar la URL correspondiente de la AEMET y enviar los datos al
+      cliente (en el formato que tú decidas).
+      */
+
+    var codigo;
+    var variable2;
+
+    function getPos() {
+      opciones = document.getElementById('opciones');
+      tiempo = document.getElementById('tiempo');
+      municipio = document.getElementById('municipio').value;
+      loadDoc();
+      mapa = document.getElementById('mapa');
+      mapa.style.display = 'block';
+      var localizacion = document.createElement('script');
+      localizacion.setAttribute('type', 'text/javascript')
+      localizacion.setAttribute('src', "https://maps.googleapis.com/maps/api/js?key=AIzaSyCs8GeLs70vepIkA2ZgoerHjkJKKUduFBE&callback=posicion");
+      document.body.appendChild(localizacion);
+      loadWeather();
+    }
+
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          let variable = JSON.parse(this.responseText);
+          if (municipio != '') {
+            opciones.style.display = 'block';
+            opciones.innerHTML = '<b>Latitud</b>: ' + variable[0][1] + ', <b>longitud</b>: ' + variable[0][0] + '<br><b>Código postal</b>: ' + variable[0][2];
+            longitud = parseFloat(variable[0][0]);
+            latitud = parseFloat(variable[0][1]);
+            codigo = parseInt(variable[0][2].substring(0,2));
+          } else {
+            opciones.style.display = 'none';
+          }
+        }
+      };
+      xhttp.open("GET", "municipios.php?place=" + municipio, true);
+      xhttp.send();
+    }
+
+    function loadWeather() {
+      var xhttp2 = new XMLHttpRequest();
+      xhttp2.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          variable2 = JSON.parse(this.responseText);
+          prediccion();
+        }
+      };
+      xhttp2.open("GET",
+        `https://opendata.aemet.es/opendata/api/prediccion/provincia/hoy/${codigo}/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3BhY2FzdGVsbEBob3RtYWlsLmNvbSIsImp0aSI6IjMyNmRhMDk0LTY0NmYtNDYzOS1hNTM3LTA0MGU5ZDA1N2U2ZCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNTEyMTUyODQ3LCJ1c2VySWQiOiIzMjZkYTA5NC02NDZmLTQ2MzktYTUzNy0wNDBlOWQwNTdlNmQiLCJyb2xlIjoiIn0.XXm5haSXac4YbnqNE8Lmqvfa9Rnm_JSS9D6J_2k5u_w`,
+        true);
+      xhttp2.send();
+    }
+
+    function prediccion() {
+      var xhttp3 = new XMLHttpRequest();
+      xhttp3.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          let variable3 = this.responseText;
+          tiempo.innerHTML = variable3;
+        }
+      };
+      xhttp3.open("GET", variable2.datos, true);
+      xhttp3.send();
+    }
+
+    //GEOLOCALIZACIÓN--------------------------------------------------------------
+
+    function posicion() {
+      if ("geolocation" in navigator) {
+        return navigator.geolocation.getCurrentPosition(Mapa);
+      } else {
+        document.write('Desactivado');
+      }
+    }
+
+    function Mapa(position) {
+      var pos = {
+        lat: latitud,
+        lng: longitud
+      };
+      console.log(pos);
+      var mapa = new google.maps.Map(document.getElementById('mapa'), {
+        zoom: 12,
+        center: pos
+      });
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: mapa
+      });
+    }
+  </script>
+
+</body>
+
+</html>
