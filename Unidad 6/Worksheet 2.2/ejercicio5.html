@@ -50,14 +50,12 @@
 <body onload="loadDoc()">
   <h1>Información meteorológica</h1>
   <h3>Provincias</h3>
-  <select id="provincias">
+  <select id="provincias" onchange="municipios()">
   </select>
-  <button type="button" name="boton" onclick="municipios()">Comprobar</button>
   <br><br>
   <div id="muni" style="display:none">
     <select id="pueblos">
     </select>
-    <button type="button" name="boton2" onclick="getPos()">Comprobar</button>
   </div>
   </br>
   </br>
@@ -105,13 +103,19 @@
     }
 
     function municipios() {
+      var pueblos = document.getElementById('pueblos');
+      pueblos.remove();
       id = document.getElementById('provincias').value;
+      var pueblos =  document.createElement('select');;
       var muni = document.getElementById('muni');
       var xhttp2 = new XMLHttpRequest();
       xhttp2.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           variable1 = JSON.parse(this.responseText);
           muni.style.display = 'block';
+          pueblos.setAttribute('id', 'pueblos');
+          pueblos.setAttribute('onchange', 'getPos()');
+          muni.appendChild(pueblos);
           for (var i = 0; i < variable1.length; i++) {
             pueblos.innerHTML += `<option value=${variable1[i][0]}>` + variable1[i][0] + '</option>';
           }
