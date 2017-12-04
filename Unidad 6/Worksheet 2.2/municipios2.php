@@ -1,5 +1,6 @@
 <?php
-$variable = $_GET['place'];
+
+$variable = $_GET['s'];
 
 try {
     $mbd = new PDO('mysql:host=localhost:3306;dbname=postal', 'root', '1331Ap1331');

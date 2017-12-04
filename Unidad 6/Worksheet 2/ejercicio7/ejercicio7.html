@@ -76,6 +76,7 @@
       */
 
     var codigo;
+    var codigo2;
     var variable2;
 
     function getPos() {
@@ -103,6 +104,8 @@
             longitud = parseFloat(variable[0][0]);
             latitud = parseFloat(variable[0][1]);
             codigo = parseInt(variable[0][2].substring(0,2));
+            codigo2 = parseInt(variable[0][3] + variable[0][4]);
+            console.log(codigo2);
           } else {
             opciones.style.display = 'none';
           }
@@ -111,6 +114,34 @@
       xhttp.open("GET", "municipios.php?place=" + municipio, true);
       xhttp.send();
     }
+
+    // function loadWeather() {
+    //   var xhttp2 = new XMLHttpRequest();
+    //   xhttp2.onreadystatechange = function() {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //       variable2 = JSON.parse(this.responseText);
+    //       prediccion();
+    //     }
+    //   };
+    //   xhttp2.open("GET",
+    //     `https://opendata.aemet.es/opendata/api/prediccion/provincia/hoy/${codigo}/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3BhY2FzdGVsbEBob3RtYWlsLmNvbSIsImp0aSI6IjMyNmRhMDk0LTY0NmYtNDYzOS1hNTM3LTA0MGU5ZDA1N2U2ZCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNTEyMTUyODQ3LCJ1c2VySWQiOiIzMjZkYTA5NC02NDZmLTQ2MzktYTUzNy0wNDBlOWQwNTdlNmQiLCJyb2xlIjoiIn0.XXm5haSXac4YbnqNE8Lmqvfa9Rnm_JSS9D6J_2k5u_w`,
+    //     true);
+    //   xhttp2.send();
+    // }
+    //
+    // function prediccion() {
+    //   var xhttp3 = new XMLHttpRequest();
+    //   xhttp3.onreadystatechange = function() {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //       let variable3 = this.responseText;
+    //       tiempo.innerHTML = variable3;
+    //     }
+    //   };
+    //   xhttp3.open("GET", variable2.datos, true);
+    //   xhttp3.send();
+    // }
+
+//PREDICCIÓN POR MUNICIPIOS----------------------------------------------------------
 
     function loadWeather() {
       var xhttp2 = new XMLHttpRequest();
@@ -121,7 +152,7 @@
         }
       };
       xhttp2.open("GET",
-        `https://opendata.aemet.es/opendata/api/prediccion/provincia/hoy/${codigo}/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3BhY2FzdGVsbEBob3RtYWlsLmNvbSIsImp0aSI6IjMyNmRhMDk0LTY0NmYtNDYzOS1hNTM3LTA0MGU5ZDA1N2U2ZCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNTEyMTUyODQ3LCJ1c2VySWQiOiIzMjZkYTA5NC02NDZmLTQ2MzktYTUzNy0wNDBlOWQwNTdlNmQiLCJyb2xlIjoiIn0.XXm5haSXac4YbnqNE8Lmqvfa9Rnm_JSS9D6J_2k5u_w`,
+        `https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/${codigo2}/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3BhY2FzdGVsbEBob3RtYWlsLmNvbSIsImp0aSI6IjMyNmRhMDk0LTY0NmYtNDYzOS1hNTM3LTA0MGU5ZDA1N2U2ZCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNTEyMTUyODQ3LCJ1c2VySWQiOiIzMjZkYTA5NC02NDZmLTQ2MzktYTUzNy0wNDBlOWQwNTdlNmQiLCJyb2xlIjoiIn0.XXm5haSXac4YbnqNE8Lmqvfa9Rnm_JSS9D6J_2k5u_w`,
         true);
       xhttp2.send();
     }
@@ -130,15 +161,15 @@
       var xhttp3 = new XMLHttpRequest();
       xhttp3.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          let variable3 = this.responseText;
-          tiempo.innerHTML = variable3;
+          let variable3 = JSON.parse(this.responseText);
+          tiempo.innerHTML = variable3['nombre'];
         }
       };
       xhttp3.open("GET", variable2.datos, true);
       xhttp3.send();
     }
 
-    //GEOLOCALIZACIÓN--------------------------------------------------------------
+//GEOLOCALIZACIÓN--------------------------------------------------------------
 
     function posicion() {
       if ("geolocation" in navigator) {

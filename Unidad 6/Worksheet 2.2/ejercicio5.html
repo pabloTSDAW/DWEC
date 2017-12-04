@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 5</title>
+  <style>
+  body {
+    box-sizing: border-box;
+    padding: 1%;
+    background-color: rgb(46, 46, 45);
+    color: white;
+  }
+
+  h1 {
+    color: rgb(51, 240, 244);
+  }
+
+  * {
+    font-family: sans-serif;
+  }
+  h3 {
+    font-weight: bold;
+    color: rgb(51, 240, 244);
+  }
+  #mapa {
+    height: 400px;
+    width: 40%;
+  }
+  b {
+    color: rgb(51, 240, 244);
+  }
+  #tiempo{
+    width: 40%;
+    height: 400px;
+    margin-left: 5%;
+  }
+  #info {
+    display: flex;
+    align-items: center;
+  }
+  </style>
+</head>
+
+<body onload="loadDoc()">
+  <h1>Información meteorológica</h1>
+  <h3>Provincias</h3>
+  <select id="provincias">
+  </select>
+  <button type="button" name="boton" onclick="municipios()">Comprobar</button>
+  <br><br>
+  <div id="muni" style="display:none">
+  <select id="pueblos">
+    </select>
+  <button type="button" name="boton2" onclick="getPos()">Comprobar</button>
+</div>
+</br></br>
+<div id="opciones">
+</div>
+</br>
+<div id="info">
+<div id="mapa" style="display:none;"></div>
+<div id="tiempo"></div>
+</div>
+
+  <script type="text/javascript">
+
+    /*5) Cargar contenido dinámicamente usando AJAX. Crear una web en la que,
+    mediante desplegables, pueda seleccionar una localidad. Inicialmente se
+    cargan tan sólo las provincias. Al seleccionar una provincia, aparece otro
+    desplegable con los municipios de esa provincia.
+    Estos datos (los listados de provincias iniciales, así como los listados de
+    municipios para una provincia seleccionada) serán suministrados por una
+    página en PHP que será llamada mediante AJAX. Dicha página deberá obtener
+    esa información y enviarsela al usuario en un formato correcto de intercambio
+    de datos (XML o JSON). Para obtener esos datos de municipios, en la web
+    https://postal.cat/ los puedes encontrar en varios formatos (CSV, EXCEL o BD SQL),
+    siendo decisión del alumno cual utilizar.*/
+
+    var variable;
+    var variable2;
+    var id;
+    var id2;
+    var codigo;
+    var codigo2;
+
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          variable = JSON.parse(this.responseText);
+          for (var i = 0; i < variable.length; i++) {
+            provincias.innerHTML += `<option value=${variable[i][0]}>` + variable[i][0] + '</option>';
+          }
+          console.log(variable);
+        }
+      };
+      xhttp.open("GET", "datos.php", true);
+      xhttp.send();
+    }
+
+    function municipios() {
+      id = document.getElementById('provincias').value;
+      var muni = document.getElementById('muni');
+      var xhttp2 = new XMLHttpRequest();
+      xhttp2.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          variable1 = JSON.parse(this.responseText);
+          muni.style.display = 'block';
+          for (var i = 0; i < variable1.length; i++) {
+            pueblos.innerHTML += `<option value=${variable1[i][0]}>` + variable1[i][0] + '</option>';
+          }
+        }
+      };
+      xhttp2.open("GET", "municipios.php?place=" + id, true);
+      xhttp2.send();
+    }
+
+    function municipios2() {
+      var opciones = document.getElementById('opciones');
+      id2 = document.getElementById('pueblos').value;
+      var xhttp3 = new XMLHttpRequest();
+      xhttp3.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          let variable = JSON.parse(this.responseText);
+          console.log(variable);
+          for (var i = 0; i < variable.length; i++) {
+            opciones.innerHTML = '<b>Latitud</b>: ' + variable[0][1] + ', <b>longitud</b>: ' + variable[0][0] + '<br><b>Código postal</b>: ' + variable[0][2];
+            longitud = parseFloat(variable[0][0]);
+            latitud = parseFloat(variable[0][1]);
+            codigo = parseInt(variable[0][2].substring(0,2));
+            codigo2 = parseInt(variable[0][3] + variable[0][4]);
+          }
+        }
+      };
+      xhttp3.open("GET", "municipios2.php?s=" + id2, true);
+      xhttp3.send();
+    }
+
+
+    function getPos() {
+      opciones = document.getElementById('opciones');
+      tiempo = document.getElementById('tiempo');
+      municipio = document.getElementById('pueblos').value;
+      municipios2();
+      mapa = document.getElementById('mapa');
+      mapa.style.display = 'block';
+      var localizacion = document.createElement('script');
+      localizacion.setAttribute('type', 'text/javascript')
+      localizacion.setAttribute('src', "https://maps.googleapis.com/maps/api/js?key=AIzaSyCs8GeLs70vepIkA2ZgoerHjkJKKUduFBE&callback=posicion");
+      document.body.appendChild(localizacion);
+      loadWeather();
+    }
+
+    function loadWeather() {
+      var xhttp2 = new XMLHttpRequest();
+      xhttp2.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          variable2 = JSON.parse(this.responseText);
+          prediccion();
+        }
+      };
+      xhttp2.open("GET",
+        `https://opendata.aemet.es/opendata/api/prediccion/provincia/hoy/${codigo}/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb3BhY2FzdGVsbEBob3RtYWlsLmNvbSIsImp0aSI6IjMyNmRhMDk0LTY0NmYtNDYzOS1hNTM3LTA0MGU5ZDA1N2U2ZCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNTEyMTUyODQ3LCJ1c2VySWQiOiIzMjZkYTA5NC02NDZmLTQ2MzktYTUzNy0wNDBlOWQwNTdlNmQiLCJyb2xlIjoiIn0.XXm5haSXac4YbnqNE8Lmqvfa9Rnm_JSS9D6J_2k5u_w`,
+        true);
+      xhttp2.send();
+    }
+
+    function prediccion() {
+      var xhttp3 = new XMLHttpRequest();
+      xhttp3.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          let variable3 = this.responseText;
+          tiempo.innerHTML = variable3;
+        }
+      };
+      xhttp3.open("GET", variable2.datos, true);
+      xhttp3.send();
+    }
+
+
+    function posicion() {
+      if ("geolocation" in navigator) {
+        return navigator.geolocation.getCurrentPosition(Mapa);
+      } else {
+        document.write('Desactivado');
+      }
+    }
+
+    function Mapa(position) {
+      var pos = {
+        lat: latitud,
+        lng: longitud
+      };
+      console.log(pos);
+      var mapa = new google.maps.Map(document.getElementById('mapa'), {
+        zoom: 12,
+        center: pos
+      });
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: mapa
+      });
+    }
+
+  </script>
+
+</body>
+
+</html>
