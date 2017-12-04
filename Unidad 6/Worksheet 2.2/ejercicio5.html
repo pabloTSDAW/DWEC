@@ -5,40 +5,45 @@
   <meta charset="utf-8">
   <title>Ejercicio 5</title>
   <style>
-  body {
-    box-sizing: border-box;
-    padding: 1%;
-    background-color: rgb(46, 46, 45);
-    color: white;
-  }
+    body {
+      box-sizing: border-box;
+      padding: 1%;
+      background-color: rgb(46, 46, 45);
+      color: white;
+    }
 
-  h1 {
-    color: rgb(51, 240, 244);
-  }
+    h1 {
+      color: rgb(51, 240, 244);
+    }
 
-  * {
-    font-family: sans-serif;
-  }
-  h3 {
-    font-weight: bold;
-    color: rgb(51, 240, 244);
-  }
-  #mapa {
-    height: 400px;
-    width: 40%;
-  }
-  b {
-    color: rgb(51, 240, 244);
-  }
-  #tiempo{
-    width: 40%;
-    height: 400px;
-    margin-left: 5%;
-  }
-  #info {
-    display: flex;
-    align-items: center;
-  }
+    * {
+      font-family: sans-serif;
+    }
+
+    h3 {
+      font-weight: bold;
+      color: rgb(51, 240, 244);
+    }
+
+    #mapa {
+      height: 400px;
+      width: 40%;
+    }
+
+    b {
+      color: rgb(51, 240, 244);
+    }
+
+    #tiempo {
+      width: 40%;
+      height: 400px;
+      margin-left: 5%;
+    }
+
+    #info {
+      display: flex;
+      align-items: center;
+    }
   </style>
 </head>
 
@@ -50,32 +55,32 @@
   <button type="button" name="boton" onclick="municipios()">Comprobar</button>
   <br><br>
   <div id="muni" style="display:none">
-  <select id="pueblos">
+    <select id="pueblos">
     </select>
-  <button type="button" name="boton2" onclick="getPos()">Comprobar</button>
-</div>
-</br></br>
-<div id="opciones">
-</div>
-</br>
-<div id="info">
-<div id="mapa" style="display:none;"></div>
-<div id="tiempo"></div>
-</div>
+    <button type="button" name="boton2" onclick="getPos()">Comprobar</button>
+  </div>
+  </br>
+  </br>
+  <div id="opciones">
+  </div>
+  </br>
+  <div id="info">
+    <div id="mapa" style="display:none;"></div>
+    <div id="tiempo"></div>
+  </div>
 
   <script type="text/javascript">
-
     /*5) Cargar contenido dinámicamente usando AJAX. Crear una web en la que,
-    mediante desplegables, pueda seleccionar una localidad. Inicialmente se
-    cargan tan sólo las provincias. Al seleccionar una provincia, aparece otro
-    desplegable con los municipios de esa provincia.
-    Estos datos (los listados de provincias iniciales, así como los listados de
-    municipios para una provincia seleccionada) serán suministrados por una
-    página en PHP que será llamada mediante AJAX. Dicha página deberá obtener
-    esa información y enviarsela al usuario en un formato correcto de intercambio
-    de datos (XML o JSON). Para obtener esos datos de municipios, en la web
-    https://postal.cat/ los puedes encontrar en varios formatos (CSV, EXCEL o BD SQL),
-    siendo decisión del alumno cual utilizar.*/
+        mediante desplegables, pueda seleccionar una localidad. Inicialmente se
+        cargan tan sólo las provincias. Al seleccionar una provincia, aparece otro
+        desplegable con los municipios de esa provincia.
+        Estos datos (los listados de provincias iniciales, así como los listados de
+        municipios para una provincia seleccionada) serán suministrados por una
+        página en PHP que será llamada mediante AJAX. Dicha página deberá obtener
+        esa información y enviarsela al usuario en un formato correcto de intercambio
+        de datos (XML o JSON). Para obtener esos datos de municipios, en la web
+        https://postal.cat/ los puedes encontrar en varios formatos (CSV, EXCEL o BD SQL),
+        siendo decisión del alumno cual utilizar.*/
 
     var variable;
     var variable2;
@@ -128,7 +133,7 @@
             opciones.innerHTML = '<b>Latitud</b>: ' + variable[0][1] + ', <b>longitud</b>: ' + variable[0][0] + '<br><b>Código postal</b>: ' + variable[0][2];
             longitud = parseFloat(variable[0][0]);
             latitud = parseFloat(variable[0][1]);
-            codigo = parseInt(variable[0][2].substring(0,2));
+            codigo = parseInt(variable[0][2].substring(0, 2));
             codigo2 = parseInt(variable[0][3] + variable[0][4]);
           }
         }
@@ -202,7 +207,6 @@
         map: mapa
       });
     }
-
   </script>
 
 </body>
