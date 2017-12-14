@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 5</title>
+
+  </head>
+  <body>
+    <ul>
+      <li>Lista 1:</li>
+        <ol>
+          <li>Tortilla</li>
+          <li>Jamón</li>
+          <li>Queso</li>
+        </ol>
+      <li>Lista 2:</li>
+      <ul>
+        <li>Coca Cola</li>
+        <li>Leche</li>
+        <li>Té</li>
+      </ul>
+    </ul>
+
+    <button type="button" name="button" onclick="ocultarElemento()">Eliminar primer elemento</button>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+      /*5. Selecciona el primer elemento de la primera lista y oculta dicho elemento.
+          Lista 1:
+              1. Tortilla
+              2. Jamón
+              3. Queso
+          Lista 2:
+              ■ Coca Cola
+              ■ Leche
+              ■ Té
+      */
+
+      function ocultarElemento(){
+        var primero = $('ol li:first-child');
+        primero.hide();
+      }
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8</title>
+
+  </head>
+  <body>
+
+    <div>
+      <h1>Noticia 1</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div>
+      <h1>Noticia 2</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div>
+      <h1>Noticia 3</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <button type="button" name="button" onclick="tamaño1()">Tamaño 1</button>
+    <button type="button" name="button" onclick="tamaño2()">Tamaño 2</button>
+    <button type="button" name="button" onclick="tamaño3()">Tamaño 3</button>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+      /*8. Crea una web simulando una serie de noticias (3 divs con el texto de la noticia y sobre cada uno
+        su título correspondiente). Mediante JQuery
+            a) Cambia el tamaño de fuente de las noticias (3 tamaños).
+            b) Al pulsar sobre cada título se debe mostrar u ocultar ésta.
+            c) Al colocar el ratón sobre el texto de la noticia debe cambiar el color de fondo de ésta.
+            d) Completa el apartado c) haciendo que al salir el ratón se vuelva a su color original el
+            fondo
+      */
+
+      //Apartado a ------------------------------------------------------------------------------
+
+      function tamaño1(){
+        $('div p').css("font-size", "12px");
+        }
+
+      function tamaño2(){
+        $('div p').css("font-size", "18px");
+        }
+
+      function tamaño3(){
+        $('div p').css("font-size", "24px");
+        }
+
+      //Apartado b ------------------------------------------------------------------------------
+
+        $('h1').click(function(){
+          $(this).siblings('p').toggle();
+        }
+      );
+
+      //Apartado c y d ------------------------------------------------------------------------------
+
+      $('div').hover(function () {
+          $(this).css('background-color', 'lightblue');
+      }, function () {
+          $(this).css('background-color', 'transparent');
+      });
+
+
+    </script>
+
+  </body>
+</html>
