@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 10</title>
+    <style media="screen">
+
+      p {
+        margin-top: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <input type="password" name="" value="">
+    <p></p>
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+
+      /*10. Seguridad en una clave Crea un plugin que realice lo siguiente. Tendremos un formulario
+        con un campo input password. Con jQuery mostraremos dinámicamente un mensaje al lado del
+        campo con la fortaleza de la clave que haya escrita. A medida que el usuario cambie el
+        contenido del campo, se actualizará el mensaje del lado, mostrando la fortaleza de la nueva
+        clave. (<5 no segura, >5 y <8 medianamente segura, >8 segura)
+      */
+
+      $(document).ready(function(){
+        $('input').keyup(function(){
+          if ($('input').val().length < 5) {
+            $('p').html('contraseña no segura');
+            $('p').css('color', 'red');
+          }
+          else if ($('input').val().length < 8) {
+            $('p').html('contraseña medianamente');
+            $('p').css('color', 'red');
+          }
+          else {
+            $('p').html('contraseña segura');
+            $('p').css('color', 'green');
+          }
+        });
+      });
+
+    </script>
+
+  </body>
+</html>
