@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 3</title>
+    <style media="screen">
+      td {
+        border: 1px solid;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <table>
+      <tr>
+        <td>contenido</td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>contenido</td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>contenido</td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+        <td>contenido</td>
+        <td></td>
+      </tr>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+      /*3. Selecciona de una tabla todas las casillas vacías y ponlas un color de fondo amarillo.*/
+
+      $('td').filter(function(){
+        if ($(this).html() == '') {
+          $(this).css('background-color', 'yellow');
+        }
+      })
+
+    </script>
+
+  </body>
+</html>

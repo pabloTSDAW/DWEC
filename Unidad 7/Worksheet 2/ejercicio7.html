@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 7</title>
+    <style media="screen">
+      div {
+        border: 2px solid;
+        width: 100px;
+        margin: 1%;
+        height: 100px;
+        position: absolute;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <button type="button" class="animar">Empezar animación</button>
+    <button type="button" class="desanimar">Terminar animación</button>
+
+    <div></div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+      /*7. Crea un documento en el que se produzcan 4 animaciones mediante un botón y mediante un
+        segundo botón se elimine la cola de animaciones.
+      */
+
+      $(".animar").click(function(){
+      $("div").animate({
+          left: '250px',
+          opacity: '0.5',
+          height: '150px',
+          width: '150px'
+        }, 5000);
+      });
+
+      $(".desanimar").click(function(){
+      $("div").stop();
+      });
+
+    </script>
+
+  </body>
+</html>

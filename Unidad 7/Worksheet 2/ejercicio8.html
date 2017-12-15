@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8</title>
+    <style media="screen">
+      div {
+        width: 50px;
+        height: 50px;
+        margin: 2%;
+        background-color: black;
+        display: none;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <button type="button" class="animar">GO</button>
+
+    <div></div>
+    <div class="dos"></div>
+    <div class="tres"></div>
+    <div class="cuatro"></div>
+    <div></div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+      /*8. Mediante una cola de 5 métodos fadeIn() aplicados sobre 5 elementos div cuadrados,
+        establecer un retraso “slow”, “fast”, 800 ms, 2000 ms y 40000 ms. respectivamente.
+      */
+
+      $(document).ready(function(){
+        $('button').click(function(){
+          $('div:first').fadeIn('slow');
+          $('.dos').fadeIn('fast');
+          $('.tres').fadeIn('800ms');
+          $('.cuatro').fadeIn('2000ms');
+          $('div:last').fadeIn('40000ms');
+        })
+      })
+
+    </script>
+
+  </body>
+</html>
