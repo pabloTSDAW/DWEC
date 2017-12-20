@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Search Films</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
+  <header>
+    <div id="titulo">
+      <h1 style="font-weight: bold;">PAUL'S SEEKER</h1>
+      <h4> - </h4>
+      <h4>Find information about your favorite movies, series or games.</h4>
+    </div>
+    <div class="inputs">
+      <input type="text" style="width:30%" name="buscar" id="busqueda" placeholder="Título..." onchange="c.limpiar(1)">
+      <select class="filtro" name="" style="width:10%" onchange="c.limpiar(1)">
+        <option value="movie">Films</option>
+        <option value="series">Series</option>
+        <option value="game">Games</option>
+      </select>
+      <div id="google_translate_element"></div>
+    </div>
+  </header>
+  <div id="carga" style="display: none;">
+    <img src="giff.gif" />
+  </div>
+
+  <div id="peliculas">
+  </div>
+
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  }
+  </script>
+  <script type="text/javascript" src="js/traduccion.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="js/codigo.js"></script>
+
+</body>
+
+</html>

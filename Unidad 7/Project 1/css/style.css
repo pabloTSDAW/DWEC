@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background-color: rgb(97, 97, 97);
+  /* background-image: url('fondo.jpg');
+  background-size: cover; */
+  color: white;
+  font-family: 'Baloo Bhaina', cursive;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  padding: 2%;
+  background-color: rgb(121, 30, 30);
+  /* background-image: url('cabecera.jpg');
+  background-size: cover; */
+  color: white;
+}
+
+#titulo {
+  display: flex;
+  align-items: center;
+}
+
+#titulo h4 {
+  margin-left: 2%;
+}
+
+h2 {
+  width: 120%;
+  font-weight: bold;
+}
+
+img {
+  width: 200px;
+  height: 280px;
+  border: 3px solid rgb(121, 30, 30);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(31, 31, 32);
+}
+
+.pelicula:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+img:hover {
+  border: 3px solid white;
+}
+
+input {
+  width: 15%;
+  padding: 5px;
+  margin-right: 2%;
+}
+
+#peliculas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.pelicula {
+  opacity: 0.7;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 15%;
+  margin: 2% 5%;
+}
+
+.pelicula p {
+  color: rgb(121, 30, 30);
+}
+
+.pelicula p, .pelicula h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.inputs {
+  display: flex;
+}
+
+/*PAGINA 2--------------------------------------------------------------------*/
+
+.peliculaSeleccionada {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 2% 2%;
+  width: 90%;
+}
+
+.contenido {
+  padding: 0 5%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.portada {
+  padding: 2%;
+}
+
+.peliculaSeleccionada h2, .peliculaSeleccionada span {
+  color: rgb(121, 30, 30);
+  font-weight: bold;
+}
+
+.peliculaSeleccionada img {
+  width: 300px;
+  height: 400px;
+}
+
+.peliculaSeleccionada a {
+  text-decoration: none;
+  color: rgb(15, 16, 17);
+}
+
+#scroll {
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    background-color: rgb(121, 30, 30);
+    text-indent:-9999px;
+    display:none;
+    border-radius:60px
+}
+
+a:hover {
+  color: rgb(237, 142, 27);
+}
+
+p:hover {
+  font-weight: bold;
+  color: rgb(237, 142, 27);
+}
+
+/*BOTÓN VOLVER INICIO SCROLL*/
+
+#scroll span {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-8px;
+    margin-top:-12px;
+    height:0;
+    width:0;
+    border:8px solid transparent;
+    border-bottom-color: #ffffff;
+}
+#scroll:hover {
+    background-color: #e74c3c;
+    opacity:1;
+}
+
+/*Traducción Google*/
+#google_translate_element {
+  margin-left: 2%;
+}
+
+.goog-logo-link img {
+  /* display: none; */
+  width: 50px;
+  height: 20px;
+}
