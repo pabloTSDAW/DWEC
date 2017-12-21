@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>Ejercicio 9</title>
     <style media="screen">
-    
+
       div {
         width: 40px;
         height: 40px;
         margin: 2%;
         margin-bottom: 30px;
+        left: 1000px;
         bottom: 100px;
         background-color: black;
         position: absolute;
@@ -36,12 +37,14 @@
 
       $(document).ready(function(){
         $(".start").click(function(){
+        var pos = $('div').css('left');
+        var pos2 = (parseInt(pos) - 200) + 'px';
         $("div").animate({
-            left: '200px',
+            left: pos2,
             opacity: "1"
           }, 3000);
           $("div").animate({
-              top: '200px',
+              top: '0px',
               opacity: "0"
             }, 3000);
         });
