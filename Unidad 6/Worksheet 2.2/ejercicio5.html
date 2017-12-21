@@ -106,7 +106,7 @@
       var pueblos = document.getElementById('pueblos');
       pueblos.remove();
       id = document.getElementById('provincias').value;
-      var pueblos =  document.createElement('select');;
+      var pueblos =  document.createElement('select');
       var muni = document.getElementById('muni');
       var xhttp2 = new XMLHttpRequest();
       xhttp2.onreadystatechange = function() {
@@ -117,7 +117,7 @@
           pueblos.setAttribute('onchange', 'getPos()');
           muni.appendChild(pueblos);
           for (var i = 0; i < variable1.length; i++) {
-            pueblos.innerHTML += `<option value=${variable1[i][0]}>` + variable1[i][0] + '</option>';
+            pueblos.innerHTML += '<option>' + variable1[i][0] + '</option>';
           }
         }
       };

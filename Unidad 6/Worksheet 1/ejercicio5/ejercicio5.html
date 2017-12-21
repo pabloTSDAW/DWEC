@@ -42,7 +42,6 @@
               var comprobar = contenido['emails'][i]['mail'] + ' recibido el ' + contenido['emails'][i]['date'] + ': ' + contenido['emails'][i]['message'];
               if (datos.indexOf(comprobar) == -1) {
                 var correo = document.createElement("p");
-                correo.setAttributte
                 datos.push(comprobar);
                 correo.innerHTML = comprobar;
                 document.body.appendChild(correo);
