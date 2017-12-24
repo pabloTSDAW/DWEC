@@ -31,7 +31,7 @@ class VistaPelicula {
   verPeliculas(peliculas) {
     for (var i = 0; i < peliculas.length; i++) {
       if (peliculas[i].Poster == "N/A" || !(peliculas[i].Poster)) {
-        peliculas[i].Poster = "nodisponible.jpg";
+        peliculas[i].Poster = "images/nodisponible.jpg";
       }
       $('#peliculas').append('<div class="pelicula"><img id="' + peliculas[i].imdbID + '" src="' + peliculas[i].Poster + '" onclick="c.seleccionar(this)"><h2>' + peliculas[i].Title + '</h2><p>' + peliculas[i].Year + '</p></div>');
     }
