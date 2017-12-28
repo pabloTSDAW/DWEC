@@ -158,7 +158,7 @@ p:hover {
     height:0;
     width:0;
     border:8px solid transparent;
-    border-bottom-color: #ffffff;
+    border-bottom-color: white;
 }
 #scroll:hover {
     background-color: #e74c3c;
@@ -174,4 +174,71 @@ p:hover {
   /* display: none; */
   width: 50px;
   height: 20px;
+}
+
+/*GIF Carga*/
+#carga {
+  font-size: 20px;
+  margin: 10% 45%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #791e1e, 2em -2em 0 0em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 0em #791e1e;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #791e1e, 2em -2em 0 0.2em #791e1e, 3em 0em 0 0em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 0em #791e1e, 3em 0em 0 0.2em #791e1e, 2em 2em 0 0em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 0em #791e1e, 2em 2em 0 0.2em #791e1e, 0em 3em 0 0em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 0em #791e1e, 0em 3em 0 0.2em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 0em #791e1e, -2em 2em 0 0.2em #791e1e, -3em 0em 0 0em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 0.2em #791e1e, -2em -2em 0 0em #791e1e;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 0em #791e1e, -2em -2em 0 0.2em #791e1e;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #791e1e, 2em -2em 0 0em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 0em #791e1e;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #791e1e, 2em -2em 0 0.2em #791e1e, 3em 0em 0 0em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 0em #791e1e, 3em 0em 0 0.2em #791e1e, 2em 2em 0 0em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 0em #791e1e, 2em 2em 0 0.2em #791e1e, 0em 3em 0 0em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 0em #791e1e, 0em 3em 0 0.2em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 0em #791e1e, -2em 2em 0 0.2em #791e1e, -3em 0em 0 0em #791e1e, -2em -2em 0 -0.5em #791e1e;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 0.2em #791e1e, -2em -2em 0 0em #791e1e;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 0em #791e1e, -2em -2em 0 0.2em #791e1e;
+  }
 }

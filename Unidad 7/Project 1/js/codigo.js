@@ -158,6 +158,6 @@ $(document).ready(function(){
 });
 
 //DETECTAR CARGA - ANIMACIÓN
-// function cargar(){
-//   document.getElementById("carga").style.display="none";
-// }
+$(window).load(function() {
+    $("#carga").fadeOut("slow");
+});
