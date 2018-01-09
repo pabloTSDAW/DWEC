@@ -1,6 +1,6 @@
 <h3>CLASSIC PONG - SVG:</h3>
 
-<a href="https://github.com/pabloTSDAW/DWEC/blob/master/Unidad%205/SVG/Pong/pong.html">Paul's Seeker</a>
+<a href="https://github.com/pabloTSDAW/DWEC/blob/master/Unidad%205/SVG/Pong/pong.html">Pong</a>
 
 <h3>BUSCADOR PELÍCULAS - OMDB API + jQuery:</h3>
 
