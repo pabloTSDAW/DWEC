@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-superior.component.css']
 })
 export class MenuSuperiorComponent implements OnInit {
+  dato: string;
+  clicks: int;
   dato = 'pepe';
   clicks = 0;
-  azul = 'blue';
 
   clickeame(){
     this.clicks++;

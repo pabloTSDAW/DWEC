@@ -91,10 +91,11 @@ input {
 /*PAGINA 2--------------------------------------------------------------------*/
 
 .peliculaSeleccionada {
+
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 2% 2%;
+  margin: 2% 2% 2% 5%;
   width: 90%;
 }
 
