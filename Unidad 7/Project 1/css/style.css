@@ -274,7 +274,6 @@ p:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0.8;
   background-color: #000;
   color: white;
 }
@@ -283,5 +282,4 @@ p:hover {
   border: none;
   width: 80%;
   height: auto;
-  opacity: 1;
 }
