@@ -42,8 +42,11 @@ class VistaPelicula {
         pelicula.Poster = "images/nodisponible.jpg";
       }
     $('#peliculas').empty();
-    $('#peliculas').append('<div class="peliculaSeleccionada"><div class="portada"><img id="' + pelicula.imdbID + '" src="' + (pelicula.Poster ? pelicula.Poster : 'images/nodisponible.jpg') + '" onclick="c.seleccionar(this)"></div><div class="contenido"><h2>' + pelicula.Title + '</h2><p><span>Year: </span> ' + pelicula.Year + '</p></div></div>');
+    $('#peliculas').append('<div class="peliculaSeleccionada"><div class="portada" onclick="flotante(1)"><img id="' + pelicula.imdbID + '" src="' + (pelicula.Poster ? pelicula.Poster : 'images/nodisponible.jpg') + '"></div><div class="contenido"><h2>' + pelicula.Title + '</h2><p><span>Year: </span> ' + pelicula.Year + '</p></div></div>');
     $('.contenido').append('<p><span>Genre: </span> ' + pelicula.Genre + '</p><p><span>Director: </span> ' + pelicula.Director + '</p><p><span>Actors: </span> ' + pelicula.Actors + '</p><p><span>Plot: </span> ' + pelicula.Plot + '</p><p><span>Website: </span><a href="' + pelicula.Website + '">' + pelicula.Website + '</a></p>');
+    $('#flotante').empty();
+    $('#flotante').append('<img src="' + (pelicula.Poster ? pelicula.Poster : 'images/nodisponible.jpg') + '" width="100px height="200px">')
+    $('#flotante').append('<h3><a onClick="flotante(2)">Cerrar ventana</a></h3>');
   }
 
 }
@@ -161,3 +164,28 @@ $(document).ready(function(){
 $(window).load(function() {
     $("#carga").fadeOut("slow");
 });
+
+//VENTANA FLOTANTE
+
+function flotante(tipo){
+
+	if (tipo==1){
+	//Si hacemos clic en abrir mostramos el fondo negro y el flotante
+	$('#contenedor').show();
+    $('#flotante').animate({
+      marginTop: "-152px"
+    });
+	}
+	if (tipo==2){
+	//Si hacemos clic en cerrar, deslizamos el flotante hacia arriba
+    $('#flotante').animate({
+      marginTop: "-756px"
+    });
+	//Una vez ocultado el flotante cerramos el fondo negro
+	setTimeout(function(){
+	$('#contenedor').hide();
+
+	},500)
+	}
+
+}

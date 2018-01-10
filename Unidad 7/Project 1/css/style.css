@@ -91,7 +91,6 @@ input {
 /*PAGINA 2--------------------------------------------------------------------*/
 
 .peliculaSeleccionada {
-
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -127,16 +126,16 @@ input {
 }
 
 #scroll {
-    position:fixed;
-    right:10px;
-    bottom:10px;
-    cursor:pointer;
-    width:50px;
-    height:50px;
-    background-color: rgb(121, 30, 30);
-    text-indent:-9999px;
-    display:none;
-    border-radius:60px
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(121, 30, 30);
+  text-indent: -9999px;
+  display: none;
+  border-radius: 60px
 }
 
 a:hover {
@@ -151,22 +150,24 @@ p:hover {
 /*BOTÓN VOLVER INICIO SCROLL*/
 
 #scroll span {
-    position:absolute;
-    top:50%;
-    left:50%;
-    margin-left:-8px;
-    margin-top:-12px;
-    height:0;
-    width:0;
-    border:8px solid transparent;
-    border-bottom-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -12px;
+  height: 0;
+  width: 0;
+  border: 8px solid transparent;
+  border-bottom-color: white;
 }
+
 #scroll:hover {
-    background-color: #e74c3c;
-    opacity:1;
+  background-color: #e74c3c;
+  opacity: 1;
 }
 
 /*Traducción Google*/
+
 #google_translate_element {
   margin-left: 2%;
 }
@@ -178,7 +179,9 @@ p:hover {
 }
 
 /*GIF Carga*/
+
 #carga {
+  position: fixed;
   font-size: 20px;
   margin: 10% 45%;
   width: 1em;
@@ -189,9 +192,9 @@ p:hover {
   -webkit-animation: load4 1.3s infinite linear;
   animation: load4 1.3s infinite linear;
 }
+
 @-webkit-keyframes load4 {
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: 0em -3em 0em 0.2em #791e1e, 2em -2em 0 0em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 0em #791e1e;
   }
   12.5% {
@@ -216,9 +219,9 @@ p:hover {
     box-shadow: 0em -3em 0em 0em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 0em #791e1e, -2em -2em 0 0.2em #791e1e;
   }
 }
+
 @keyframes load4 {
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: 0em -3em 0em 0.2em #791e1e, 2em -2em 0 0em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 -0.5em #791e1e, -3em 0em 0 -0.5em #791e1e, -2em -2em 0 0em #791e1e;
   }
   12.5% {
@@ -242,4 +245,43 @@ p:hover {
   87.5% {
     box-shadow: 0em -3em 0em 0em #791e1e, 2em -2em 0 -0.5em #791e1e, 3em 0em 0 -0.5em #791e1e, 2em 2em 0 -0.5em #791e1e, 0em 3em 0 -0.5em #791e1e, -2em 2em 0 0em #791e1e, -3em 0em 0 0em #791e1e, -2em -2em 0 0.2em #791e1e;
   }
+}
+
+#fondo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 990;
+  opacity: 0.8;
+  background: #000;
+}
+
+#flotante {
+  width: 500px;
+  z-index: 999;
+  border: 8px solid #fff;
+  margin-top: -200px;
+  margin-left: -153px;
+  top: 30%;
+  left: 50%;
+  padding: 12px;
+  position: fixed;
+  background-color: #fff;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  background-color: #000;
+  color: white;
+}
+
+#flotante>img {
+  border: none;
+  width: 80%;
+  height: auto;
+  opacity: 1;
 }
