@@ -1,4 +1,4 @@
-<h3>STICKY NOTES - LocalStorage:</h3>
+<h3>STICKY NOTES - LocalStorage + DOM:</h3>
 
 <a href="https://pablotsdaw.github.io/DWEC/Unidad%205/Worksheet%205/stickyNotes.html">Sticky Notes</a>
 
