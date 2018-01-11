@@ -10,6 +10,7 @@ export class MenuSuperiorComponent implements OnInit {
   clicks: int;
   dato = 'pepe';
   clicks = 0;
+  numbers = ['1','2','3','4'];
 
   clickeame(){
     this.clicks++;
