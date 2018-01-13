@@ -1,0 +1,4 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<button type="button" name="button" (click)='nuevaNota()'>Nueva Nota</button>
+
+<app-nota *ngFor = "let nota of listaNotas" [param]=nota (borrarNota)="eliminarNota($event)"></app-nota>
