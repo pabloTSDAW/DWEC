@@ -1,0 +1,75 @@
+/*Colocar en todos los componentes de la ruta*/
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 75px auto;
+}
+
+/*------------------------------------------*/
+
+.juegos {
+  margin-bottom: 2%;
+  padding: 1%;
+  background-color: #131313;
+  box-shadow: 5px 5px 20px #131313;
+}
+
+.juegos:hover {
+  transform: scale(1.1);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+h5, h6 {
+  color: #54d400;
+}
+
+p, span {
+  color: white;
+}
+
+span::after {
+  content: ' - ';
+}
+
+span:last-child::after {
+  content: '.';
+}
+
+.cargar {
+  font-weight: bold;
+  margin-top: 2%;
+  text-align: center;
+  justify-content: center;
+}
+
+.cargar a:hover {
+  color: #54d400;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .juegos .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  p, span {
+    text-align: center;
+  }
+  .info {
+    align-items: center;
+  }
+  img {
+    margin-bottom: 10%;
+  }
+}

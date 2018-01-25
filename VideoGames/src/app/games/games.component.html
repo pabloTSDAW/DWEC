@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="juegos col-9" *ngFor="let juego of juegos">
+      <div class="row">
+        <div class="col-3">
+          <img src="{{juego?.image.small_url}}" width="200px" height="200px">
+        </div>
+        <div class="col-9">
+          <div class="info">
+            <h5>{{juego?.name}}</h5>
+            <p>{{juego?.deck}}</p>
+            <h6>Platforms</h6>
+            <div>
+              <span *ngFor="let plataforma of juego?.platforms">{{plataforma.name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 cargar">
+      <a (click)="cargarMas()">Cargar más resultados</a>
+    </div>
+  </div>
+</div>

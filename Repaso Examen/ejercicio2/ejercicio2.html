@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2</title>
+    <style media="screen">
+      td {
+        text-align: center;
+        border: 1px solid;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <table id="tabla">
+
+    </table>
+
+    <script type="text/javascript">
+
+      /*2. (1,5 puntos, AJAX) Haz que haciendo uso de AJAX, 5 segundos después de cargarse tu página,
+        se cargue el fichero datos.xml y se muestre una tabla con las noticias recibidas. Cada fila tendrá
+        dos columnas donde se mostrará título y texto.*/
+
+        var tabla = document.getElementById('tabla');
+        var lista = [];
+
+        function loadDoc() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var datos = this.responseXML;
+              var titulo = datos.getElementsByTagName('titulo');
+              var texto = datos.getElementsByTagName('texto');
+              var filas = document.getElementsByTagName('tr');
+              if (filas.length == 0) {
+                for (var i = 0; i < titulo.length; i++) {
+                  var fila = document.createElement('tr');
+                  tabla.appendChild(fila);
+                  var celda = document.createElement('td');
+                  var celda2 = document.createElement('td');
+                  fila.appendChild(celda);
+                  fila.appendChild(celda2);
+                  celda.innerHTML = titulo[i].innerHTML;
+                  celda2.innerHTML = texto[i].innerHTML;
+                  lista.push(titulo[i].innerHTML);
+                }
+              }
+              else {
+                for (var i = 0; i < titulo.length; i++) {
+                  var comprobar = titulo[i].innerHTML;
+                  if (lista.indexOf(comprobar) == -1) {
+                    lista.push(comprobar);
+                    var fila = document.createElement('tr');
+                    tabla.appendChild(fila);
+                    var celda = document.createElement('td');
+                    var celda2 = document.createElement('td');
+                    fila.appendChild(celda);
+                    fila.appendChild(celda2);
+                    celda.innerHTML = titulo[i].innerHTML;
+                    celda2.innerHTML = texto[i].innerHTML;
+                  }
+                }
+              }
+            }
+          };
+          xhttp.open("GET", "datos.xml", true);
+          xhttp.send();
+        }
+
+        setInterval(function () {
+          loadDoc();
+          document.close();
+        }, 5000);
+
+    </script>
+
+  </body>
+</html>

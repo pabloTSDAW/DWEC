@@ -1,0 +1,184 @@
+/* You can add global styles to this file, and also import other style files */
+/*81972e871e0e14b1af4b96d10089c8afd7d2745b*/
+/*&format=json*/
+
+
+/*LOADING*/
+#fountainG{
+	position:relative;
+	width:192px;
+	height:23px;
+	margin:auto;
+}
+
+.fountainG{
+	position:absolute;
+	top:0;
+	background-color:rgb(84,212,0);
+	width:23px;
+	height:23px;
+	animation-name:bounce_fountainG;
+		-o-animation-name:bounce_fountainG;
+		-ms-animation-name:bounce_fountainG;
+		-webkit-animation-name:bounce_fountainG;
+		-moz-animation-name:bounce_fountainG;
+	animation-duration:1.165s;
+		-o-animation-duration:1.165s;
+		-ms-animation-duration:1.165s;
+		-webkit-animation-duration:1.165s;
+		-moz-animation-duration:1.165s;
+	animation-iteration-count:infinite;
+		-o-animation-iteration-count:infinite;
+		-ms-animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		-moz-animation-iteration-count:infinite;
+	animation-direction:normal;
+		-o-animation-direction:normal;
+		-ms-animation-direction:normal;
+		-webkit-animation-direction:normal;
+		-moz-animation-direction:normal;
+	transform:scale(.3);
+		-o-transform:scale(.3);
+		-ms-transform:scale(.3);
+		-webkit-transform:scale(.3);
+		-moz-transform:scale(.3);
+	border-radius:15px;
+		-o-border-radius:15px;
+		-ms-border-radius:15px;
+		-webkit-border-radius:15px;
+		-moz-border-radius:15px;
+}
+
+#fountainG_1{
+	left:0;
+	animation-delay:0.466s;
+		-o-animation-delay:0.466s;
+		-ms-animation-delay:0.466s;
+		-webkit-animation-delay:0.466s;
+		-moz-animation-delay:0.466s;
+}
+
+#fountainG_2{
+	left:24px;
+	animation-delay:0.5825s;
+		-o-animation-delay:0.5825s;
+		-ms-animation-delay:0.5825s;
+		-webkit-animation-delay:0.5825s;
+		-moz-animation-delay:0.5825s;
+}
+
+#fountainG_3{
+	left:48px;
+	animation-delay:0.699s;
+		-o-animation-delay:0.699s;
+		-ms-animation-delay:0.699s;
+		-webkit-animation-delay:0.699s;
+		-moz-animation-delay:0.699s;
+}
+
+#fountainG_4{
+	left:72px;
+	animation-delay:0.8155s;
+		-o-animation-delay:0.8155s;
+		-ms-animation-delay:0.8155s;
+		-webkit-animation-delay:0.8155s;
+		-moz-animation-delay:0.8155s;
+}
+
+#fountainG_5{
+	left:96px;
+	animation-delay:0.932s;
+		-o-animation-delay:0.932s;
+		-ms-animation-delay:0.932s;
+		-webkit-animation-delay:0.932s;
+		-moz-animation-delay:0.932s;
+}
+
+#fountainG_6{
+	left:120px;
+	animation-delay:1.0485s;
+		-o-animation-delay:1.0485s;
+		-ms-animation-delay:1.0485s;
+		-webkit-animation-delay:1.0485s;
+		-moz-animation-delay:1.0485s;
+}
+
+#fountainG_7{
+	left:144px;
+	animation-delay:1.165s;
+		-o-animation-delay:1.165s;
+		-ms-animation-delay:1.165s;
+		-webkit-animation-delay:1.165s;
+		-moz-animation-delay:1.165s;
+}
+
+#fountainG_8{
+	left:168px;
+	animation-delay:1.2915s;
+		-o-animation-delay:1.2915s;
+		-ms-animation-delay:1.2915s;
+		-webkit-animation-delay:1.2915s;
+		-moz-animation-delay:1.2915s;
+}
+
+
+
+@keyframes bounce_fountainG{
+	0%{
+	transform:scale(1);
+		background-color:rgb(84,212,0);
+	}
+
+	100%{
+	transform:scale(.3);
+		background-color:rgba(255,255,255,0.54);
+	}
+}
+
+@-o-keyframes bounce_fountainG{
+	0%{
+	-o-transform:scale(1);
+		background-color:rgb(84,212,0);
+	}
+
+	100%{
+	-o-transform:scale(.3);
+		background-color:rgba(255,255,255,0.54);
+	}
+}
+
+@-ms-keyframes bounce_fountainG{
+	0%{
+	-ms-transform:scale(1);
+		background-color:rgb(84,212,0);
+	}
+
+	100%{
+	-ms-transform:scale(.3);
+		background-color:rgba(255,255,255,0.54);
+	}
+}
+
+@-webkit-keyframes bounce_fountainG{
+	0%{
+	-webkit-transform:scale(1);
+		background-color:rgb(84,212,0);
+	}
+
+	100%{
+	-webkit-transform:scale(.3);
+		background-color:rgba(255,255,255,0.54);
+	}
+}
+
+@-moz-keyframes bounce_fountainG{
+	0%{
+	-moz-transform:scale(1);
+		background-color:rgb(84,212,0);
+	}
+
+	100%{
+	-moz-transform:scale(.3);
+		background-color:rgba(255,255,255,0.54);
+	}
+}

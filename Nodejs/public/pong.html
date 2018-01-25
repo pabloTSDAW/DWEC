@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PONG - PABLO</title>
+  <style type="text/css">
+    body {
+      background-color: black;
+    }
+
+    svg {
+      border: 4px solid white;
+      display: flex;
+      justify-content: center;
+    }
+
+    circle {
+      background-color: white;
+    }
+
+    section {
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+
+    section div {
+      margin-left: 20px;
+      height: 40px;
+      font-family: 'Monaco', sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="puntos1">0</div>
+    <div>|</div>
+    <div id="puntos2">0</div>
+  </section>
+  <section>
+    <svg id="svg" height="640" width="1300" xmlns=http://www.w3.org/2000/svg>
+    <circle id="circulo" cx="650" cy="320" r="25" fill="white"/>
+    <!-- <rect id="jugador1" x="50" y="350" rx="20" ry="20" width="30" height="150"
+    style="fill:white;"/>
+    <rect id="jugador2" x="920" y="350" rx="20" ry="20" width="30" height="150"
+    style="fill:white;"/> -->
+    </svg>
+  </section>
+  <audio src="musica.mp3" style="visibility: hidden;" autoplay loop controls></audio>
+  <script type="text/javascript">
+
+    canvasX = 1300;
+    canvasY = 640;
+
+    goles1 = 0;
+    goles2 = 0;
+
+    paso = 3;
+
+    class Pelota {
+      constructor(posX, posY){
+        this.circulo = document.getElementById('circulo');
+        this.pasoX = paso;
+        this.pasoY = paso;
+      }
+
+      colisiones(){
+        //Con los ejes
+        if (this.posX >= canvasX - 30) {
+          this.pasoX *= -1;
+          this.gol1();
+        }
+        if (this.posX <= 30) {
+          this.pasoX *= -1;
+          this.gol2();
+        }
+        if (this.posY >= canvasY - 30 || this.posY <= 30){
+          this.pasoY *= -1;
+        }
+        // // Con los jugadores
+        if(Math.abs(this.posX - j1.rectangulo.x.baseVal.value) <= 40 && this.choqueJugador(j1)){
+          this.pasoX *= -1;
+          this.pasoX += 0.5;
+        }
+        if(Math.abs(this.posX - j2.rectangulo.x.baseVal.value) <= 25 && this.choqueJugador(j2)){
+          this.pasoX *= -1;
+          this.pasoX -= 0.5;
+        }
+      }
+
+      mover(){
+        this.posX = parseInt(this.circulo.getAttribute("cx"));
+        this.posY = parseInt(this.circulo.getAttribute("cy"));
+        this.colisiones();
+        this.circulo.setAttribute('cx', (this.posX + this.pasoX));
+        this.circulo.setAttribute('cy', (this.posY + this.pasoY));
+      }
+
+      gol1(){
+        goles1 += 1;
+        document.getElementById("puntos1").innerHTML = goles1;
+        this.posX = canvasX/2;
+        this.posY = canvasY/2;
+        this.pasoX = paso;
+      }
+
+      gol2(){
+        goles2 += 1;
+        document.getElementById("puntos2").innerHTML = goles2;
+        this.posX = canvasX/2;
+        this.posY = canvasY/2;
+        this.pasoX = paso;
+      }
+
+      reboteInverso(){
+        this.pasoX *= -1;
+        this.pasoY *= -1;
+        this.pasoX += 0.5;
+      }
+
+      choqueJugador(jugador){
+        return this.posY >= jugador.rectangulo.y.baseVal.value - 2 && this.posY <= jugador.rectangulo.y.baseVal.value + 152;
+      }
+
+      cambiaColor(){
+        this.color = this.circulo.getAttribute("fill");
+        if (this.color == 'white') this.circulo.setAttribute('fill', 'rgb(244, 234, 60)');
+        else this.circulo.setAttribute('fill', 'white');
+      }
+    }
+
+
+    class Jugador {
+    	constructor(num, posX, posY){
+		    this.rectangulo = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+		    document.getElementById('svg').appendChild(this.rectangulo);
+		    this.jugador = document.getElementsByTagName('rect')[num];
+		    this.jugador.setAttribute('x', posX);
+		    this.jugador.setAttribute('y', posY);
+		    this.jugador.setAttribute('rx', '14');
+		    this.jugador.setAttribute('ry', '14');
+		    this.jugador.setAttribute('width', '25');
+		    this.jugador.setAttribute('height', '150');
+		    this.jugador.style.fill = 'white';
+	    }
+
+      cambiaColor(){
+        this.color = this.jugador.style.fill;
+        if (this.color == 'white') this.jugador.style.fill = 'rgb(244, 234, 60)';
+        else this.jugador.style.fill = 'white';
+      }
+    }
+
+
+    var p = new Pelota();
+    var j1 = new Jugador(0, 50, 300);
+    var j2 = new Jugador(1, 1225, 300);
+
+
+    function movimiento(event) {
+    	var paso = 30;
+	    var code = event.keyCode || event.which;
+	    if (code == 87){
+	    	if (j1.rectangulo.y.baseVal.value > 10 ) j1.rectangulo.y.baseVal.value -= paso;
+	    }
+      else if (code == 83) {
+		    if (j1.rectangulo.y.baseVal.value < canvasY - 160 ) j1.rectangulo.y.baseVal.value += paso;
+	    }
+	    if (code == 79){
+		    if (j2.rectangulo.y.baseVal.value > 10 ) j2.rectangulo.y.baseVal.value -= paso;
+        }
+        else if (code == 76) {
+		    if (j2.rectangulo.y.baseVal.value < canvasY - 160 ) j2.rectangulo.y.baseVal.value += paso;
+        }
+    }
+
+
+    var FPS = 60;
+    setInterval(function() {
+      p.mover();
+    }, 1000 / FPS);
+
+    //EFECTO EPILEPSIA
+    // setInterval(function() {
+    //   var colorFondo = document.body.style.backgroundColor;
+    //   if (colorFondo == 'black') document.body.style.backgroundColor = 'rgb(3, 27, 14)';
+    //   else document.body.style.backgroundColor = 'black';
+    // }, 100);
+    //
+    // setInterval(function() {
+    //   p.cambiaColor();
+    //   j1.cambiaColor();
+    //   j2.cambiaColor();
+    // }, 100);
+
+    document.addEventListener("keydown", movimiento);
+
+  </script>
+</body>
+
+</html>

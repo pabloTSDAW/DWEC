@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 3</title>
+    <style media="screen">
+      div {
+        width: 50%;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div>
+    </div>
+
+
+    <script type="text/javascript">
+
+      /*(3 puntos, Eventos + DOM + Estilos+webStorage)
+          a) Escribe una función llamada creaEnlace que deberá crear haciendo uso de DOM un
+          enlace que aparecerá en la página. Para ello recibe como parámetros la URL del enlace, el
+          texto a mostrar y el nodo DOM en el que se debe insertar éste.
+          b) Haz, haciendo uso de webStorage, que se almacene en el navegador de un modo
+          permanente cada uno de los enlaces creados mediante esta función. Por tanto, si ya hay
+          enlaces guardados, éstos deberán mostrarse al crear la página.
+          c) Escribe una funcion llamada asociaEventos que deberá asociar un evento a cada uno de
+          los enlaces de la página, de modo que al colocar el ratón sobre el enlace su fondo sea de
+          color rojo. Al colocar el ratón fuera del enlace, el fondo volverá a ser blanco.
+      */
+
+      var lista = [];
+      var lista2;
+
+      function crearEnlace(url, texto, nodo){
+        var enlace = document.createElement('a');
+        enlace.setAttribute('href', url);
+        enlace.innerHTML = texto + ' ';
+        var donde = document.getElementsByTagName(nodo)[0];
+        donde.appendChild(enlace);
+        lista.push([url, texto, nodo]);
+        localStorage.almacen = JSON.stringify(lista);
+      }
+
+      function loadStorage () {
+          if (localStorage.almacen) {
+              lista2 = JSON.parse(localStorage.almacen);
+              for (let i = 0; i < lista2.length; i++) {
+                crearEnlace(lista2[i][0], lista2[i][1], lista2[i][2]);
+              }
+          }
+      }
+
+      function asociaEventos(){
+        var enlaces = document.getElementsByTagName('a');
+        for (var i = 0; i < enlaces.length; i++) {
+          enlaces[i].setAttribute('onmouseover', 'cambiaRojo(this)');
+          enlaces[i].setAttribute('onmouseout', 'quitaEstilo(this)');
+        }
+      }
+
+      function cambiaRojo(elem){
+        elem.style.backgroundColor = 'red';
+      }
+
+      function quitaEstilo(elem){
+        elem.style.backgroundColor = 'white';
+      }
+
+
+      window.onload = () => {
+        loadStorage();
+        asociaEventos();
+      }
+
+    </script>
+
+  </body>
+</html>

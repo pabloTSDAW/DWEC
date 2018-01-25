@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="busqueda col-12">
+      <img src="/assets/search.png" width="40px" height="40px">
+      <input type="text" [(ngModel)]=filtroPersonaje>
+    </div>
+    <div class="personajes col-12 col-sm-6 col-md-3" *ngFor="let personaje of personajes | filtro:filtroPersonaje">
+      <div>
+        <h5>{{personaje?.name}}</h5>
+        <img [routerLink]="['/singleCharacter']" src="{{personaje?.image.small_url}}" (click)="muestra(personaje.guid)" width="200px" height="200px">
+      </div>
+    </div>
+    <div id="fountainG">
+      <div id="fountainG_1" class="fountainG"></div>
+      <div id="fountainG_2" class="fountainG"></div>
+      <div id="fountainG_3" class="fountainG"></div>
+      <div id="fountainG_4" class="fountainG"></div>
+      <div id="fountainG_5" class="fountainG"></div>
+      <div id="fountainG_6" class="fountainG"></div>
+      <div id="fountainG_7" class="fountainG"></div>
+      <div id="fountainG_8" class="fountainG"></div>
+    </div>
+    <div class="col-12 cargar">
+      <a (click)="cargarMas()">Cargar más resultados</a>
+    </div>
+  </div>
+</div>

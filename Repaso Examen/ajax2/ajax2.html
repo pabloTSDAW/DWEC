@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2</title>
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+
+    <h1>Please, choose your username:</h1>
+    <input type="text" onkeyup="cargar()" id="username">
+    <p id="texto"></p>
+
+    <script type="text/javascript">
+
+      /*El objetivo del ejercicio es retroalimentar mediante Ajax a los usuarios de una página de
+        registro, desplegando un mensaje según el “username” elegido:
+        • Si el” username” tiene menos de 3 caracteres el mensaje es “Username too short”
+        • Si el” username” ya está ocupado el mensaje es “Username already taken”
+        • Si el “username” es aceptado el mensaje es “Username ok!” */
+
+        var texto = document.getElementById('texto');
+        var valor;
+
+        function cargar() {
+          valor = document.getElementById('username').value;
+          loadDoc();
+        }
+
+        function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var dato = this.responseText;
+            texto.innerHTML = dato;
+            if (dato == 'Username ok!') {
+              texto.style.color = 'green';
+            } else {
+              texto.style.color = 'red';
+            }
+          }
+        };
+        xhttp.open("GET", "nombre.php?nombre="+valor, true);
+        xhttp.send();
+      }
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,47 @@
+.titulares {
+  list-style: none;
+  padding: 2%;
+  margin: 1% 0px;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulares>div {
+  padding: 2%;
+  background-color: rgb(235, 232, 235);
+  border: 1px solid rgba(24, 24, 24, 0.88);
+}
+
+.titulares img {
+  margin-top: 1%;
+  width: 100%;
+  height: auto;
+}
+
+.titulares div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+}
+
+.informacionLiga {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  margin: 1% 0px;
+}
+
+.carga {
+  display: flex;
+  justify-content: center;
+}
+
+.carga a:hover {
+  color: white;
+  cursor: pointer;
+}

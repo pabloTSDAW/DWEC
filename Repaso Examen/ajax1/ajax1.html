@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2</title>
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+
+    <p>Ajax ejemplo simple</p>
+    <p>Seleccione un estado</p>
+    <select id="provincias" onchange="loadDoc()">
+      <option value="granada">Granada</option>
+      <option value="madrid">Madrid</option>
+      <option value="almeria">Almeria</option>
+    </select>
+    <div id="village">
+      <p>Seleccione un pueblo</p>
+      <select id="pueblos">
+      </select>
+    </div>
+
+    <div id="titulo">
+      <h1></h1>
+    </div>
+
+    <script type="text/javascript">
+
+      /*Escriba una página que inicialmente presente un menú para que el usuario seleccione un estado
+        de la república:
+        Tan pronto el usuario selecciona el estado, le aparece un segundo menú en el que se le propone
+        que seleccione la ciudad, en el menú aparecen solamente ciudades del estado seleccionado:
+
+        Cuando el usuario selecciona la ciudad en el segundo menú, el nombre de la ciudad y el estado
+        seleccionados aparecen en letras grandes al final de la página: */
+
+        var variable;
+
+        function loadDoc() {
+          var xhttp = new XMLHttpRequest();
+          var village = document.getElementById('village');
+          var pueblos = document.getElementById('pueblos');
+          pueblos.remove();
+          var pueblos =  document.createElement('select');
+          id = document.getElementById('provincias').value;
+          console.log(id);
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              variable = JSON.parse(this.responseText);
+              pueblos.setAttribute('id', 'pueblos');
+              pueblos.setAttribute('onchange', 'escribir(this)');
+              village.appendChild(pueblos);
+              pueblos.innerHTML += '<option>' + variable['uno'] + '</option>';
+              pueblos.innerHTML += '<option>' + variable['dos'] + '</option>';
+              pueblos.innerHTML += '<option>' + variable['tres'] + '</option>';
+            }
+          };
+          xhttp.open("GET", "pueblos.php?place=" + id, true);
+          xhttp.send();
+        }
+
+        function escribir(elem){
+          var titulo = document.getElementsByTagName('h1')[0];
+          titulo.remove();
+          var div = document.getElementById('titulo');
+          var titulo = document.createElement('h1');
+          div.appendChild(titulo);
+          titulo.innerHTML = elem.value;
+        }
+
+    </script>
+
+  </body>
+</html>

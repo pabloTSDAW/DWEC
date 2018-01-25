@@ -1,0 +1,10 @@
+<listaNoticias>
+  <noticia>
+    <titulo>Noticia 1</titulo>
+    <texto>Contenido noticia 1</texto>
+  </noticia>
+  <noticia>
+    <titulo>Noticia 2</titulo>
+    <texto>Contenido noticia 2</texto>
+  </noticia>
+</listaNoticias>

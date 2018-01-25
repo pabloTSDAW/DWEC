@@ -1,0 +1,24 @@
+/*Colocar en todos los componentes de la ruta*/
+.slide_juegos {
+  margin-top: 75px;
+  background-color: #131313;
+}
+/*------------------------------------------*/
+
+.slide_juegos {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+  height: 550px;
+}
+
+.carousel-indicators li {
+  background-color: white;
+}
+
+.carousel-indicators li:hover {
+  background-color: #54d400;
+}

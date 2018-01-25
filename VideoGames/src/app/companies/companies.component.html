@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="companias col-12 col-sm-6 col-md-3" *ngFor="let compania of companias">
+      <div>
+        <h6>{{compania?.name}}</h6>
+        <img src="{{compania?.image.small_url}}" width="200px" height="200px">
+      </div>
+    </div>
+    <div class="col-12 cargar">
+      <a (click)="cargarMas()">Cargar más resultados</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 5</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+
+    <div id="chart_div"></div>
+
+    <script type="text/javascript">
+
+    /*5. (1,5 puntos, Google Charts).
+      a) Representa mediante un gráfico de columnas de Google Charts los siguentes datos:
+          Anño Población
+          2011 3452
+          2012 1360
+          2013 41021
+          2014 13800
+      b) Mejora el gráfico anterior de modo que:
+          ◦ El título sea “Evolución de la población de mi pueblo”
+          ◦ El ancho sea de 500 px
+          ◦ Cada columna aparezca en un color diferente
+          ◦ Aplica diversos grados de transparencia en las columnas
+          ◦ El color de fondo sea gris
+      c) Haz que al cargarse el gráfico se realice una animación con una duración de 6 segundos.
+    */
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Año');
+        data.addColumn('number', 'Población');
+        data.addColumn({type:'string', role:'style'});
+        data.addRows([
+          [2011, 3452, 'color: red; opacity: 0.8'],
+          [2012, 1360, 'color: blue; opacity: 0.6'],
+          [2013, 41021, 'color: green; opacity: 0.4'],
+          [2014, 13800, 'color: yellow; opacity: 0.2']
+        ]);
+
+        // Set chart options
+        var options = {'title':'Evolución de la población de mi pueblo',
+                       'width':500,
+                       'height':500,
+                       'backgroundColor': 'lightgrey',
+                       'animation': {duration: 6000, easing: 'linear', startup: true}};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        var cambio = 0;
+      }
+  </script>
+
+  </body>
+</html>

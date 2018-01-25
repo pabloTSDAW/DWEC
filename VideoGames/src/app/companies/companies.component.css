@@ -1,0 +1,45 @@
+/*Colocar en todos los componentes de la ruta*/
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 75px auto;
+}
+/*------------------------------------------*/
+
+.companias {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+}
+
+.companias div:hover {
+  transform: scale(1.2);
+}
+
+.companias img {
+  box-shadow: 5px 5px 20px #131313;
+}
+
+.companias h6 {
+  color: #54d400;
+  text-align: center;
+}
+
+.companias img {
+  border: 2px solid #54d400;
+}
+
+.cargar {
+  margin-top: 2%;
+  text-align: center;
+  justify-content: center;
+}
+
+.cargar a:hover {
+  color: #54d400;
+  cursor: pointer;
+}

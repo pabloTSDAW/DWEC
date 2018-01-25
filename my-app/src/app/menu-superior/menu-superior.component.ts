@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioService } from '../servicio.service';
 
 @Component({
   selector: 'app-menu-superior',
@@ -6,18 +7,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-superior.component.css']
 })
 export class MenuSuperiorComponent implements OnInit {
-  dato: string;
-  clicks: int;
-  dato = 'pepe';
+  dato: string='pepe';
   clicks = 0;
-  numbers = ['1','2','3','4'];
 
   clickeame(){
     this.clicks++;
   }
-  constructor() { }
 
-  ngOnInit() {
+  constructor(public servicio:ServicioService){}
+
+  ngOnInit(){}
+
+  muestra(){
+    this.servicio.setvariable(this.dato)
+
+
+    // this.servicio.peticion().subscribe(
+    //   data => console.log(data),
+    //   error => console.log(error),
+    //   () => console.log('Petición terminada')
+    // );
   }
+
+
+  // ngOnInit(): void {
+  //  // Make the HTTP request:
+  //  this.http.get('https://restcountries.eu/rest/v2/name/aruba?fullText=true').subscribe(data => {
+  //    // Read the result field from the JSON response.
+  //    console.log(data);
+  //  });
 
 }

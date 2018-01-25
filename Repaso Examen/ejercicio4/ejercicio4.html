@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4</title>
+    <style media="screen">
+      svg {border: 1px solid blue;}
+    </style>
+  </head>
+  <body>
+    <div id="contenedor">
+    </div>
+    <br>
+    <button type="button" name="button" onclick="animacion()">Anima Rectángulo</button>
+    <br>
+
+    <script type="text/javascript">
+
+      /*4. (2,5 puntos, SVG).
+        a) Escribe una función llamada creaRectangulo que haciendo uso de SVG y DOM, crea un
+        rectángulo en la página dentro del elemento cuyo ÍD se pasa como parámetro. El
+        rectángulo será de color rojo y tendrá un alto de 50 px y un ancho de 50 px.
+        b) Coloca un botón en la página con el texto “Anima Rectangulo”. Al pulsarlo se debe iniciar
+        una animación de modo que el rectángulo pase a tener un ancho de 450 px y un alto de
+        300px mediante una animación a lo largo de 5 segundos.
+      */
+
+      var cont = 0;
+
+      function creaArea(id){
+        var donde = document.getElementById(id);
+        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', '500');
+        svg.setAttribute('height', '500');
+        donde.appendChild(svg);
+      }
+
+      function creaRectangulo(id){
+        creaArea(id);
+        var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        var svg = document.getElementsByTagName('svg')[0];
+        rect.setAttribute('width', '50');
+        rect.setAttribute('height', '50');
+        rect.setAttribute('style', 'fill:red');
+        svg.appendChild(rect);
+      }
+
+      function animaRectangulo(){
+        var rect = document.getElementsByTagName('rect')[0];
+        if (cont < 20){
+            rect.width.baseVal.value += 20;
+            rect.height.baseVal.value += 12.5;
+            cont++;
+            console.log(cont);
+        }
+      }
+
+      function animacion(){
+        setInterval(function(){
+          animaRectangulo();
+        }, 250);
+      }
+
+
+    creaRectangulo('contenedor');
+
+    /*CON JQUERY*/
+
+    // $(document).ready(function(){
+    //   $("#boton1").click(function(){
+    //     $("rect").animate({height:"300px", width:"450px"},5000);
+    //   });
+    // });
+
+    /*ANIMACION SVG*/
+
+    /*<animate
+    xlink:href="#my-circle"
+    attributeName="cx"
+    from="50"
+    to="450"
+    dur="1s"
+    begin="click"
+    fill="freeze" />*/
+
+    /*function hacer() {
+	var rectangulo = document.getElementById('derecha');
+	rectangulo.innerHTML += "<animate xlink:href='#derecha' attributeName='width' from='0' to='450' dur='5s' begin='0s' fill='freeze'/>"
+	rectangulo.innerHTML += "<animate xlink:href='#derecha' attributeName='height' from='0' to='350' dur='5s' begin='0s' fill='freeze'/>"}
+  */
+    </script>
+
+  </body>
+</html>

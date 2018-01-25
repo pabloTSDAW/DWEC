@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-9">
+      <div class="row">
+        <div class="titulares col-12 col-sm-6 col-lg-4" *ngFor="let articulo of articulos">
+          <div>
+            <li>
+              <img src={{articulo.urlToImage}} alt="">
+              <div>
+                <a href="#">{{articulo.title}}</a>
+                <p>{{articulo.description}}</p>
+              </div>
+            </li>
+          </div>
+        </div>
+        <div class="carga col-12">
+          <a (click)="cargarNoticias()">Cargar más noticias</a>
+        </div>
+      </div>
+    </div>
+    <div class="informacionLiga col-12 col-md-3">
+      <div>Clasificación</div>
+      <div>Resultados</div>
+    </div>
+  </div>
+</div>
