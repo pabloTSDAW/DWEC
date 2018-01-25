@@ -2,6 +2,12 @@
   z-index: 100000;
 }
 
+.navbar-brand{
+  font-size: 2em;
+  font-family: 'Minecrafter';
+  letter-spacing: 2px;
+}
+
 .navbar {
     display: -ms-flexbox;
     display: flex;

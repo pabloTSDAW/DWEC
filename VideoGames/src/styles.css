@@ -11,6 +11,11 @@
 	margin:auto;
 }
 
+@font-face {
+	font-family: 'Minecrafter';
+	src: url('./assets/Minecrafter.ttf');
+}
+
 .fountainG{
 	position:absolute;
 	top:0;

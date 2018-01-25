@@ -3,6 +3,7 @@
     <div class="busqueda col-12">
       <img src="/assets/search.png" width="40px" height="40px">
       <input type="text" [(ngModel)]=filtroPersonaje>
+      <button type="button" name="button" (click)="buscar(filtroPersonaje)">Buscar</button>
     </div>
     <div class="personajes col-12 col-sm-6 col-md-3" *ngFor="let personaje of personajes | filtro:filtroPersonaje">
       <div>

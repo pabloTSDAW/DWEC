@@ -25,7 +25,7 @@ export class CharactersComponent implements OnInit {
     $('.cargar').hide();
     $('.busqueda').hide();
     this._ServicioService.seturl('characters');
-    this._ServicioService.peticion('characters', this.pagina).subscribe(
+    this._ServicioService.peticion('characters', 20, this.pagina).subscribe(
       data => {
         console.log(data);
         this.personajes = data.results;
@@ -52,6 +52,18 @@ export class CharactersComponent implements OnInit {
       this._ServicioService.setvariable(data);
     }
   )
+  }
+
+  buscar(opcion){
+    $('#fountainG').show();
+    $('.cargar').hide();
+    this._ServicioService.buscarPersonajes(opcion).subscribe(
+      data=>{
+        this.personajes = data.results;
+        $('#fountainG').hide();
+        $('.cargar').show();
+      }
+    )
   }
 
 }

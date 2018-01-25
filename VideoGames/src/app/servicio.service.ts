@@ -21,12 +21,16 @@ export class ServicioService {
 
   constructor(private http:HttpClient) {}
 
-  peticion(categoria, num):Observable<any> {
-    return this.http.get('https://www.giantbomb.com/api/' + categoria + '/?api_key=81972e871e0e14b1af4b96d10089c8afd7d2745b&limit=20&format=json&offset=' + num);
+  peticion(categoria, limite, num):Observable<any> {
+    return this.http.get('https://www.giantbomb.com/api/' + categoria + '/?api_key=81972e871e0e14b1af4b96d10089c8afd7d2745b&limit=' + limite + '&format=json&offset=' + num);
   }
 
   buscarPersonaje(id):Observable<any> {
     return this.http.get('https://www.giantbomb.com/api/character/' + id + '/?api_key=81972e871e0e14b1af4b96d10089c8afd7d2745b&format=json');
+  }
+
+  buscarPersonajes(query):Observable<any> {
+    return this.http.get('https://www.giantbomb.com/api/search/?api_key=81972e871e0e14b1af4b96d10089c8afd7d2745b&query="' + query + '"&format=json&resource_type=character');
   }
 
 }

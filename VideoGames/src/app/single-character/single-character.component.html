@@ -1,17 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <img src="{{personaje?.image.medium_url}}" width="300px" height="auto">
+      <img src="{{personaje?.image.medium_url}}" width="300px" max-height="500px">
     </div>
     <div class="descripcion col-8">
       <h3>{{personaje?.name}}</h3>
-      <h5>{{personaje?.aliases}}</h5>
-      <p>Cumpleaños: {{personaje?.birthday}}</p>
-      <p>Descripción: {{personaje?.deck}}</p>
-      <p>Primera aparcición: {{personaje?.first_appeared_in_game.name}}</p>
-      <ol>
-
-      </ol>
+      <p *ngIf="personaje?.aliases"><strong>Alias: </strong> {{personaje?.aliases}}</p>
+      <p *ngIf="personaje?.birthday"><strong>Birthday: </strong> {{personaje?.birthday}}</p>
+      <p *ngIf="personaje?.deck"><strong>Description: </strong> {{personaje?.deck}}</p>
+      <p *ngIf="personaje?.first_appeared_in_game.name"><strong>First appear:</strong> {{personaje?.first_appeared_in_game.name}}</p>
+      <p><strong>Games: </strong><span *ngFor="let juego of personaje?.games">{{juego.name}}- </span></p>
+      <p><strong>Enemies: </strong><span *ngFor="let enemigo of personaje?.enemies">{{enemigo.name}} - </span></p>
     </div>
   </div>
 </div>

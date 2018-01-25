@@ -1,13 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="companias col-12 col-sm-6 col-md-3" *ngFor="let compania of companias">
-      <div>
-        <h6>{{compania?.name}}</h6>
-        <img src="{{compania?.image.small_url}}" width="200px" height="200px">
-      </div>
+    <div class="busqueda col-12">
+      <img src="/assets/search.png" width="40px" height="40px">
+      <input type="text" [(ngModel)]=filtroPlataforma>
     </div>
-    <div class="col-12 cargar">
-      <a (click)="cargarMas()">Cargar más resultados</a>
-    </div>
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered">
+        <thead class="thead">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Original price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-succes" *ngFor="let compania of companias | filtro:filtroPlataforma">
+        <td><img src="{{compania?.image.small_url}}" width="100px" height="100px"></td>
+        <td>{{compania?.name}}</td>
+        <td>{{compania?.deck}}</td>
+        <td>{{compania?.original_price}}</td>
+      </tr>
+    </tbody>
+    </table>
   </div>
+  </div>
+    <div id="fountainG">
+      <div id="fountainG_1" class="fountainG"></div>
+      <div id="fountainG_2" class="fountainG"></div>
+      <div id="fountainG_3" class="fountainG"></div>
+      <div id="fountainG_4" class="fountainG"></div>
+      <div id="fountainG_5" class="fountainG"></div>
+      <div id="fountainG_6" class="fountainG"></div>
+      <div id="fountainG_7" class="fountainG"></div>
+      <div id="fountainG_8" class="fountainG"></div>
+    </div>
 </div>

@@ -16,11 +16,14 @@ export class GamesComponent implements OnInit {
   constructor(private _ServicioService:ServicioService) {}
 
   ngOnInit() {
+    $('.cargar').hide();
     this._ServicioService.seturl('games');
-    this._ServicioService.peticion('games', this.pagina).subscribe(
+    this._ServicioService.peticion('games', 20, this.pagina).subscribe(
       data => {
         console.log(data);
         this.juegos = data.results;
+        $('#fountainG').hide();
+        $('.cargar').show();
       }
     );
   }

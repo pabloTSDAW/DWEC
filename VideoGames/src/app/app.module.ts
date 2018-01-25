@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'characters', component: CharactersComponent},
   {path: 'singleCharacter', component: SingleCharacterComponent},
-  {path: 'companies', component: CompaniesComponent},
+  {path: 'platforms', component: CompaniesComponent},
   {path: 'games', component: GamesComponent},
   {path: '**', component: PageNotFoundComponent}
 ]

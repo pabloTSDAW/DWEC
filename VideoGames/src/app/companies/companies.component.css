@@ -1,12 +1,31 @@
 /*Colocar en todos los componentes de la ruta*/
+.container {
+  margin: 120px auto;
+}
+/*------------------------------------------*/
 * {
   box-sizing: border-box;
 }
 
-.container {
-  margin: 75px auto;
+.busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
-/*------------------------------------------*/
+
+.busqueda input {
+  margin-left: 1%;
+  width: 30%;
+}
+
+.buqueda button {
+  margin-left: 10px;
+}
+
+.busqueda input:hover {
+  border: 2px solid #54d400;
+}
 
 .companias {
   display: flex;
@@ -42,4 +61,13 @@
 .cargar a:hover {
   color: #54d400;
   cursor: pointer;
+}
+
+thead {
+  color: #54d400;
+  background-color: #131313;
+}
+
+table {
+  
 }
