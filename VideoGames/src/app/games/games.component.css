@@ -26,6 +26,13 @@
   transform: scale(1.1);
 }
 
+
+
+.principal{
+  justify-content: center;
+  align-items: center;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -59,6 +66,26 @@ span:last-child::after {
 .cargar a:hover {
   color: #54d400;
   cursor: pointer;
+}
+
+.busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.busqueda input {
+  margin-left: 1%;
+  width: 30%;
+}
+
+.buqueda button {
+  margin-left: 10px;
+}
+
+.busqueda input:hover {
+  border: 2px solid #54d400;
 }
 
 @media screen and (max-width: 1200px) {

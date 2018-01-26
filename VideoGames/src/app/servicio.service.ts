@@ -40,4 +40,9 @@ export class ServicioService {
     return this.http.get('https://www.giantbomb.com/api/search/?api_key=81972e871e0e14b1af4b96d10089c8afd7d2745b&query="' + query + '"&format=json&resources=character');
   }
 
+  buscarJuegos(query, num):Observable<any> {
+    return this.http.get('https://www.giantbomb.com/api/search/?api_key=81972e871e0e14b1af4b96d10089c8afd7d2745b&query="' + query + '"&format=json&resources=game&offset=' + num);
+  }
+
+
 }

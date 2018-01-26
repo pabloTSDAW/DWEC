@@ -3,12 +3,19 @@
     <div class="col-12 titulo">
       <h3>GAMES</h3>
     </div>
-    <div class="juegos col-9" *ngFor="let juego of juegos">
+    <div class="busqueda col-12">
+      <img src="/assets/search.png" width="40px" height="40px">
+      <input type="text" [(ngModel)]=filtroJuego>
+      <button type="button" name="button" (click)="buscar(filtroJuego)">Buscar</button>
+    </div>
+  </div>
+  <div class="row principal">
+    <div class="juegos col-8" *ngFor="let juego of juegos  | filtro:filtroJuego">
       <div class="row">
-        <div class="col-3">
+        <div class="col-4">
           <img src="{{juego?.image.small_url}}" width="200px" height="200px">
         </div>
-        <div class="col-9">
+        <div class="col-8">
           <div class="info">
             <h5>{{juego?.name}}</h5>
             <p>{{juego?.deck}}</p>
@@ -34,4 +41,4 @@
       <a (click)="cargarMas()">Cargar más resultados</a>
     </div>
   </div>
-</div>
+  </div>
