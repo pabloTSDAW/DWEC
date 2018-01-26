@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioService } from '../servicio.service';
 import {slideToDown} from '../router.animation';
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-games',

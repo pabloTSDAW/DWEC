@@ -9,6 +9,11 @@
 }
 
 /*------------------------------------------*/
+.titulo {
+  text-align: center;
+  color: #54d400;
+  margin-bottom: 20px;
+}
 
 .juegos {
   margin-bottom: 2%;

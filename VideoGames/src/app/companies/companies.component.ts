@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServicioService } from '../servicio.service';
 import {slideToDown} from '../router.animation';
 import { FiltroPipe} from '../filtro.pipe';
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-companies',

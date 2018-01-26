@@ -7,16 +7,23 @@
   box-sizing: border-box;
 }
 
+.titulo {
+  text-align: center;
+  color: #54d400;
+  margin-bottom: 20px;
+}
+
 .busqueda {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .busqueda input {
   margin-left: 1%;
   width: 30%;
+  padding-left: 1%;
 }
 
 .buqueda button {
@@ -68,6 +75,6 @@ thead {
   background-color: #131313;
 }
 
-table {
-  
+.table thead th, .table tbody td {
+  vertical-align: middle;
 }

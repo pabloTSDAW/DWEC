@@ -107,6 +107,14 @@ p {
   font-size: 1em;
 }
 
+.claro {
+  background-color: rgb(111, 115, 115) !important;
+}
+
+.metal {
+  background-color: rgb(33, 63, 106) !important;
+}
+
 @media screen and (max-width: 480px) {
   #mainFooter div {
     display: flex;
