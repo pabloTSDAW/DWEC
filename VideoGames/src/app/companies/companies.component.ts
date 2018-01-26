@@ -20,8 +20,8 @@ export class CompaniesComponent implements OnInit {
   constructor(private _ServicioService:ServicioService) {}
 
   ngOnInit() {
-    $('.cargar').hide();
     $('.busqueda').hide();
+    $('.table-responsive').hide();
     this._ServicioService.seturl('platforms');
     this._ServicioService.peticion('platforms', 154, this.pagina).subscribe(
       data => {
@@ -29,7 +29,7 @@ export class CompaniesComponent implements OnInit {
         this.companias = data.results;
         console.log(data.results);
         $('#fountainG').hide();
-        $('.cargar').show();
+        $('.table-responsive').show();
         $('.busqueda').show();
         this._ServicioService.peticion('platforms', 54).subscribe(
           data => {

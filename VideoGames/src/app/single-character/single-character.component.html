@@ -9,7 +9,7 @@
       <p *ngIf="personaje?.birthday"><strong>Birthday: </strong> {{personaje?.birthday}}</p>
       <p *ngIf="personaje?.deck"><strong>Description: </strong> {{personaje?.deck}}</p>
       <p *ngIf="personaje?.first_appeared_in_game.name"><strong>First appear:</strong> {{personaje?.first_appeared_in_game.name}}</p>
-      <p><strong>Games: </strong><span *ngFor="let juego of personaje?.games">{{juego.name}}- </span></p>
+      <p><strong>Games: </strong><span *ngFor="let juego of personaje?.games">{{juego.name}} - </span></p>
       <p><strong>Enemies: </strong><span *ngFor="let enemigo of personaje?.enemies">{{enemigo.name}} - </span></p>
     </div>
   </div>
